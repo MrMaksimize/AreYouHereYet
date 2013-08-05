@@ -1,0 +1,334 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C3F92F1817ADCFF60031A543 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3F92F1717ADCFF60031A543 /* UIKit.framework */; };
+		C3F92F1A17ADCFF60031A543 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3F92F1917ADCFF60031A543 /* Foundation.framework */; };
+		C3F92F1C17ADCFF60031A543 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3F92F1B17ADCFF60031A543 /* CoreGraphics.framework */; };
+		C3F92F2217ADCFF60031A543 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C3F92F2017ADCFF60031A543 /* InfoPlist.strings */; };
+		C3F92F2417ADCFF60031A543 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F92F2317ADCFF60031A543 /* main.m */; };
+		C3F92F2817ADCFF60031A543 /* AYHTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F92F2717ADCFF60031A543 /* AYHTAppDelegate.m */; };
+		C3F92F2A17ADCFF60031A543 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C3F92F2917ADCFF60031A543 /* Default.png */; };
+		C3F92F2C17ADCFF60031A543 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3F92F2B17ADCFF60031A543 /* Default@2x.png */; };
+		C3F92F2E17ADCFF60031A543 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3F92F2D17ADCFF60031A543 /* Default-568h@2x.png */; };
+		C3F92F3117ADCFF60031A543 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3F92F2F17ADCFF60031A543 /* MainStoryboard.storyboard */; };
+		C3F92F3417ADCFF60031A543 /* AYHTFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F92F3317ADCFF60031A543 /* AYHTFirstViewController.m */; };
+		C3F92F3617ADCFF60031A543 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = C3F92F3517ADCFF60031A543 /* first.png */; };
+		C3F92F3817ADCFF60031A543 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3F92F3717ADCFF60031A543 /* first@2x.png */; };
+		C3F92F3B17ADCFF60031A543 /* AYHTSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F92F3A17ADCFF60031A543 /* AYHTSecondViewController.m */; };
+		C3F92F3D17ADCFF60031A543 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = C3F92F3C17ADCFF60031A543 /* second.png */; };
+		C3F92F3F17ADCFF60031A543 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3F92F3E17ADCFF60031A543 /* second@2x.png */; };
+		C3F92F4617ADD84F0031A543 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3F92F4517ADD84F0031A543 /* CoreLocation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		C3F92F1417ADCFF60031A543 /* AreYouHereYet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AreYouHereYet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3F92F1717ADCFF60031A543 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		C3F92F1917ADCFF60031A543 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C3F92F1B17ADCFF60031A543 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C3F92F1F17ADCFF60031A543 /* AreYouHereYet-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AreYouHereYet-Info.plist"; sourceTree = "<group>"; };
+		C3F92F2117ADCFF60031A543 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C3F92F2317ADCFF60031A543 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C3F92F2517ADCFF60031A543 /* AreYouHereYet-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AreYouHereYet-Prefix.pch"; sourceTree = "<group>"; };
+		C3F92F2617ADCFF60031A543 /* AYHTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AYHTAppDelegate.h; sourceTree = "<group>"; };
+		C3F92F2717ADCFF60031A543 /* AYHTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AYHTAppDelegate.m; sourceTree = "<group>"; };
+		C3F92F2917ADCFF60031A543 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		C3F92F2B17ADCFF60031A543 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		C3F92F2D17ADCFF60031A543 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		C3F92F3017ADCFF60031A543 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		C3F92F3217ADCFF60031A543 /* AYHTFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AYHTFirstViewController.h; sourceTree = "<group>"; };
+		C3F92F3317ADCFF60031A543 /* AYHTFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AYHTFirstViewController.m; sourceTree = "<group>"; };
+		C3F92F3517ADCFF60031A543 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
+		C3F92F3717ADCFF60031A543 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
+		C3F92F3917ADCFF60031A543 /* AYHTSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AYHTSecondViewController.h; sourceTree = "<group>"; };
+		C3F92F3A17ADCFF60031A543 /* AYHTSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AYHTSecondViewController.m; sourceTree = "<group>"; };
+		C3F92F3C17ADCFF60031A543 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
+		C3F92F3E17ADCFF60031A543 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		C3F92F4517ADD84F0031A543 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C3F92F1117ADCFF60031A543 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3F92F4617ADD84F0031A543 /* CoreLocation.framework in Frameworks */,
+				C3F92F1817ADCFF60031A543 /* UIKit.framework in Frameworks */,
+				C3F92F1A17ADCFF60031A543 /* Foundation.framework in Frameworks */,
+				C3F92F1C17ADCFF60031A543 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C3F92F0B17ADCFF60031A543 = {
+			isa = PBXGroup;
+			children = (
+				C3F92F4517ADD84F0031A543 /* CoreLocation.framework */,
+				C3F92F1D17ADCFF60031A543 /* AreYouHereYet */,
+				C3F92F1617ADCFF60031A543 /* Frameworks */,
+				C3F92F1517ADCFF60031A543 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C3F92F1517ADCFF60031A543 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C3F92F1417ADCFF60031A543 /* AreYouHereYet.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C3F92F1617ADCFF60031A543 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C3F92F1717ADCFF60031A543 /* UIKit.framework */,
+				C3F92F1917ADCFF60031A543 /* Foundation.framework */,
+				C3F92F1B17ADCFF60031A543 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C3F92F1D17ADCFF60031A543 /* AreYouHereYet */ = {
+			isa = PBXGroup;
+			children = (
+				C3F92F2617ADCFF60031A543 /* AYHTAppDelegate.h */,
+				C3F92F2717ADCFF60031A543 /* AYHTAppDelegate.m */,
+				C3F92F2F17ADCFF60031A543 /* MainStoryboard.storyboard */,
+				C3F92F3217ADCFF60031A543 /* AYHTFirstViewController.h */,
+				C3F92F3317ADCFF60031A543 /* AYHTFirstViewController.m */,
+				C3F92F3517ADCFF60031A543 /* first.png */,
+				C3F92F3717ADCFF60031A543 /* first@2x.png */,
+				C3F92F3917ADCFF60031A543 /* AYHTSecondViewController.h */,
+				C3F92F3A17ADCFF60031A543 /* AYHTSecondViewController.m */,
+				C3F92F3C17ADCFF60031A543 /* second.png */,
+				C3F92F3E17ADCFF60031A543 /* second@2x.png */,
+				C3F92F1E17ADCFF60031A543 /* Supporting Files */,
+			);
+			path = AreYouHereYet;
+			sourceTree = "<group>";
+		};
+		C3F92F1E17ADCFF60031A543 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C3F92F1F17ADCFF60031A543 /* AreYouHereYet-Info.plist */,
+				C3F92F2017ADCFF60031A543 /* InfoPlist.strings */,
+				C3F92F2317ADCFF60031A543 /* main.m */,
+				C3F92F2517ADCFF60031A543 /* AreYouHereYet-Prefix.pch */,
+				C3F92F2917ADCFF60031A543 /* Default.png */,
+				C3F92F2B17ADCFF60031A543 /* Default@2x.png */,
+				C3F92F2D17ADCFF60031A543 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C3F92F1317ADCFF60031A543 /* AreYouHereYet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C3F92F4217ADCFF60031A543 /* Build configuration list for PBXNativeTarget "AreYouHereYet" */;
+			buildPhases = (
+				C3F92F1017ADCFF60031A543 /* Sources */,
+				C3F92F1117ADCFF60031A543 /* Frameworks */,
+				C3F92F1217ADCFF60031A543 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AreYouHereYet;
+			productName = AreYouHereYet;
+			productReference = C3F92F1417ADCFF60031A543 /* AreYouHereYet.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C3F92F0C17ADCFF60031A543 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = AYHT;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Maksim Pecherskiy";
+			};
+			buildConfigurationList = C3F92F0F17ADCFF60031A543 /* Build configuration list for PBXProject "AreYouHereYet" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C3F92F0B17ADCFF60031A543;
+			productRefGroup = C3F92F1517ADCFF60031A543 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C3F92F1317ADCFF60031A543 /* AreYouHereYet */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C3F92F1217ADCFF60031A543 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3F92F2217ADCFF60031A543 /* InfoPlist.strings in Resources */,
+				C3F92F2A17ADCFF60031A543 /* Default.png in Resources */,
+				C3F92F2C17ADCFF60031A543 /* Default@2x.png in Resources */,
+				C3F92F2E17ADCFF60031A543 /* Default-568h@2x.png in Resources */,
+				C3F92F3117ADCFF60031A543 /* MainStoryboard.storyboard in Resources */,
+				C3F92F3617ADCFF60031A543 /* first.png in Resources */,
+				C3F92F3817ADCFF60031A543 /* first@2x.png in Resources */,
+				C3F92F3D17ADCFF60031A543 /* second.png in Resources */,
+				C3F92F3F17ADCFF60031A543 /* second@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C3F92F1017ADCFF60031A543 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3F92F2417ADCFF60031A543 /* main.m in Sources */,
+				C3F92F2817ADCFF60031A543 /* AYHTAppDelegate.m in Sources */,
+				C3F92F3417ADCFF60031A543 /* AYHTFirstViewController.m in Sources */,
+				C3F92F3B17ADCFF60031A543 /* AYHTSecondViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C3F92F2017ADCFF60031A543 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C3F92F2117ADCFF60031A543 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C3F92F2F17ADCFF60031A543 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C3F92F3017ADCFF60031A543 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C3F92F4017ADCFF60031A543 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C3F92F4117ADCFF60031A543 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C3F92F4317ADCFF60031A543 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AreYouHereYet/AreYouHereYet-Prefix.pch";
+				INFOPLIST_FILE = "AreYouHereYet/AreYouHereYet-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		C3F92F4417ADCFF60031A543 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AreYouHereYet/AreYouHereYet-Prefix.pch";
+				INFOPLIST_FILE = "AreYouHereYet/AreYouHereYet-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C3F92F0F17ADCFF60031A543 /* Build configuration list for PBXProject "AreYouHereYet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3F92F4017ADCFF60031A543 /* Debug */,
+				C3F92F4117ADCFF60031A543 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C3F92F4217ADCFF60031A543 /* Build configuration list for PBXNativeTarget "AreYouHereYet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3F92F4317ADCFF60031A543 /* Debug */,
+				C3F92F4417ADCFF60031A543 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C3F92F0C17ADCFF60031A543 /* Project object */;
+}
