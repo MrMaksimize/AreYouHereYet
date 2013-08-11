@@ -24,6 +24,9 @@
 @synthesize longVal;
 @synthesize addressLabel;
 @synthesize getLocationButton;
+@synthesize createNewRideButton;
+@synthesize mapHolderView;
+
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -34,18 +37,37 @@
 }
 
 - (IBAction)getLocation:(id)sender {
-    locationManager.delegate = self;
-    locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
-    [locationManager startUpdatingLocation];
+    [self startLocationManager];
+    [self updateLabels];
 }
 
+- (IBAction)createNewRide:(id)sender {
+    NSLog(@"test");
+}
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	[self updateLabels];
+    [self showMap];
 }
+
+- (void)showMap
+{
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-33.86
+                                                            longitude:151.20
+                                                                 zoom:6];
+    NSLog(@"%@", self.mapHolderView);
+    [self.mapHolderView setCamera:camera];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+}
+
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -65,6 +87,16 @@
         self.latVal.text = @"";
         self.longVal.text = @"";
         self.addressLabel.text = @"";
+    }
+}
+
+- (void)startLocationManager
+{
+    if ([CLLocationManager locationServicesEnabled]) {
+        locationManager.delegate = self;
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+        [locationManager startUpdatingLocation];
+        updatingLocation = YES;
     }
 }
 
@@ -96,6 +128,7 @@
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
     NSLog(@"didupdatetolocation %@", locations);
+    lastLocationError = nil;
     location = [locations lastObject];
     [self updateLabels];
 }

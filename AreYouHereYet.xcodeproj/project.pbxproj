@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		304AEF5549D54E2A80232818 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 847E3C0A4575442C92EE39F6 /* libPods.a */; };
+		C34334C517B059C20047B330 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C34334C417B059C20047B330 /* MapKit.framework */; };
+		C34CB5BA17B6ABF8004D8F3C /* AYHTNewRideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C34CB5B917B6ABF8004D8F3C /* AYHTNewRideViewController.m */; };
+		C34CB5BD17B6B24E004D8F3C /* AYHTMapControl.m in Sources */ = {isa = PBXBuildFile; fileRef = C34CB5BC17B6B24E004D8F3C /* AYHTMapControl.m */; };
 		C3F92F1817ADCFF60031A543 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3F92F1717ADCFF60031A543 /* UIKit.framework */; };
 		C3F92F1A17ADCFF60031A543 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3F92F1917ADCFF60031A543 /* Foundation.framework */; };
 		C3F92F1C17ADCFF60031A543 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3F92F1B17ADCFF60031A543 /* CoreGraphics.framework */; };
@@ -20,13 +24,19 @@
 		C3F92F3417ADCFF60031A543 /* AYHTFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F92F3317ADCFF60031A543 /* AYHTFirstViewController.m */; };
 		C3F92F3617ADCFF60031A543 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = C3F92F3517ADCFF60031A543 /* first.png */; };
 		C3F92F3817ADCFF60031A543 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3F92F3717ADCFF60031A543 /* first@2x.png */; };
-		C3F92F3B17ADCFF60031A543 /* AYHTSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F92F3A17ADCFF60031A543 /* AYHTSecondViewController.m */; };
 		C3F92F3D17ADCFF60031A543 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = C3F92F3C17ADCFF60031A543 /* second.png */; };
 		C3F92F3F17ADCFF60031A543 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3F92F3E17ADCFF60031A543 /* second@2x.png */; };
 		C3F92F4617ADD84F0031A543 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3F92F4517ADD84F0031A543 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		847E3C0A4575442C92EE39F6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		90F44B2AE6774691AD84BEB8 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		C34334C417B059C20047B330 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		C34CB5B817B6ABF8004D8F3C /* AYHTNewRideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYHTNewRideViewController.h; sourceTree = "<group>"; };
+		C34CB5B917B6ABF8004D8F3C /* AYHTNewRideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYHTNewRideViewController.m; sourceTree = "<group>"; };
+		C34CB5BB17B6B24E004D8F3C /* AYHTMapControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYHTMapControl.h; sourceTree = "<group>"; };
+		C34CB5BC17B6B24E004D8F3C /* AYHTMapControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYHTMapControl.m; sourceTree = "<group>"; };
 		C3F92F1417ADCFF60031A543 /* AreYouHereYet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AreYouHereYet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3F92F1717ADCFF60031A543 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C3F92F1917ADCFF60031A543 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -45,8 +55,6 @@
 		C3F92F3317ADCFF60031A543 /* AYHTFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AYHTFirstViewController.m; sourceTree = "<group>"; };
 		C3F92F3517ADCFF60031A543 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
 		C3F92F3717ADCFF60031A543 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
-		C3F92F3917ADCFF60031A543 /* AYHTSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AYHTSecondViewController.h; sourceTree = "<group>"; };
-		C3F92F3A17ADCFF60031A543 /* AYHTSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AYHTSecondViewController.m; sourceTree = "<group>"; };
 		C3F92F3C17ADCFF60031A543 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		C3F92F3E17ADCFF60031A543 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		C3F92F4517ADD84F0031A543 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -57,10 +65,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C34334C517B059C20047B330 /* MapKit.framework in Frameworks */,
 				C3F92F4617ADD84F0031A543 /* CoreLocation.framework in Frameworks */,
 				C3F92F1817ADCFF60031A543 /* UIKit.framework in Frameworks */,
 				C3F92F1A17ADCFF60031A543 /* Foundation.framework in Frameworks */,
 				C3F92F1C17ADCFF60031A543 /* CoreGraphics.framework in Frameworks */,
+				304AEF5549D54E2A80232818 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,10 +80,10 @@
 		C3F92F0B17ADCFF60031A543 = {
 			isa = PBXGroup;
 			children = (
-				C3F92F4517ADD84F0031A543 /* CoreLocation.framework */,
 				C3F92F1D17ADCFF60031A543 /* AreYouHereYet */,
 				C3F92F1617ADCFF60031A543 /* Frameworks */,
 				C3F92F1517ADCFF60031A543 /* Products */,
+				90F44B2AE6774691AD84BEB8 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,9 +98,12 @@
 		C3F92F1617ADCFF60031A543 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C34334C417B059C20047B330 /* MapKit.framework */,
+				C3F92F4517ADD84F0031A543 /* CoreLocation.framework */,
 				C3F92F1717ADCFF60031A543 /* UIKit.framework */,
 				C3F92F1917ADCFF60031A543 /* Foundation.framework */,
 				C3F92F1B17ADCFF60031A543 /* CoreGraphics.framework */,
+				847E3C0A4575442C92EE39F6 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -101,12 +114,14 @@
 				C3F92F2617ADCFF60031A543 /* AYHTAppDelegate.h */,
 				C3F92F2717ADCFF60031A543 /* AYHTAppDelegate.m */,
 				C3F92F2F17ADCFF60031A543 /* MainStoryboard.storyboard */,
+				C34CB5B817B6ABF8004D8F3C /* AYHTNewRideViewController.h */,
+				C34CB5B917B6ABF8004D8F3C /* AYHTNewRideViewController.m */,
 				C3F92F3217ADCFF60031A543 /* AYHTFirstViewController.h */,
 				C3F92F3317ADCFF60031A543 /* AYHTFirstViewController.m */,
+				C34CB5BB17B6B24E004D8F3C /* AYHTMapControl.h */,
+				C34CB5BC17B6B24E004D8F3C /* AYHTMapControl.m */,
 				C3F92F3517ADCFF60031A543 /* first.png */,
 				C3F92F3717ADCFF60031A543 /* first@2x.png */,
-				C3F92F3917ADCFF60031A543 /* AYHTSecondViewController.h */,
-				C3F92F3A17ADCFF60031A543 /* AYHTSecondViewController.m */,
 				C3F92F3C17ADCFF60031A543 /* second.png */,
 				C3F92F3E17ADCFF60031A543 /* second@2x.png */,
 				C3F92F1E17ADCFF60031A543 /* Supporting Files */,
@@ -135,9 +150,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C3F92F4217ADCFF60031A543 /* Build configuration list for PBXNativeTarget "AreYouHereYet" */;
 			buildPhases = (
+				824BD392B8CE480785284A9F /* Check Pods Manifest.lock */,
 				C3F92F1017ADCFF60031A543 /* Sources */,
 				C3F92F1117ADCFF60031A543 /* Frameworks */,
 				C3F92F1217ADCFF60031A543 /* Resources */,
+				A1C276344A8D44A38E58E599 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -194,6 +211,37 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		824BD392B8CE480785284A9F /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+		};
+		A1C276344A8D44A38E58E599 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C3F92F1017ADCFF60031A543 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -202,7 +250,8 @@
 				C3F92F2417ADCFF60031A543 /* main.m in Sources */,
 				C3F92F2817ADCFF60031A543 /* AYHTAppDelegate.m in Sources */,
 				C3F92F3417ADCFF60031A543 /* AYHTFirstViewController.m in Sources */,
-				C3F92F3B17ADCFF60031A543 /* AYHTSecondViewController.m in Sources */,
+				C34CB5BA17B6ABF8004D8F3C /* AYHTNewRideViewController.m in Sources */,
+				C34CB5BD17B6B24E004D8F3C /* AYHTMapControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +335,7 @@
 		};
 		C3F92F4317ADCFF60031A543 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90F44B2AE6774691AD84BEB8 /* Pods.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -298,6 +348,7 @@
 		};
 		C3F92F4417ADCFF60031A543 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90F44B2AE6774691AD84BEB8 /* Pods.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -327,6 +378,7 @@
 				C3F92F4417ADCFF60031A543 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

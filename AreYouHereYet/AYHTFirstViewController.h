@@ -8,14 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import <GoogleMaps/GoogleMaps.h>
+#import <AYHTNewRideViewController.h>
 
 
 @interface AYHTFirstViewController : UIViewController <CLLocationManagerDelegate>
+
 
 @property (nonatomic, strong) IBOutlet UILabel *latVal;
 @property (nonatomic, strong) IBOutlet UILabel *longVal;
 @property (nonatomic, strong) IBOutlet UILabel *messageLabel; // GPS Coords default
 @property (nonatomic, strong) IBOutlet UILabel *addressLabel; // GPS Coords default
 @property (nonatomic, strong) IBOutlet UIButton *getLocationButton;
+@property (nonatomic, strong) IBOutlet UIButton *createNewRideButton;
+@property (nonatomic, strong) IBOutlet GMSMapView *mapHolderView;
 
 @end

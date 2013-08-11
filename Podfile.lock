@@ -1,0 +1,16 @@
+PODS:
+  - DCModalSegue (0.0.2)
+  - FlatUIKit (1.2)
+  - Google-Maps-iOS-SDK (1.4.0)
+
+DEPENDENCIES:
+  - DCModalSegue
+  - FlatUIKit
+  - Google-Maps-iOS-SDK
+
+SPEC CHECKSUMS:
+  DCModalSegue: dbec9bde298bdb92c4d15b2e4a10b6f43bc0977e
+  FlatUIKit: 43b2acaa6f4ef57539b51b00e4ce62d506e33e11
+  Google-Maps-iOS-SDK: b45a7720ff24b907687a24841a4768a3b7b4ff17
+
+COCOAPODS: 0.20.2
