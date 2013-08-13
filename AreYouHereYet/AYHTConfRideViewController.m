@@ -16,7 +16,8 @@
 
 @implementation AYHTConfRideViewController {
     MRMLocationTools *locationTool;
-    GMSGeocoder *geocoder;
+    CLLocation *fromLoc;
+    CLLocation *toLoc;
 }
 
 #pragma mark - View LifeCycle
@@ -25,7 +26,7 @@
 {
     if ((self = [super initWithCoder:aDecoder])) {
         locationTool = [MRMLocationTools sharedLocationTool];
-        geocoder = [[GMSGeocoder alloc] init];
+        //[self addObserver:self forKeyPath:@"toLoc" options:NSKeyValueObservingOptionNew context: nil];
     }
     return self;
 }
@@ -74,9 +75,7 @@
     UITextField *currentTextField = (UITextField *)sender;
     if (currentTextField.tag == 0) {
         GCGeocodingService *forwardGeocoder = [[GCGeocodingService alloc] init];
-        [forwardGeocoder geocodeAddress:currentTextField.text];
-        NSLog(@"forwardGeo %@", forwardGeocoder.geocode);
-        forwardGeocoder = nil;
+        [forwardGeocoder geocodeAddress:currentTextField.text withCallback:@selector(didReceiveForwardGeocode:) withDelegate:self];
     }
     
 }
@@ -96,6 +95,15 @@
     //[self.mapView removeObserver:self forKeyPath:@"myLocation"];
 }
 
+- (void)didReceiveForwardGeocode:(NSDictionary *)geocode {
+    toLoc = [[CLLocation alloc] initWithLatitude:[[geocode objectForKey:@"lat"] doubleValue]
+                                       longitude:[[geocode objectForKey:@"lng"] doubleValue]];
+    GMSCoordinateBounds *bounds = [[GMSCoordinateBounds alloc] initWithCoordinate:fromLoc.coordinate coordinate:toLoc.coordinate];
+    GMSCameraUpdate *updated = [GMSCameraUpdate fitBounds:bounds];
+    [self updateMapMarkerWithLocation:toLoc andMarkerType:nil];
+    [self.mapView animateWithCameraUpdate:updated];
+}
+
 - (void)updateMapViewWithLocation:(CLLocation *)updatedLocation
 {
     NSLog(@"LOC UPDATE");
@@ -104,23 +112,34 @@
          [GMSCameraPosition cameraWithLatitude:updatedLocation.coordinate.latitude
                                      longitude:updatedLocation.coordinate.longitude
                                           zoom:12]];
+        GMSMarker *myLocMarker = [GMSMarker markerWithPosition:updatedLocation.coordinate];
+        myLocMarker.animated = YES;
+        myLocMarker.icon = nil; // @todo change icon;
+        myLocMarker.map = self.mapView;
     }
     // @todo else
 }
 
+- (void)updateMapMarkerWithLocation:(CLLocation *)updatedLocation
+                      andMarkerType:(NSString *)markerType
+{
+    if (updatedLocation != nil) {
+        GMSMarker *locMarker = [GMSMarker markerWithPosition:updatedLocation.coordinate];
+        locMarker.animated = YES;
+        locMarker.icon = nil; // @todo change icon;
+        locMarker.map = self.mapView;
+    }
+}
+
 - (void)reverseGeoCodeLocation:(CLLocation *)locationToGeocode
 {
-    //*location = CLLocationCoordinate2DMake(locationToGeocode.coordinate.latitude, locationToGeocode.coordinate.longitude);
     NSLog(@"REVERSE GEOCODING");
+    GMSGeocoder *geocoder = [[GMSGeocoder alloc] init];
     CLLocationCoordinate2D twoDlocation = CLLocationCoordinate2DMake(locationToGeocode.coordinate.latitude, locationToGeocode.coordinate.longitude);
-    //NSLog(@"loc: %@", twoDlocation);
-    [geocoder
-     reverseGeocodeCoordinate:twoDlocation
-     completionHandler:^(GMSReverseGeocodeResponse *reverseGeoResponse, NSError *reverseGeoError) {
-         NSLog(@"RESPONDED");
-         NSLog(@"Error: %@", reverseGeoError);
-         NSLog(@"Response %@", reverseGeoResponse.firstResult);
-         if (reverseGeoResponse.firstResult == nil || reverseGeoError != nil) {
+    [geocoder reverseGeocodeCoordinate:twoDlocation
+                     completionHandler:
+     ^(GMSReverseGeocodeResponse *reverseGeoResponse, NSError *reverseGeoError) {
+        if (reverseGeoResponse.firstResult == nil || reverseGeoError != nil) {
              [self.fromVal setText:[NSString stringWithString:reverseGeoError.localizedFailureReason]];
          }
          else {
@@ -143,6 +162,18 @@
     }
 }*/
 
+/*- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
+{
+    if ([keyPath isEqualToString:@"toLoc"]) {
+        NSLog(@"Observer Triggered");
+    }
+}*/
+
+
+
 #pragma mark - Notification Receiver and Router
 
 - (void)receiveNotification:(NSNotification *)note {
@@ -151,6 +182,10 @@
         NSLog(@"%@", newLoc);
         if (newLoc) {
             [self updateMapViewWithLocation:newLoc];
+            [self updateMapMarkerWithLocation:newLoc andMarkerType:nil];
+            [self reverseGeoCodeLocation:newLoc];
+            fromLoc = newLoc;
+            [locationTool stop];
         } else {
             NSLog(@"EMPTY LOC");
         }

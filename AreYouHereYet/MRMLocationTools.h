@@ -15,15 +15,18 @@
 
 @interface MRMLocationTools : NSObject <CLLocationManagerDelegate> {
     
-    // location manager and listeners
+    // Location manager and listeners
     CLLocationManager *_locationManager;
     NSMutableArray *_listeners;
     
-    // location data
+    // Location data
     CLLocation *_newLocation;
     CLLocation *_oldLocation;
     CLHeading  *_newHeading;
     
+    // Timing
+    NSTimer *_updateTimer;
+
 }
 
 // the (one and only) shared LocationDelegate

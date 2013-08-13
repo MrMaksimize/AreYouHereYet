@@ -12,6 +12,9 @@
 
 - (id)init;
 - (void)geocodeAddress:(NSString *)address;
+- (void)geocodeAddress:(NSString *)address
+          withCallback:(SEL)callback
+          withDelegate:(id)delegate;
 
 @property (nonatomic, strong) NSDictionary *geocode;
 

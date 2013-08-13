@@ -32,8 +32,10 @@
         _locationManager = [[CLLocationManager alloc] init];
         
         // Set app-specific locationManager properties.
-        _locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+        _locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
         _locationManager.headingFilter = kCLHeadingFilterNone;
+        _locationManager.pausesLocationUpdatesAutomatically = YES;
+        _locationManager.activityType = CLActivityTypeAutomotiveNavigation;
         _locationManager.delegate = self;
         
         _listeners = [[NSMutableArray alloc] initWithCapacity:0];
@@ -67,6 +69,11 @@
     //Release(_oldLocation); _oldLocation = nil;
     //Release(_newHeading); _newHeading  = nil;
 }
+
+/*- (void)startWithTimeInterval:(NSTimeInterval *)updateInterval {
+    _updateTimer = [NSTimer timerWithTimeInterval:*updateInterval target:self selector:@selector(updateTimerFired) userInfo:nil repeats:YES];
+}*/
+
 
 - (void)addListener: (id <CLLocationManagerDelegate>) listener;
 {
