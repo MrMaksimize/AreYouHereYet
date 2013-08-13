@@ -10,9 +10,14 @@
 #import <CoreLocation/CoreLocation.h>
 #import <GoogleMaps/GoogleMaps.h>
 
-@interface AYHTNewRideViewController : UIViewController
+@interface AYHTConfRideViewController : UIViewController
+
+@property (nonatomic, strong) IBOutlet UILabel *fromVal;
+@property (nonatomic, strong) IBOutlet UITextField *toVal;
+@property (nonatomic, strong) IBOutlet GMSMapView *mapView;
 
 - (IBAction)done:(id)sender;
+- (IBAction)textFieldEditingDidEndOnExit:(id)sender;
 //- (IBAction)cancel:(id)sender;
 
 @end

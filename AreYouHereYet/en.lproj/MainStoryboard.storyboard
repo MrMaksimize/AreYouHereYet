@@ -9,7 +9,7 @@
             <objects>
                 <viewController title="First" id="2" customClass="AYHTFirstViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="16">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Current Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vgq-TU-j5y">
@@ -109,12 +109,12 @@
             </objects>
             <point key="canvasLocation" x="733" y="-354"/>
         </scene>
-        <!--New Ride View Controller-->
+        <!--Conf Ride View Controller-->
         <scene sceneID="W38-Dv-s4W">
             <objects>
-                <viewController id="iH6-Mc-JB6" customClass="AYHTNewRideViewController" sceneMemberID="viewController">
+                <viewController id="iH6-Mc-JB6" customClass="AYHTConfRideViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EcD-Gk-RK6">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" id="q9g-XV-Nc7">
@@ -135,41 +135,49 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="From" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hfe-LL-92t">
-                                <rect key="frame" x="20" y="69" width="40" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="From:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hfe-LL-92t">
+                                <rect key="frame" x="9" y="85" width="45" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="From Addr" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lBC-ch-Lzw">
-                                <rect key="frame" x="107" y="69" width="81" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="From Addr" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lBC-ch-Lzw">
+                                <rect key="frame" x="69" y="69" width="239" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="To:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="E9J-uB-9cZ">
+                                <rect key="frame" x="9" y="134" width="25" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="To" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="E9J-uB-9cZ">
-                                <rect key="frame" x="20" y="98" width="20" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Address" borderStyle="roundedRect" minimumFontSize="17" id="veO-DP-mWn">
-                                <rect key="frame" x="107" y="94" width="157" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Destination Address" clearsOnBeginEditing="YES" minimumFontSize="17" id="veO-DP-mWn">
+                                <rect key="frame" x="69" y="130" width="239" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="search"/>
+                                <connections>
+                                    <action selector="textFieldEditingDidEndOnExit:" destination="iH6-Mc-JB6" eventType="editingDidEndOnExit" id="zuf-wc-QpJ"/>
+                                </connections>
                             </textField>
-                            <view contentMode="scaleToFill" id="hhQ-Ha-MIQ">
-                                <rect key="frame" x="20" y="137" width="280" height="262"/>
+                            <view contentMode="scaleToFill" id="hhQ-Ha-MIQ" customClass="GMSMapView">
+                                <rect key="frame" x="20" y="194" width="280" height="205"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="fromVal" destination="lBC-ch-Lzw" id="dSH-8N-arT"/>
+                        <outlet property="mapView" destination="hhQ-Ha-MIQ" id="1Ku-Zn-INq"/>
+                        <outlet property="toVal" destination="veO-DP-mWn" id="GSG-IE-icr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rbb-T5-jr3" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="bNr-fE-3kv" userLabel="Exit" sceneMemberID="exit"/>
@@ -194,6 +202,17 @@
         </scene>
     </scenes>
     <classes>
+        <class className="AYHTConfRideViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AYHTConfRideViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="done:"/>
+                <relationship kind="action" name="textFieldEditingDidEnd:"/>
+                <relationship kind="action" name="textFieldEditingDidEndOnExit:"/>
+                <relationship kind="outlet" name="fromVal" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="mapView" candidateClass="GMSMapView"/>
+                <relationship kind="outlet" name="toVal" candidateClass="UITextField"/>
+            </relationships>
+        </class>
         <class className="AYHTFirstViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AYHTFirstViewController.h"/>
             <relationships>
@@ -208,12 +227,6 @@
                 <relationship kind="outlet" name="messageLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
-        <class className="AYHTNewRideViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AYHTNewRideViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="done:"/>
-            </relationships>
-        </class>
         <class className="GMSMapView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GMSMapView.h"/>
         </class>
@@ -221,6 +234,6 @@
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
+        <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
 </document>
