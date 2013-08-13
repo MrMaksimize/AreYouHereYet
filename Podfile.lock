@@ -1,16 +1,19 @@
 PODS:
+  - AFNetworking (1.3.2)
   - DCModalSegue (0.0.2)
   - FlatUIKit (1.2)
   - Google-Maps-iOS-SDK (1.4.0)
 
 DEPENDENCIES:
+  - AFNetworking (= 1.3.2)
   - DCModalSegue
   - FlatUIKit
   - Google-Maps-iOS-SDK
 
 SPEC CHECKSUMS:
+  AFNetworking: 7f9bcd7c287a75476cd5c61e82fd3380e93e4c54
   DCModalSegue: dbec9bde298bdb92c4d15b2e4a10b6f43bc0977e
   FlatUIKit: 43b2acaa6f4ef57539b51b00e4ce62d506e33e11
   Google-Maps-iOS-SDK: b45a7720ff24b907687a24841a4768a3b7b4ff17
 
-COCOAPODS: 0.20.2
+COCOAPODS: 0.23.0
