@@ -9,12 +9,26 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import <GoogleMaps/GoogleMaps.h>
+#import "MRMLocationTools.h"
+
+
+#define kFromLoc @"fromLoc"
+#define kToLoc @"toLoc"
+#define kFromLocAddress @"fromLocAddress"
+#define kToLocAddress @"toLocAddress"
+
 
 @interface AYHTConfRideViewController : UIViewController
 
 @property (nonatomic, strong) IBOutlet UILabel *fromVal;
 @property (nonatomic, strong) IBOutlet UITextField *toVal;
 @property (nonatomic, strong) IBOutlet GMSMapView *mapView;
+
+@property (nonatomic, strong) CLLocation *fromLoc;
+@property (nonatomic, strong) CLLocation *toLoc;
+@property (nonatomic, strong) NSString *fromLocAddress;
+@property (nonatomic, strong) NSString *toLocAddress;
+
 
 - (IBAction)done:(id)sender;
 - (IBAction)textFieldEditingDidEndOnExit:(id)sender;
