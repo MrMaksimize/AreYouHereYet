@@ -116,7 +116,7 @@
             [self.mapView animateWithCameraUpdate:updated];
 
         }
-
+        
     }
     // @todo else
 }
@@ -148,7 +148,7 @@
          }
          else {
              NSString *reverseGeocodedFromAddress = [NSString stringWithFormat:@"%@, %@", reverseGeoResponse.firstResult.addressLine1, reverseGeoResponse.firstResult.addressLine2];
-
+             
              // Set the instance variable.
              _fromLocAddress = reverseGeocodedFromAddress;
              // Trigger change notifier.
@@ -179,6 +179,9 @@
         }
         
     }
+    if ([note.name isEqual: @"distanceCalculated"]) {
+        NSLog(@"Distance C");
+    }
 }
 
 - (void)locationInformationDidChangeProperty:(NSString *)property {
@@ -188,7 +191,7 @@
         if (self.toLoc) {
             GMSCoordinateBounds *bounds = [[GMSCoordinateBounds alloc] initWithCoordinate:_fromLoc.coordinate
                                                                                coordinate:_toLoc.coordinate];
-
+            
             [self updateMapViewWithLocation:bounds];
             [self updateMapMarkerWithLocation:_toLoc andMarkerType:nil];
 
@@ -196,7 +199,11 @@
                                                              initWithNotificationName:@"distanceCalculated"];
             [matrixService distanceFromOrigin:[NSString stringWithFormat:@"%f,%f", _fromLoc.coordinate.latitude, _fromLoc.coordinate.longitude]
                                 toDestination:[NSString stringWithFormat:@"%f,%f", _toLoc.coordinate.latitude, _toLoc.coordinate.longitude]];
-
+            
+            [[NSNotificationCenter defaultCenter] addObserver:self
+                                                     selector:@selector(receiveNotification:)
+                                                         name:@"distanceCalculated"
+                                                       object:nil];
         }
     }
     else if ([property isEqualToString:kToLocAddress]) {
@@ -225,7 +232,7 @@
             [self.fromVal setText:self.fromLocAddress];
         }
     }
-
+    
 }
 
 
