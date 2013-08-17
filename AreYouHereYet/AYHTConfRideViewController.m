@@ -7,12 +7,7 @@
 //
 
 #import "AYHTConfRideViewController.h"
-#import "GCGeocodingService.h"
-#import "MRMLocationTools.h"
-#import "MRMGoogleDistanceMatrixService.h"
-#import <FlatUIKit/FlatUIKit.h>
-#import <SKBounceAnimation/SKBounceAnimation.h>
-
+#define FP_POPOVER_RADIUS 0
 @interface AYHTConfRideViewController ()
 
 @end
@@ -45,7 +40,7 @@
 	// Do any additional setup after loading the view.
 
     // Set up Map View:
-    [self.mapView.settings setAllGesturesEnabled:YES];
+    //[self.mapView.settings setAllGesturesEnabled:YES];
 
     [self setUpVisuals];
 
@@ -93,6 +88,13 @@
                                                                     UITextAttributeTextColor: [UIColor whiteColor]};
     [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor amethystColor]];
 
+    // Overall Views.
+    [self.completionProgressView configureFlatProgressViewWithTrackColor:[UIColor amethystColor] progressColor:[UIColor peterRiverColor]];
+
+    // Second Step View.
+    [self.secondStepView setHidden:YES];
+    [self.secondStepView setFrame:(CGRectMake(self.view.frame.size.width, 0, self.view.frame.size.width, self.view.frame.size.height))];
+
     // Controls on top of map.
     UIColor *mapControlColor = [UIColor cloudsColor];
     [self.travelFromLabel setBackgroundColor:mapControlColor];
@@ -105,38 +107,102 @@
     [self.travelTime setBackgroundColor:mapControlColor];
 }
 
-- (void)addBounceAnimation {
-	/*if (!CGRectContainsPoint(self.view.frame, CGPointMake(160, 60))) {
-		bouncingView.frame = CGRectMake(10, 10, 40, 40);
-		bouncingView.center = CGPointMake(160, 60);
-		return;
-	}*/
-
-	NSString *keyPath = @"position.y";
-	id finalValue = [NSNumber numberWithFloat:300];
+- (void)addBounceAnimationForView:(UIView *)viewToAnimate
+                      withKeyPath:(NSString *)keyPath
+                 withInitialValue:(id)initialValue
+                   withFinalValue:(id)finalValue
+                     withDuration:(float)animationDuration
+                 withAnimationKey:(NSString *)animationKey
+{
 
 	SKBounceAnimation *bounceAnimation = [SKBounceAnimation animationWithKeyPath:keyPath];
-	bounceAnimation.fromValue = [NSNumber numberWithFloat:self.view.center.x];
+	bounceAnimation.fromValue = initialValue;
 	bounceAnimation.toValue = finalValue;
-	bounceAnimation.duration = 0.5f;
-	bounceAnimation.numberOfBounces = 4;
+	bounceAnimation.duration = animationDuration;
+	bounceAnimation.numberOfBounces = 0;
 	//bounceAnimation.stiffness = SKBounceAnimationStiffnessLight;
 	bounceAnimation.shouldOvershoot = YES;
 
-	[self.view.layer addAnimation:bounceAnimation forKey:@"someKey"];
+	[viewToAnimate.layer addAnimation:bounceAnimation forKey:animationKey];
 
-	[self.view.layer setValue:finalValue forKeyPath:keyPath];
+	[viewToAnimate.layer setValue:finalValue forKeyPath:keyPath];
 }
 
 #pragma mark - Actions
 
-- (IBAction)textFieldEditingDidEndOnExit:(id)sender{
+- (IBAction)textFieldEditingDidEndOnExit:(id)sender {
     UITextField *currentTextField = (UITextField *)sender;
     if (currentTextField.tag == 0) {
         self.toLocAddress = currentTextField.text;
         [self locationInformationDidChangeProperty:kToLocAddress];
     }
     
+}
+
+- (IBAction)buttonTouchUpInside:(id)sender {
+    UIButton *buttonPressed = (UIButton*)sender;
+
+    if (buttonPressed == self.nextButton) {
+        NSLog(@"First Step Center X %f", self.firstStepView.center.x);
+        NSLog(@"First Step Center Y %f", self.firstStepView.center.y);
+        NSLog(@"First Step Origin X %f", self.firstStepView.frame.origin.x);
+        NSLog(@"First Step Origin Y %f", self.firstStepView.frame.origin.y);
+        NSLog(@"First Step WIDTH %f", self.firstStepView.frame.size.width);
+        NSLog(@"First Step Height %f", self.firstStepView.frame.size.height);
+        NSLog(@"First Step Layer Position X %f", self.firstStepView.layer.position.x);
+        NSLog(@"First Step Layer Position Y %f", self.firstStepView.layer.position.y);
+        NSLog(@"Second Step Center X %f", self.secondStepView.center.x);
+        NSLog(@"Second Step Center Y %f", self.secondStepView.center.y);
+        NSLog(@"Second Step Origin X %f", self.secondStepView.frame.origin.x);
+        NSLog(@"Second Step Origin Y %f", self.secondStepView.frame.origin.y);
+        NSLog(@"Second Step WIDTH %f", self.secondStepView.frame.size.width);
+        NSLog(@"Second Step Height %f", self.secondStepView.frame.size.height);
+        NSLog(@"Second Step Layer Position X %f", self.secondStepView.layer.position.x);
+        NSLog(@"Second Step Layer Position Y %f", self.secondStepView.layer.position.y);
+        [self addBounceAnimationForView:self.firstStepView
+                            withKeyPath:@"position.x"
+                       withInitialValue:[NSNumber numberWithFloat:self.firstStepView.center.x]
+                         withFinalValue:[NSNumber numberWithFloat:self.firstStepView.center.x - 320] // @todo - think how this will affect flipped screen
+                           withDuration:1.5f
+                       withAnimationKey:@"firstStepRemoveAnimation"];
+
+        [self.secondStepView setHidden:NO];
+
+        [self addBounceAnimationForView:self.secondStepView
+                            withKeyPath:@"position.x"
+                       withInitialValue:[NSNumber numberWithFloat:self.secondStepView.center.x]
+                         withFinalValue:[NSNumber numberWithFloat:self.secondStepView.center.x - 320]
+                           withDuration:1.5f
+                       withAnimationKey:@"secondStepAddAnimation"];
+
+
+
+        NSLog(@"POST ANIMATION");
+        NSLog(@"First Step Center X %f", self.firstStepView.center.x);
+        NSLog(@"First Step Center Y %f", self.firstStepView.center.y);
+        NSLog(@"First Step Origin X %f", self.firstStepView.frame.origin.x);
+        NSLog(@"First Step Origin Y %f", self.firstStepView.frame.origin.y);
+        NSLog(@"First Step WIDTH %f", self.firstStepView.frame.size.width);
+        NSLog(@"First Step Height %f", self.firstStepView.frame.size.height);
+        NSLog(@"First Step Layer Position X %f", self.firstStepView.layer.position.x);
+        NSLog(@"First Step Layer Position Y %f", self.firstStepView.layer.position.y);
+        NSLog(@"Second Step Center X %f", self.secondStepView.center.x);
+        NSLog(@"Second Step Center Y %f", self.secondStepView.center.y);
+        NSLog(@"Second Step Origin X %f", self.secondStepView.frame.origin.x);
+        NSLog(@"Second Step Origin Y %f", self.secondStepView.frame.origin.y);
+        NSLog(@"Second Step WIDTH %f", self.secondStepView.frame.size.width);
+        NSLog(@"Second Step Height %f", self.secondStepView.frame.size.height);
+        NSLog(@"Second Step Layer Position X %f", self.firstStepView.layer.position.x);
+        NSLog(@"Second Step Layer Position Y %f", self.firstStepView.layer.position.y);
+    }
+    if (buttonPressed == self.messageButton) {
+        AYHTReceiverListTableViewController *receiverTableViewController = [[AYHTReceiverListTableViewController alloc] init];
+        FPPopoverController *popover = [[FPPopoverController alloc] initWithViewController:receiverTableViewController];
+        popover.tint = FPPopoverLightGrayTint;
+        //popover.border = NO;
+        [popover presentPopoverFromView:buttonPressed];
+        [popover setShadowsHidden:YES];
+    }
 }
 
 #pragma mark - Map Ops
