@@ -38,22 +38,22 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-
+    
     // Set up Map View:
     //[self.mapView.settings setAllGesturesEnabled:YES];
-
+    
     [self setUpVisuals];
-
+    
 }
 
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-
+    
     // Register for Notifications.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:kMRMLocationToolsDidUpdateLocation object:nil];
-
+    
     // Start asking for location.
     [locationTool start];
 }
@@ -62,12 +62,12 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-
+    
     // De Register for Notifications.
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:kMRMLocationToolsDidUpdateLocation
                                                   object:nil];
-
+    
     // Stop Location tool.
     [locationTool stop];
 }
@@ -87,21 +87,21 @@
     self.navigationController.navigationBar.titleTextAttributes = @{UITextAttributeFont: [UIFont boldFlatFontOfSize:18],
                                                                     UITextAttributeTextColor: [UIColor whiteColor]};
     [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor amethystColor]];
-
+    
     // Overall Views.
     [self.completionProgressView configureFlatProgressViewWithTrackColor:[UIColor amethystColor] progressColor:[UIColor peterRiverColor]];
-
+    
     // Second Step View.
     [self.secondStepView setHidden:YES];
     [self.secondStepView setFrame:(CGRectMake(self.view.frame.size.width, 0, self.view.frame.size.width, self.view.frame.size.height))];
-
+    
     // Controls on top of map.
     UIColor *mapControlColor = [UIColor cloudsColor];
     [self.travelFromLabel setBackgroundColor:mapControlColor];
     [self.travelToLabel setBackgroundColor:mapControlColor];
     [self.fromVal setBackgroundColor:mapControlColor];
     [self.toVal setBackgroundColor:mapControlColor];
-
+    
     // Labels on top of map.
     [self.travelDistance setBackgroundColor:mapControlColor];
     [self.travelTime setBackgroundColor:mapControlColor];
@@ -114,7 +114,7 @@
                      withDuration:(float)animationDuration
                  withAnimationKey:(NSString *)animationKey
 {
-
+	
 	SKBounceAnimation *bounceAnimation = [SKBounceAnimation animationWithKeyPath:keyPath];
 	bounceAnimation.fromValue = initialValue;
 	bounceAnimation.toValue = finalValue;
@@ -122,9 +122,9 @@
 	bounceAnimation.numberOfBounces = 0;
 	//bounceAnimation.stiffness = SKBounceAnimationStiffnessLight;
 	bounceAnimation.shouldOvershoot = YES;
-
+    
 	[viewToAnimate.layer addAnimation:bounceAnimation forKey:animationKey];
-
+    
 	[viewToAnimate.layer setValue:finalValue forKeyPath:keyPath];
 }
 
@@ -141,7 +141,7 @@
 
 - (IBAction)buttonTouchUpInside:(id)sender {
     UIButton *buttonPressed = (UIButton*)sender;
-
+    
     if (buttonPressed == self.nextButton) {
         NSLog(@"First Step Center X %f", self.firstStepView.center.x);
         NSLog(@"First Step Center Y %f", self.firstStepView.center.y);
@@ -165,18 +165,18 @@
                          withFinalValue:[NSNumber numberWithFloat:self.firstStepView.center.x - 320] // @todo - think how this will affect flipped screen
                            withDuration:1.5f
                        withAnimationKey:@"firstStepRemoveAnimation"];
-
+        
         [self.secondStepView setHidden:NO];
-
+        
         [self addBounceAnimationForView:self.secondStepView
                             withKeyPath:@"position.x"
                        withInitialValue:[NSNumber numberWithFloat:self.secondStepView.center.x]
                          withFinalValue:[NSNumber numberWithFloat:self.secondStepView.center.x - 320]
                            withDuration:1.5f
                        withAnimationKey:@"secondStepAddAnimation"];
-
-
-
+        
+        
+        
         NSLog(@"POST ANIMATION");
         NSLog(@"First Step Center X %f", self.firstStepView.center.x);
         NSLog(@"First Step Center Y %f", self.firstStepView.center.y);
@@ -289,7 +289,7 @@
     if ([note.name isEqual: @"distanceCalculated"]) {
         [self.travelDistance setText:[[[note.userInfo objectForKey:@"elements"] objectForKey:@"distance"] objectForKey:@"text"]];
         [self.travelTime setText: [[[note.userInfo objectForKey:@"elements"] objectForKey:@"duration"] objectForKey:@"text"]];
-
+        
         [self showTravelTime:[[[note.userInfo objectForKey:@"elements"] objectForKey:@"distance"] objectForKey:@"text"]
                  andDistance:[[[note.userInfo objectForKey:@"elements"] objectForKey:@"duration"] objectForKey:@"text"]];
     }
@@ -299,7 +299,7 @@
 {
     [self.travelDistance setText:travelDistance];
     [self.travelTime setText: travelTime];
-
+    
     [self.travelDistanceIcon setHidden:NO];
     [self.travelDistance setHidden:NO];
     [self.travelTimeIcon setHidden:NO];

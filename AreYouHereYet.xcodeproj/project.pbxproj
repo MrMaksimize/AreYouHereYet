@@ -15,6 +15,9 @@
 		C34334C517B059C20047B330 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C34334C417B059C20047B330 /* MapKit.framework */; };
 		C34CB5BA17B6ABF8004D8F3C /* AYHTConfRideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C34CB5B917B6ABF8004D8F3C /* AYHTConfRideViewController.m */; };
 		C34CB5BD17B6B24E004D8F3C /* AYHTMapControl.m in Sources */ = {isa = PBXBuildFile; fileRef = C34CB5BC17B6B24E004D8F3C /* AYHTMapControl.m */; };
+		C3EACC8417C012BF00E58252 /* sms@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3EACC8317C012BE00E58252 /* sms@2x.png */; };
+		C3EACC8817C02E4500E58252 /* AYHTReceiverListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EACC8617C02E4500E58252 /* AYHTReceiverListTableViewController.m */; };
+		C3EACC8917C02E4500E58252 /* AYHTReceiverListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3EACC8717C02E4500E58252 /* AYHTReceiverListTableViewController.xib */; };
 		C3F362A717BF1EB50033798C /* Compas@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3F362A117BF1EB50033798C /* Compas@2x.png */; };
 		C3F362A817BF1EB50033798C /* Infinity-Loop@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3F362A217BF1EB50033798C /* Infinity-Loop@2x.png */; };
 		C3F362A917BF1EB50033798C /* Map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3F362A317BF1EB50033798C /* Map@2x.png */; };
@@ -55,6 +58,10 @@
 		C34CB5B917B6ABF8004D8F3C /* AYHTConfRideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYHTConfRideViewController.m; sourceTree = "<group>"; };
 		C34CB5BB17B6B24E004D8F3C /* AYHTMapControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYHTMapControl.h; sourceTree = "<group>"; };
 		C34CB5BC17B6B24E004D8F3C /* AYHTMapControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYHTMapControl.m; sourceTree = "<group>"; };
+		C3EACC8317C012BE00E58252 /* sms@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sms@2x.png"; sourceTree = "<group>"; };
+		C3EACC8517C02E4500E58252 /* AYHTReceiverListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYHTReceiverListTableViewController.h; sourceTree = "<group>"; };
+		C3EACC8617C02E4500E58252 /* AYHTReceiverListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYHTReceiverListTableViewController.m; sourceTree = "<group>"; };
+		C3EACC8717C02E4500E58252 /* AYHTReceiverListTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AYHTReceiverListTableViewController.xib; sourceTree = "<group>"; };
 		C3F362A117BF1EB50033798C /* Compas@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Compas@2x.png"; sourceTree = "<group>"; };
 		C3F362A217BF1EB50033798C /* Infinity-Loop@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Infinity-Loop@2x.png"; sourceTree = "<group>"; };
 		C3F362A317BF1EB50033798C /* Map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Map@2x.png"; sourceTree = "<group>"; };
@@ -119,6 +126,7 @@
 		C3F362A017BF1EB50033798C /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				C3EACC8317C012BE00E58252 /* sms@2x.png */,
 				C3F362A117BF1EB50033798C /* Compas@2x.png */,
 				C3F362A217BF1EB50033798C /* Infinity-Loop@2x.png */,
 				C3F362A317BF1EB50033798C /* Map@2x.png */,
@@ -171,6 +179,9 @@
 				C3F92F3317ADCFF60031A543 /* AYHTFirstViewController.m */,
 				C34CB5B817B6ABF8004D8F3C /* AYHTConfRideViewController.h */,
 				C34CB5B917B6ABF8004D8F3C /* AYHTConfRideViewController.m */,
+				C3EACC8517C02E4500E58252 /* AYHTReceiverListTableViewController.h */,
+				C3EACC8617C02E4500E58252 /* AYHTReceiverListTableViewController.m */,
+				C3EACC8717C02E4500E58252 /* AYHTReceiverListTableViewController.xib */,
 				C34CB5BB17B6B24E004D8F3C /* AYHTMapControl.h */,
 				C34CB5BC17B6B24E004D8F3C /* AYHTMapControl.m */,
 				C3F92F3517ADCFF60031A543 /* first.png */,
@@ -266,6 +277,8 @@
 				C3F362AA17BF1EB50033798C /* Pensils@2x.png in Resources */,
 				C3F362AB17BF1EB50033798C /* Retina-Ready@2x.png in Resources */,
 				C3F362AC17BF1EB50033798C /* Watches@2x.png in Resources */,
+				C3EACC8417C012BF00E58252 /* sms@2x.png in Resources */,
+				C3EACC8917C02E4500E58252 /* AYHTReceiverListTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +329,7 @@
 				C311E77417BAF1D3009FAABE /* MDDirectionService.m in Sources */,
 				C311E77517BAF1D3009FAABE /* MRMGoogleDistanceMatrixService.m in Sources */,
 				C311E77617BAF1D3009FAABE /* MRMLocationTools.m in Sources */,
+				C3EACC8817C02E4500E58252 /* AYHTReceiverListTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
