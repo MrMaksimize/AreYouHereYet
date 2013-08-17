@@ -10,6 +10,8 @@
 #import "GCGeocodingService.h"
 #import "MRMLocationTools.h"
 #import "MRMGoogleDistanceMatrixService.h"
+#import <FlatUIKit/FlatUIKit.h>
+#import <SKBounceAnimation/SKBounceAnimation.h>
 
 @interface AYHTConfRideViewController ()
 
@@ -25,6 +27,8 @@
 
 #pragma mark - View LifeCycle
 
+// @todo - find out this gets called instead of init.
+
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     if ((self = [super initWithCoder:aDecoder])) {
@@ -35,29 +39,42 @@
     return self;
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+	// Do any additional setup after loading the view.
+
+    // Set up Map View:
+    [self.mapView.settings setAllGesturesEnabled:YES];
+
+    [self setUpVisuals];
+
+}
 
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self setUpMapView];
+
+    // Register for Notifications.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:kMRMLocationToolsDidUpdateLocation object:nil];
+
+    // Start asking for location.
     [locationTool start];
 }
+
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [self tearDownMapView];
+
+    // De Register for Notifications.
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:kMRMLocationToolsDidUpdateLocation
                                                   object:nil];
-}
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    // Stop Location tool.
+    [locationTool stop];
 }
 
 - (void)didReceiveMemoryWarning
@@ -66,14 +83,52 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Visuals
+
+-(void)setUpVisuals
+{
+    // Colors
+    self.view.backgroundColor = [UIColor midnightBlueColor];
+    self.navigationController.navigationBar.titleTextAttributes = @{UITextAttributeFont: [UIFont boldFlatFontOfSize:18],
+                                                                    UITextAttributeTextColor: [UIColor whiteColor]};
+    [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor amethystColor]];
+
+    // Controls on top of map.
+    UIColor *mapControlColor = [UIColor cloudsColor];
+    [self.travelFromLabel setBackgroundColor:mapControlColor];
+    [self.travelToLabel setBackgroundColor:mapControlColor];
+    [self.fromVal setBackgroundColor:mapControlColor];
+    [self.toVal setBackgroundColor:mapControlColor];
+
+    // Labels on top of map.
+    [self.travelDistance setBackgroundColor:mapControlColor];
+    [self.travelTime setBackgroundColor:mapControlColor];
+}
+
+- (void)addBounceAnimation {
+	/*if (!CGRectContainsPoint(self.view.frame, CGPointMake(160, 60))) {
+		bouncingView.frame = CGRectMake(10, 10, 40, 40);
+		bouncingView.center = CGPointMake(160, 60);
+		return;
+	}*/
+
+	NSString *keyPath = @"position.y";
+	id finalValue = [NSNumber numberWithFloat:300];
+
+	SKBounceAnimation *bounceAnimation = [SKBounceAnimation animationWithKeyPath:keyPath];
+	bounceAnimation.fromValue = [NSNumber numberWithFloat:self.view.center.x];
+	bounceAnimation.toValue = finalValue;
+	bounceAnimation.duration = 0.5f;
+	bounceAnimation.numberOfBounces = 4;
+	//bounceAnimation.stiffness = SKBounceAnimationStiffnessLight;
+	bounceAnimation.shouldOvershoot = YES;
+
+	[self.view.layer addAnimation:bounceAnimation forKey:@"someKey"];
+
+	[self.view.layer setValue:finalValue forKeyPath:keyPath];
+}
 
 #pragma mark - Actions
-
-- (IBAction)done:(id)sender
-{
-    NSLog(@"Done");
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-}
 
 - (IBAction)textFieldEditingDidEndOnExit:(id)sender{
     UITextField *currentTextField = (UITextField *)sender;
@@ -85,20 +140,6 @@
 }
 
 #pragma mark - Map Ops
-
-- (void)setUpMapView
-{
-    //self.mapView.myLocationEnabled = YES;
-    [self.mapView.settings setAllGesturesEnabled:YES];
-    //[self.mapView.settings setMyLocationButton:YES];
-    //[self.mapView addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context: nil];
-}
-
-- (void)tearDownMapView
-{
-    //[self.mapView removeObserver:self forKeyPath:@"myLocation"];
-}
-
 
 
 - (void)updateMapViewWithLocationOrBounds:(id)updatedLocation
@@ -193,9 +234,9 @@
     [self.travelDistance setText:travelDistance];
     [self.travelTime setText: travelTime];
 
-    [self.travelDistanceLabel setHidden:NO];
+    [self.travelDistanceIcon setHidden:NO];
     [self.travelDistance setHidden:NO];
-    [self.travelTimeLabel setHidden:NO];
+    [self.travelTimeIcon setHidden:NO];
     [self.travelTime setHidden:NO];
 }
 
