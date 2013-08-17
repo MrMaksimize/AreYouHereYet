@@ -101,7 +101,7 @@
 
 
 
-- (void)updateMapViewWithLocation:(id)updatedLocation
+- (void)updateMapViewWithLocationOrBounds:(id)updatedLocation
 {
     NSLog(@"LOC UPDATE");
     if (updatedLocation != nil) {
@@ -122,11 +122,11 @@
 }
 
 
-- (void)updateMapMarkerWithLocation:(CLLocation *)updatedLocation
+- (void)setMapMarkerWithLocation:(CLLocation *)markerLocation
                       andMarkerType:(NSString *)markerType
 {
-    if (updatedLocation != nil) {
-        GMSMarker *locMarker = [GMSMarker markerWithPosition:updatedLocation.coordinate];
+    if (markerLocation != nil) {
+        GMSMarker *locMarker = [GMSMarker markerWithPosition:markerLocation.coordinate];
         locMarker.animated = YES;
         locMarker.icon = nil; // @todo change icon;
         locMarker.map = self.mapView;
@@ -192,8 +192,8 @@
             GMSCoordinateBounds *bounds = [[GMSCoordinateBounds alloc] initWithCoordinate:_fromLoc.coordinate
                                                                                coordinate:_toLoc.coordinate];
             
-            [self updateMapViewWithLocation:bounds];
-            [self updateMapMarkerWithLocation:_toLoc andMarkerType:nil];
+            [self updateMapViewWithLocationOrBounds:bounds];
+            [self setMapMarkerWithLocation:_toLoc andMarkerType:nil];
 
             MRMGoogleDistanceMatrixService *matrixService = [[MRMGoogleDistanceMatrixService alloc]
                                                              initWithNotificationName:@"distanceCalculated"];
@@ -218,8 +218,8 @@
     else if ([property isEqualToString:kFromLoc]) {
         NSLog(@"%@ --- %f", property, self.fromLoc.coordinate.latitude);
         if (self.fromLoc) {
-            [self updateMapViewWithLocation:self.fromLoc];
-            [self updateMapMarkerWithLocation:self.fromLoc andMarkerType:nil];
+            [self updateMapViewWithLocationOrBounds:self.fromLoc];
+            [self setMapMarkerWithLocation:self.fromLoc andMarkerType:nil];
             [self reverseGeoCodeLocation:self.fromLoc];
             [locationTool stop];
         }
