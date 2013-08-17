@@ -22,5 +22,6 @@
 @property (nonatomic, strong) IBOutlet UIButton *getLocationButton;
 @property (nonatomic, strong) IBOutlet UIButton *createNewRideButton;
 @property (nonatomic, strong) IBOutlet GMSMapView *mapHolderView;
+@property (nonatomic, strong) IBOutlet UIView *firstStepView;
 
 @end
