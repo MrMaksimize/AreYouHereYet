@@ -23,6 +23,10 @@
 @property (nonatomic, strong) IBOutlet UILabel *fromVal;
 @property (nonatomic, strong) IBOutlet UITextField *toVal;
 @property (nonatomic, strong) IBOutlet GMSMapView *mapView;
+@property (nonatomic, strong) IBOutlet UILabel *travelTimeLabel;
+@property (nonatomic, strong) IBOutlet UILabel *travelDistanceLabel;
+@property (nonatomic, strong) IBOutlet UILabel *travelTime;
+@property (nonatomic, strong) IBOutlet UILabel *travelDistance;
 
 @property (nonatomic, strong) CLLocation *fromLoc;
 @property (nonatomic, strong) CLLocation *toLoc;

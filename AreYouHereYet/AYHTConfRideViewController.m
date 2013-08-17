@@ -180,9 +180,25 @@
         
     }
     if ([note.name isEqual: @"distanceCalculated"]) {
-        NSLog(@"Distance C");
+        [self.travelDistance setText:[[[note.userInfo objectForKey:@"elements"] objectForKey:@"distance"] objectForKey:@"text"]];
+        [self.travelTime setText: [[[note.userInfo objectForKey:@"elements"] objectForKey:@"duration"] objectForKey:@"text"]];
+
+        [self showTravelTime:[[[note.userInfo objectForKey:@"elements"] objectForKey:@"distance"] objectForKey:@"text"]
+                 andDistance:[[[note.userInfo objectForKey:@"elements"] objectForKey:@"duration"] objectForKey:@"text"]];
     }
 }
+
+- (void)showTravelTime:(NSString *)travelTime andDistance:(NSString *)travelDistance
+{
+    [self.travelDistance setText:travelDistance];
+    [self.travelTime setText: travelTime];
+
+    [self.travelDistanceLabel setHidden:NO];
+    [self.travelDistance setHidden:NO];
+    [self.travelTimeLabel setHidden:NO];
+    [self.travelTime setHidden:NO];
+}
+
 
 - (void)locationInformationDidChangeProperty:(NSString *)property {
     NSLog(@"TRIGGERED %@", property);

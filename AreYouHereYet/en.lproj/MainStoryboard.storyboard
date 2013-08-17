@@ -107,7 +107,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="733" y="-354"/>
+            <point key="canvasLocation" x="717" y="-382"/>
         </scene>
         <!--Conf Ride View Controller-->
         <scene sceneID="W38-Dv-s4W">
@@ -170,6 +170,34 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Travel Distance:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Vuf-9Z-YKG">
+                                <rect key="frame" x="9" y="419" width="123" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Enter Destination First" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Jdw-2a-dSV">
+                                <rect key="frame" x="143" y="390" width="169" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Enter Destination First" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TAw-7j-ya5">
+                                <rect key="frame" x="143" y="419" width="169" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Travel Time:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pC7-4g-p8S">
+                                <rect key="frame" x="9" y="390" width="95" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -177,12 +205,16 @@
                         <outlet property="fromVal" destination="lBC-ch-Lzw" id="dSH-8N-arT"/>
                         <outlet property="mapView" destination="hhQ-Ha-MIQ" id="1Ku-Zn-INq"/>
                         <outlet property="toVal" destination="veO-DP-mWn" id="GSG-IE-icr"/>
+                        <outlet property="travelDistance" destination="TAw-7j-ya5" id="u86-Ub-6l9"/>
+                        <outlet property="travelDistanceLabel" destination="Vuf-9Z-YKG" id="ALB-gq-zXo"/>
+                        <outlet property="travelTime" destination="Jdw-2a-dSV" id="GaA-fI-2zw"/>
+                        <outlet property="travelTimeLabel" destination="pC7-4g-p8S" id="21Y-Gd-fGE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rbb-T5-jr3" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="bNr-fE-3kv" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1215" y="-354"/>
+            <point key="canvasLocation" x="1245" y="-318"/>
         </scene>
         <!--Navigation Controller - Tag-->
         <scene sceneID="CXb-vt-KWv">
@@ -210,6 +242,10 @@
                 <relationship kind="outlet" name="fromVal" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="mapView" candidateClass="GMSMapView"/>
                 <relationship kind="outlet" name="toVal" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="travelDistance" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="travelDistanceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="travelTime" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="travelTimeLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="AYHTFirstViewController" superclassName="UIViewController">
