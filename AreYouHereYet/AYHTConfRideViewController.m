@@ -18,6 +18,7 @@
     CLLocation *_toLoc;
     NSString *_fromLocAddress;
     NSString *_toLocAddress;
+    FPPopoverController *_peoplePopover;
 }
 
 #pragma mark - View LifeCycle
@@ -196,12 +197,7 @@
         NSLog(@"Second Step Layer Position Y %f", self.firstStepView.layer.position.y);
     }
     if (buttonPressed == self.messageButton) {
-        AYHTReceiverListTableViewController *receiverTableViewController = [[AYHTReceiverListTableViewController alloc] init];
-        FPPopoverController *popover = [[FPPopoverController alloc] initWithViewController:receiverTableViewController];
-        popover.tint = FPPopoverLightGrayTint;
-        //popover.border = NO;
-        [popover presentPopoverFromView:buttonPressed];
-        [popover setShadowsHidden:YES];
+        [self setUpAndDisplayPeoplePopoverFromButton:buttonPressed];
     }
 }
 
@@ -264,6 +260,44 @@
          
     }];
 }
+
+#pragma mark - Popover
+- (void)setUpAndDisplayPeoplePopoverFromButton:(UIButton *)buttonPressed
+{
+    /*AYHTReceiverListTableViewController *receiverTableViewController = [[AYHTReceiverListTableViewController alloc] init];
+    UINavigationController *receiverTableViewNavigationController = [[UINavigationController alloc] initWithRootViewController:receiverTableViewController];
+    _peoplePopover = [[FPPopoverController alloc] initWithViewController:receiverTableViewNavigationController];
+    _peoplePopover.tint = FPPopoverLightGrayTint;
+    _peoplePopover.border = NO;
+    _peoplePopover.contentSize = CGSizeMake(300, 400);
+    [_peoplePopover setShadowsHidden:YES];
+    [_peoplePopover presentPopoverFromView:buttonPressed];
+    //[self.navigationController pushViewController:receiverTableViewController animated:YES];*/
+    
+    //AYHTReceiverListTableViewController *receiverTableViewController = [[AYHTReceiverListTableViewController alloc] init];
+    //[receiverTableViewController.view setFrame:CGRectMake(0, 0, 320, 200)];
+    //UINavigationController *receiverTableViewNavigationController = [[UINavigationController alloc]
+                                                                   //  initWithRootViewController:receiverTableViewController];
+    
+    // Resize so it fits well.
+    //[receiverTableViewNavigationController.view setFrame:CGRectMake(0, 0, 320, 200)];
+    
+    /*THContactPickerViewController *contactPicker = [[THContactPickerViewController alloc] init];
+    UINavigationController *contactPickerNavController = [[UINavigationController alloc]
+                                                          initWithRootViewController:contactPicker];*/
+    
+    //[contactPickerNavController.view setFrame:CGRectMake(0, 0, 320, 400)];
+    
+    AYHTSemiModalViewController *controller = [[AYHTSemiModalViewController alloc] init];
+    
+    //UINavigationController *contactPickerNavController = [[UINavigationController alloc] initWithRootViewController:[[AYHTSemiModalViewController alloc] init]];
+    
+    [self presentSemiViewController:controller withOptions:@{
+     KNSemiModalOptionKeys.pushParentBack    : @(YES),
+     KNSemiModalOptionKeys.animationDuration : @(0.5),
+     KNSemiModalOptionKeys.shadowOpacity     : @(0.3),
+     }];
+    }
 
 
 #pragma mark - Notification Receiver and Router

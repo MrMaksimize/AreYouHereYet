@@ -12,12 +12,19 @@
 		C311E77417BAF1D3009FAABE /* MDDirectionService.m in Sources */ = {isa = PBXBuildFile; fileRef = C311E76E17BAF1D3009FAABE /* MDDirectionService.m */; };
 		C311E77517BAF1D3009FAABE /* MRMGoogleDistanceMatrixService.m in Sources */ = {isa = PBXBuildFile; fileRef = C311E77017BAF1D3009FAABE /* MRMGoogleDistanceMatrixService.m */; };
 		C311E77617BAF1D3009FAABE /* MRMLocationTools.m in Sources */ = {isa = PBXBuildFile; fileRef = C311E77217BAF1D3009FAABE /* MRMLocationTools.m */; };
+		C31E0E8117C1115600D15971 /* AYHTSemiModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C31E0E7F17C1115600D15971 /* AYHTSemiModalViewController.m */; };
+		C31E0E8217C1115600D15971 /* AYHTSemiModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C31E0E8017C1115600D15971 /* AYHTSemiModalViewController.xib */; };
 		C34334C517B059C20047B330 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C34334C417B059C20047B330 /* MapKit.framework */; };
 		C34CB5BA17B6ABF8004D8F3C /* AYHTConfRideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C34CB5B917B6ABF8004D8F3C /* AYHTConfRideViewController.m */; };
 		C34CB5BD17B6B24E004D8F3C /* AYHTMapControl.m in Sources */ = {isa = PBXBuildFile; fileRef = C34CB5BC17B6B24E004D8F3C /* AYHTMapControl.m */; };
+		C3B451BC17C0708C00CAEBAD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B451BB17C0708C00CAEBAD /* QuartzCore.framework */; };
 		C3EACC8417C012BF00E58252 /* sms@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3EACC8317C012BE00E58252 /* sms@2x.png */; };
 		C3EACC8817C02E4500E58252 /* AYHTReceiverListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EACC8617C02E4500E58252 /* AYHTReceiverListTableViewController.m */; };
-		C3EACC8917C02E4500E58252 /* AYHTReceiverListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3EACC8717C02E4500E58252 /* AYHTReceiverListTableViewController.xib */; };
+		C3EACCA317C05D8C00E58252 /* FPPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EACC9D17C05D8C00E58252 /* FPPopoverController.m */; };
+		C3EACCA417C05D8C00E58252 /* FPPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EACC9F17C05D8C00E58252 /* FPPopoverView.m */; };
+		C3EACCA517C05D8C00E58252 /* FPTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EACCA117C05D8C00E58252 /* FPTouchView.m */; };
+		C3EACCA917C062FE00E58252 /* AYHTReceiverListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3EACCA817C062FE00E58252 /* AYHTReceiverListTableViewController.xib */; };
+		C3EACCAB17C06B4200E58252 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3EACCAA17C06B4200E58252 /* AddressBookUI.framework */; };
 		C3F362A717BF1EB50033798C /* Compas@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3F362A117BF1EB50033798C /* Compas@2x.png */; };
 		C3F362A817BF1EB50033798C /* Infinity-Loop@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3F362A217BF1EB50033798C /* Infinity-Loop@2x.png */; };
 		C3F362A917BF1EB50033798C /* Map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3F362A317BF1EB50033798C /* Map@2x.png */; };
@@ -35,10 +42,6 @@
 		C3F92F2E17ADCFF60031A543 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3F92F2D17ADCFF60031A543 /* Default-568h@2x.png */; };
 		C3F92F3117ADCFF60031A543 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3F92F2F17ADCFF60031A543 /* MainStoryboard.storyboard */; };
 		C3F92F3417ADCFF60031A543 /* AYHTFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F92F3317ADCFF60031A543 /* AYHTFirstViewController.m */; };
-		C3F92F3617ADCFF60031A543 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = C3F92F3517ADCFF60031A543 /* first.png */; };
-		C3F92F3817ADCFF60031A543 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3F92F3717ADCFF60031A543 /* first@2x.png */; };
-		C3F92F3D17ADCFF60031A543 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = C3F92F3C17ADCFF60031A543 /* second.png */; };
-		C3F92F3F17ADCFF60031A543 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3F92F3E17ADCFF60031A543 /* second@2x.png */; };
 		C3F92F4617ADD84F0031A543 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3F92F4517ADD84F0031A543 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,15 +56,27 @@
 		C311E77017BAF1D3009FAABE /* MRMGoogleDistanceMatrixService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRMGoogleDistanceMatrixService.m; sourceTree = "<group>"; };
 		C311E77117BAF1D3009FAABE /* MRMLocationTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRMLocationTools.h; sourceTree = "<group>"; };
 		C311E77217BAF1D3009FAABE /* MRMLocationTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRMLocationTools.m; sourceTree = "<group>"; };
+		C31E0E7E17C1115600D15971 /* AYHTSemiModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYHTSemiModalViewController.h; sourceTree = "<group>"; };
+		C31E0E7F17C1115600D15971 /* AYHTSemiModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYHTSemiModalViewController.m; sourceTree = "<group>"; };
+		C31E0E8017C1115600D15971 /* AYHTSemiModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AYHTSemiModalViewController.xib; sourceTree = "<group>"; };
 		C34334C417B059C20047B330 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		C34CB5B817B6ABF8004D8F3C /* AYHTConfRideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYHTConfRideViewController.h; sourceTree = "<group>"; };
 		C34CB5B917B6ABF8004D8F3C /* AYHTConfRideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYHTConfRideViewController.m; sourceTree = "<group>"; };
 		C34CB5BB17B6B24E004D8F3C /* AYHTMapControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYHTMapControl.h; sourceTree = "<group>"; };
 		C34CB5BC17B6B24E004D8F3C /* AYHTMapControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYHTMapControl.m; sourceTree = "<group>"; };
+		C3B451BB17C0708C00CAEBAD /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C3EACC8317C012BE00E58252 /* sms@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sms@2x.png"; sourceTree = "<group>"; };
 		C3EACC8517C02E4500E58252 /* AYHTReceiverListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYHTReceiverListTableViewController.h; sourceTree = "<group>"; };
 		C3EACC8617C02E4500E58252 /* AYHTReceiverListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYHTReceiverListTableViewController.m; sourceTree = "<group>"; };
-		C3EACC8717C02E4500E58252 /* AYHTReceiverListTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AYHTReceiverListTableViewController.xib; sourceTree = "<group>"; };
+		C3EACC9B17C05D8B00E58252 /* ARCMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARCMacros.h; path = FPPopover/ARCMacros.h; sourceTree = "<group>"; };
+		C3EACC9C17C05D8C00E58252 /* FPPopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FPPopoverController.h; path = FPPopover/FPPopoverController.h; sourceTree = "<group>"; };
+		C3EACC9D17C05D8C00E58252 /* FPPopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FPPopoverController.m; path = FPPopover/FPPopoverController.m; sourceTree = "<group>"; };
+		C3EACC9E17C05D8C00E58252 /* FPPopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FPPopoverView.h; path = FPPopover/FPPopoverView.h; sourceTree = "<group>"; };
+		C3EACC9F17C05D8C00E58252 /* FPPopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FPPopoverView.m; path = FPPopover/FPPopoverView.m; sourceTree = "<group>"; };
+		C3EACCA017C05D8C00E58252 /* FPTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FPTouchView.h; path = FPPopover/FPTouchView.h; sourceTree = "<group>"; };
+		C3EACCA117C05D8C00E58252 /* FPTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FPTouchView.m; path = FPPopover/FPTouchView.m; sourceTree = "<group>"; };
+		C3EACCA817C062FE00E58252 /* AYHTReceiverListTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AYHTReceiverListTableViewController.xib; sourceTree = "<group>"; };
+		C3EACCAA17C06B4200E58252 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		C3F362A117BF1EB50033798C /* Compas@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Compas@2x.png"; sourceTree = "<group>"; };
 		C3F362A217BF1EB50033798C /* Infinity-Loop@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Infinity-Loop@2x.png"; sourceTree = "<group>"; };
 		C3F362A317BF1EB50033798C /* Map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Map@2x.png"; sourceTree = "<group>"; };
@@ -84,10 +99,6 @@
 		C3F92F3017ADCFF60031A543 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		C3F92F3217ADCFF60031A543 /* AYHTFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AYHTFirstViewController.h; sourceTree = "<group>"; };
 		C3F92F3317ADCFF60031A543 /* AYHTFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AYHTFirstViewController.m; sourceTree = "<group>"; };
-		C3F92F3517ADCFF60031A543 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
-		C3F92F3717ADCFF60031A543 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
-		C3F92F3C17ADCFF60031A543 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
-		C3F92F3E17ADCFF60031A543 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		C3F92F4517ADD84F0031A543 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -96,6 +107,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3B451BC17C0708C00CAEBAD /* QuartzCore.framework in Frameworks */,
+				C3EACCAB17C06B4200E58252 /* AddressBookUI.framework in Frameworks */,
 				C34334C517B059C20047B330 /* MapKit.framework in Frameworks */,
 				C3F92F4617ADD84F0031A543 /* CoreLocation.framework in Frameworks */,
 				C3F92F1817ADCFF60031A543 /* UIKit.framework in Frameworks */,
@@ -123,6 +136,32 @@
 			path = MRMLocationTools;
 			sourceTree = "<group>";
 		};
+		C3EACCA617C05D9500E58252 /* FPPopover */ = {
+			isa = PBXGroup;
+			children = (
+				C3EACC9B17C05D8B00E58252 /* ARCMacros.h */,
+				C3EACC9C17C05D8C00E58252 /* FPPopoverController.h */,
+				C3EACC9D17C05D8C00E58252 /* FPPopoverController.m */,
+				C3EACC9E17C05D8C00E58252 /* FPPopoverView.h */,
+				C3EACC9F17C05D8C00E58252 /* FPPopoverView.m */,
+				C3EACCA017C05D8C00E58252 /* FPTouchView.h */,
+				C3EACCA117C05D8C00E58252 /* FPTouchView.m */,
+			);
+			name = FPPopover;
+			sourceTree = "<group>";
+		};
+		C3EACCA717C05FA900E58252 /* Deprecated */ = {
+			isa = PBXGroup;
+			children = (
+				C34CB5BB17B6B24E004D8F3C /* AYHTMapControl.h */,
+				C34CB5BC17B6B24E004D8F3C /* AYHTMapControl.m */,
+				C3F92F3217ADCFF60031A543 /* AYHTFirstViewController.h */,
+				C3F92F3317ADCFF60031A543 /* AYHTFirstViewController.m */,
+			);
+			name = Deprecated;
+			path = AreYouHereYet;
+			sourceTree = "<group>";
+		};
 		C3F362A017BF1EB50033798C /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,9 +179,12 @@
 		C3F92F0B17ADCFF60031A543 = {
 			isa = PBXGroup;
 			children = (
+				C3B451BB17C0708C00CAEBAD /* QuartzCore.framework */,
+				C3EACCAA17C06B4200E58252 /* AddressBookUI.framework */,
 				C3F92F1D17ADCFF60031A543 /* AreYouHereYet */,
 				C3F92F1617ADCFF60031A543 /* Frameworks */,
 				C3F92F1517ADCFF60031A543 /* Products */,
+				C3EACCA717C05FA900E58252 /* Deprecated */,
 				90F44B2AE6774691AD84BEB8 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
@@ -171,23 +213,19 @@
 		C3F92F1D17ADCFF60031A543 /* AreYouHereYet */ = {
 			isa = PBXGroup;
 			children = (
+				C3EACCA617C05D9500E58252 /* FPPopover */,
 				C311E76A17BAF1D3009FAABE /* MRMLocationTools */,
 				C3F92F2617ADCFF60031A543 /* AYHTAppDelegate.h */,
 				C3F92F2717ADCFF60031A543 /* AYHTAppDelegate.m */,
 				C3F92F2F17ADCFF60031A543 /* MainStoryboard.storyboard */,
-				C3F92F3217ADCFF60031A543 /* AYHTFirstViewController.h */,
-				C3F92F3317ADCFF60031A543 /* AYHTFirstViewController.m */,
 				C34CB5B817B6ABF8004D8F3C /* AYHTConfRideViewController.h */,
 				C34CB5B917B6ABF8004D8F3C /* AYHTConfRideViewController.m */,
 				C3EACC8517C02E4500E58252 /* AYHTReceiverListTableViewController.h */,
 				C3EACC8617C02E4500E58252 /* AYHTReceiverListTableViewController.m */,
-				C3EACC8717C02E4500E58252 /* AYHTReceiverListTableViewController.xib */,
-				C34CB5BB17B6B24E004D8F3C /* AYHTMapControl.h */,
-				C34CB5BC17B6B24E004D8F3C /* AYHTMapControl.m */,
-				C3F92F3517ADCFF60031A543 /* first.png */,
-				C3F92F3717ADCFF60031A543 /* first@2x.png */,
-				C3F92F3C17ADCFF60031A543 /* second.png */,
-				C3F92F3E17ADCFF60031A543 /* second@2x.png */,
+				C3EACCA817C062FE00E58252 /* AYHTReceiverListTableViewController.xib */,
+				C31E0E7E17C1115600D15971 /* AYHTSemiModalViewController.h */,
+				C31E0E7F17C1115600D15971 /* AYHTSemiModalViewController.m */,
+				C31E0E8017C1115600D15971 /* AYHTSemiModalViewController.xib */,
 				C3F362A017BF1EB50033798C /* Graphics */,
 				C3F92F1E17ADCFF60031A543 /* Supporting Files */,
 			);
@@ -267,10 +305,6 @@
 				C3F92F2C17ADCFF60031A543 /* Default@2x.png in Resources */,
 				C3F92F2E17ADCFF60031A543 /* Default-568h@2x.png in Resources */,
 				C3F92F3117ADCFF60031A543 /* MainStoryboard.storyboard in Resources */,
-				C3F92F3617ADCFF60031A543 /* first.png in Resources */,
-				C3F92F3817ADCFF60031A543 /* first@2x.png in Resources */,
-				C3F92F3D17ADCFF60031A543 /* second.png in Resources */,
-				C3F92F3F17ADCFF60031A543 /* second@2x.png in Resources */,
 				C3F362A717BF1EB50033798C /* Compas@2x.png in Resources */,
 				C3F362A817BF1EB50033798C /* Infinity-Loop@2x.png in Resources */,
 				C3F362A917BF1EB50033798C /* Map@2x.png in Resources */,
@@ -278,7 +312,8 @@
 				C3F362AB17BF1EB50033798C /* Retina-Ready@2x.png in Resources */,
 				C3F362AC17BF1EB50033798C /* Watches@2x.png in Resources */,
 				C3EACC8417C012BF00E58252 /* sms@2x.png in Resources */,
-				C3EACC8917C02E4500E58252 /* AYHTReceiverListTableViewController.xib in Resources */,
+				C3EACCA917C062FE00E58252 /* AYHTReceiverListTableViewController.xib in Resources */,
+				C31E0E8217C1115600D15971 /* AYHTSemiModalViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,6 +365,10 @@
 				C311E77517BAF1D3009FAABE /* MRMGoogleDistanceMatrixService.m in Sources */,
 				C311E77617BAF1D3009FAABE /* MRMLocationTools.m in Sources */,
 				C3EACC8817C02E4500E58252 /* AYHTReceiverListTableViewController.m in Sources */,
+				C3EACCA317C05D8C00E58252 /* FPPopoverController.m in Sources */,
+				C3EACCA417C05D8C00E58252 /* FPPopoverView.m in Sources */,
+				C3EACCA517C05D8C00E58252 /* FPTouchView.m in Sources */,
+				C31E0E8117C1115600D15971 /* AYHTSemiModalViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <FlatUIKit/FlatUIKit.h>
-@interface AYHTReceiverListTableViewController : UITableViewController
+#import <AddressBookUI/AddressBookUI.h>
+@interface AYHTReceiverListTableViewController : UITableViewController <ABPeoplePickerNavigationControllerDelegate>
 
 @property (nonatomic, strong) NSArray *peopleToContact;
 

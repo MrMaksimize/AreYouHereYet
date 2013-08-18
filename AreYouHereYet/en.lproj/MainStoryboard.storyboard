@@ -203,7 +203,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hKj-j1-MPG" userLabel="Message Button">
-                                        <rect key="frame" x="99" y="352" width="122" height="83"/>
+                                        <rect key="frame" x="126" y="443" width="68" height="46"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
@@ -290,6 +290,8 @@
         <class className="AYHTFirstViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AYHTFirstViewController.h"/>
             <relationships>
+                <relationship kind="action" name="createNewRide:"/>
+                <relationship kind="action" name="getLocation:"/>
                 <relationship kind="outlet" name="addressLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="createNewRideButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="firstStepView" candidateClass="UIView"/>
