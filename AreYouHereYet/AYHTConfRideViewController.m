@@ -13,7 +13,6 @@
 @end
 
 @implementation AYHTConfRideViewController {
-    MRMLocationTools *locationTool;
     CLLocation *_fromLoc;
     CLLocation *_toLoc;
     NSString *_fromLocAddress;
@@ -31,6 +30,9 @@
         locationTool = [MRMLocationTools sharedLocationTool];
         _fromLoc = _toLoc = nil;
         _fromLocAddress = _toLocAddress = nil;
+        // Clear out people to contact dictionary on launch.
+        _peopleToContact = [[NSDictionary alloc] init];
+        // @todo - stop being an idiot and move location tool here.
     }
     return self;
 }
@@ -47,16 +49,33 @@
     
 }
 
+-(void)registerObservers
+{
+    // Register for Notifications.
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:kMRMLocationToolsDidUpdateLocation object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveNotification:)
+                                                 name:@"distanceCalculated"
+                                               object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveNotification:)
+                                                 name:@"peopleToContactDidChange"
+                                               object:nil];
+
+}
+
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
-    // Register for Notifications.
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:kMRMLocationToolsDidUpdateLocation object:nil];
+    [self registerObservers];
     
     // Start asking for location.
     [locationTool start];
+
 }
 
 
@@ -288,7 +307,7 @@
     
     //[contactPickerNavController.view setFrame:CGRectMake(0, 0, 320, 400)];
     
-    AYHTSemiModalViewController *controller = [[AYHTSemiModalViewController alloc] init];
+    AYHTSemiModalViewController *controller = [[AYHTSemiModalViewController alloc] initWithContactList:_peopleToContact];
     
     //UINavigationController *contactPickerNavController = [[UINavigationController alloc] initWithRootViewController:[[AYHTSemiModalViewController alloc] init]];
     
@@ -327,6 +346,10 @@
         [self showTravelTime:[[[note.userInfo objectForKey:@"elements"] objectForKey:@"distance"] objectForKey:@"text"]
                  andDistance:[[[note.userInfo objectForKey:@"elements"] objectForKey:@"duration"] objectForKey:@"text"]];
     }
+    if ([note.name isEqual: @"peopleToContactDidChange"]) {
+        self.peopleToContact = note.userInfo;
+    }
+
 }
 
 - (void)showTravelTime:(NSString *)travelTime andDistance:(NSString *)travelDistance
@@ -357,10 +380,6 @@
             [matrixService distanceFromOrigin:[NSString stringWithFormat:@"%f,%f", _fromLoc.coordinate.latitude, _fromLoc.coordinate.longitude]
                                 toDestination:[NSString stringWithFormat:@"%f,%f", _toLoc.coordinate.latitude, _toLoc.coordinate.longitude]];
             
-            [[NSNotificationCenter defaultCenter] addObserver:self
-                                                     selector:@selector(receiveNotification:)
-                                                         name:@"distanceCalculated"
-                                                       object:nil];
         }
     }
     else if ([property isEqualToString:kToLocAddress]) {

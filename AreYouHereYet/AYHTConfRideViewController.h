@@ -50,6 +50,12 @@
 @property (nonatomic, strong) NSString *fromLocAddress;
 @property (nonatomic, strong) NSString *toLocAddress;
 
+// Main place of record for people to contact.
+@property (nonatomic, strong) NSDictionary *peopleToContact;
+
+// Location Tool.
+@property (nonatomic, strong) MRMLocationTools *locationTool;
+
 - (IBAction)textFieldEditingDidEndOnExit:(id)sender;
 - (IBAction)buttonTouchUpInside:(id)sender;
 

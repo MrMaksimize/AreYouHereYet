@@ -26,4 +26,8 @@
 
 - (IBAction)barButtonItemPressed:(id)sender;
 
+// Designated Initializer.
+
+- (id)initWithContactList:(NSDictionary *)originalContactList;
+
 @end

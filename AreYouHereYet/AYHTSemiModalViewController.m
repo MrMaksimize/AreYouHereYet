@@ -17,14 +17,21 @@
 
 @implementation AYHTSemiModalViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+#pragma mark - Designated Initializer
+
+- (id)initWithContactList:(NSDictionary *)originalContactList
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super init];
     if (self) {
-        self.peopleToContact = [[NSMutableDictionary alloc] init];
+        // Idk if this is right.  We'll see.
+        // Copying items not to affect any ongoing text message ops.
+        self.peopleToContact = [[NSMutableDictionary alloc]
+                                initWithDictionary:originalContactList
+                                copyItems:YES];
     }
     return self;
 }
+
 
 - (void)viewDidLoad
 {
@@ -133,7 +140,11 @@
         [self presentViewController:picker animated:YES completion:nil];
     }
     else if (buttonPressed == self.doneButton) {
-        // @todo store data here.
+        // Send notification, dismiss view.
+        // @todo - is sending notification the best thing here?
+        // Maybe I can just directly access the prop of a parent?
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"peopleToContactDidChange" object:self userInfo:_peopleToContact];
+
         [self dismissSemiModalView];
     }
 }

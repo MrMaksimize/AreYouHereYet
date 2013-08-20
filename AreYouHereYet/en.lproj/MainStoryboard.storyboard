@@ -290,8 +290,6 @@
         <class className="AYHTFirstViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AYHTFirstViewController.h"/>
             <relationships>
-                <relationship kind="action" name="createNewRide:"/>
-                <relationship kind="action" name="getLocation:"/>
                 <relationship kind="outlet" name="addressLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="createNewRideButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="firstStepView" candidateClass="UIView"/>
