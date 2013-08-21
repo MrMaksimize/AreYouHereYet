@@ -17,7 +17,6 @@
 #import "GCGeocodingService.h"
 #import "MRMGoogleDistanceMatrixService.h"
 #import "UIViewController+KNSemiModal.h"
-#import "THContactPickerViewController.h"
 #import "AYHTSemiModalViewController.h"
 
 

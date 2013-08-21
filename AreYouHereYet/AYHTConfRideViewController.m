@@ -27,7 +27,7 @@
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     if ((self = [super initWithCoder:aDecoder])) {
-        locationTool = [MRMLocationTools sharedLocationTool];
+        _locationTool = [MRMLocationTools sharedLocationTool];
         _fromLoc = _toLoc = nil;
         _fromLocAddress = _toLocAddress = nil;
         // Clear out people to contact dictionary on launch.
@@ -74,7 +74,7 @@
     [self registerObservers];
     
     // Start asking for location.
-    [locationTool start];
+    [_locationTool start];
 
 }
 
@@ -89,7 +89,7 @@
                                                   object:nil];
     
     // Stop Location tool.
-    [locationTool stop];
+    [_locationTool stop];
 }
 
 - (void)didReceiveMemoryWarning
@@ -397,7 +397,7 @@
             [self updateMapViewWithLocationOrBounds:self.fromLoc];
             [self setMapMarkerWithLocation:self.fromLoc andMarkerType:nil];
             [self reverseGeoCodeLocation:self.fromLoc];
-            [locationTool stop];
+            [_locationTool stop];
         }
 
     }
