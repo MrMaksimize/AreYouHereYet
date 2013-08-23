@@ -18,12 +18,7 @@
 #import "MRMGoogleDistanceMatrixService.h"
 #import "UIViewController+KNSemiModal.h"
 #import "AYHTSemiModalViewController.h"
-
-
-#define kFromLoc @"fromLoc"
-#define kToLoc @"toLoc"
-#define kFromLocAddress @"fromLocAddress"
-#define kToLocAddress @"toLocAddress"
+#import "AYHTRide.h"
 
 
 @interface AYHTConfRideViewController : UIViewController
@@ -38,22 +33,24 @@
 @property (nonatomic, strong) IBOutlet UILabel *travelFromLabel;
 @property (nonatomic, strong) IBOutlet UILabel *travelToLabel;
 @property (nonatomic, strong) IBOutlet UIButton *nextButton;
+@property (nonatomic, strong) IBOutlet UIButton *startRideButton;
 @property (nonatomic, strong) IBOutlet UIProgressView *completionProgressView;
 @property (nonatomic, strong) IBOutlet UIButton *messageButton;
 // @todo AM I doing this right by nesting the view controllers like this????
 @property (nonatomic, strong) IBOutlet UIView *firstStepView;
 @property (nonatomic, strong) IBOutlet UIView *secondStepView;
 
-@property (nonatomic, strong) CLLocation *fromLoc;
-@property (nonatomic, strong) CLLocation *toLoc;
-@property (nonatomic, strong) NSString *fromLocAddress;
-@property (nonatomic, strong) NSString *toLocAddress;
+
+@property (nonatomic, strong) AYHTRide *ride;
 
 // Main place of record for people to contact.
 @property (nonatomic, strong) NSDictionary *peopleToContact;
 
 // Location Tool.
 @property (nonatomic, strong) MRMLocationTools *locationTool;
+
+// Ongoing Ride
+@property (nonatomic, assign) BOOL rideInProgress;
 
 - (IBAction)textFieldEditingDidEndOnExit:(id)sender;
 - (IBAction)buttonTouchUpInside:(id)sender;

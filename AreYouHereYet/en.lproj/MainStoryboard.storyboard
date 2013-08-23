@@ -4,110 +4,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--First View Controller - First-->
-        <scene sceneID="11">
-            <objects>
-                <viewController title="First" id="2" customClass="AYHTFirstViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="16">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Current Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vgq-TU-j5y">
-                                <rect key="frame" x="0.0" y="6" width="320" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Lat" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PjG-Sh-rxb">
-                                <rect key="frame" x="20" y="65" width="24" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Long" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="y6p-IL-IPR">
-                                <rect key="frame" x="20" y="128" width="38" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Lat Val" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="g29-Im-3lP">
-                                <rect key="frame" x="178" y="65" width="142" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Long Val" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7Uf-5U-HPh">
-                                <rect key="frame" x="178" y="128" width="142" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Address" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="b1J-ZS-Dd6">
-                                <rect key="frame" x="-33" y="128" width="320" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.099999999999999686"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aj7-y2-qqu">
-                                <rect key="frame" x="54" y="65" width="116" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Get Location">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="getLocation:" destination="2" eventType="touchUpInside" id="Er8-rD-PJL"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" id="ffM-1X-Npf" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="256" width="320" height="154"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="SnM-5p-9gh">
-                                <rect key="frame" x="94" y="172" width="132" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                                <state key="normal" title="Configure Ride">
-                                    <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="createNewRide:" destination="2" eventType="touchUpInside" id="GMe-AI-bwg"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="Vom-PF-bvS"/>
-                    <connections>
-                        <outlet property="addressLabel" destination="b1J-ZS-Dd6" id="Jr4-Co-2t6"/>
-                        <outlet property="createNewRideButton" destination="SnM-5p-9gh" id="Stq-Cd-Xpx"/>
-                        <outlet property="getLocationButton" destination="aj7-y2-qqu" id="0q6-6w-bnh"/>
-                        <outlet property="latVal" destination="g29-Im-3lP" id="jm9-HN-XY2"/>
-                        <outlet property="longVal" destination="7Uf-5U-HPh" id="lsv-3k-x01"/>
-                        <outlet property="mapHolderView" destination="ffM-1X-Npf" id="qQ7-5f-XI0"/>
-                        <outlet property="messageLabel" destination="vgq-TU-j5y" id="HQT-li-yWh"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1241" y="-368"/>
-        </scene>
         <!--Conf Ride View Controller - Set Your Ride-->
         <scene sceneID="W38-Dv-s4W">
             <objects>
@@ -215,6 +111,21 @@
                                             <action selector="buttonTouchUpInside:" destination="iH6-Mc-JB6" eventType="touchUpInside" id="OFC-0Y-HyF"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vgq-1L-nHI">
+                                        <rect key="frame" x="110" y="305" width="95" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Start Ride">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="buttonTouchUpInside:" destination="iH6-Mc-JB6" eventType="touchUpInside" id="mqk-mi-doT"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
@@ -230,6 +141,7 @@
                         <outlet property="messageButton" destination="hKj-j1-MPG" id="hhu-p1-h5R"/>
                         <outlet property="nextButton" destination="XWa-CX-ljn" id="gao-r0-Yja"/>
                         <outlet property="secondStepView" destination="CCz-ek-eLx" id="eOX-XL-cb7"/>
+                        <outlet property="startRideButton" destination="vgq-1L-nHI" id="Pud-kN-pJh"/>
                         <outlet property="toVal" destination="veO-DP-mWn" id="GSG-IE-icr"/>
                         <outlet property="travelDistance" destination="Jdw-2a-dSV" id="3QZ-GI-oTt"/>
                         <outlet property="travelDistanceIcon" destination="a5A-PF-HbT" id="oEB-VY-6JF"/>
@@ -278,6 +190,7 @@
                 <relationship kind="outlet" name="messageButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="nextButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="secondStepView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="startRideButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="toVal" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="travelDistance" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="travelDistanceIcon" candidateClass="UIImageView"/>
@@ -285,19 +198,6 @@
                 <relationship kind="outlet" name="travelTime" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="travelTimeIcon" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="travelToLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="AYHTFirstViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AYHTFirstViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="addressLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="createNewRideButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="firstStepView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="getLocationButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="latVal" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="longVal" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="mapHolderView" candidateClass="GMSMapView"/>
-                <relationship kind="outlet" name="messageLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="GMSMapView" superclassName="UIView">

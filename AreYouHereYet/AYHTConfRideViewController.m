@@ -7,7 +7,7 @@
 //
 
 #import "AYHTConfRideViewController.h"
-#define FP_POPOVER_RADIUS 0
+
 @interface AYHTConfRideViewController ()
 
 @end
@@ -22,7 +22,7 @@
 
 #pragma mark - View LifeCycle
 
-// @todo - find out this gets called instead of init.
+// @todo - find out why this gets called instead of init.
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -32,7 +32,7 @@
         _fromLocAddress = _toLocAddress = nil;
         // Clear out people to contact dictionary on launch.
         _peopleToContact = [[NSDictionary alloc] init];
-        // @todo - stop being an idiot and move location tool here.
+        _rideInProgress = NO;
     }
     return self;
 }
@@ -40,42 +40,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    
-    // Set up Map View:
-    //[self.mapView.settings setAllGesturesEnabled:YES];
-    
     [self setUpVisuals];
     
-}
+    _ride = [[AYHTRide alloc] init];
+    [self registerObservers];
 
--(void)registerObservers
-{
-    // Register for Notifications.
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:kMRMLocationToolsDidUpdateLocation object:nil];
+    // Start asking for location.
+    [_locationTool start];
 
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(receiveNotification:)
-                                                 name:@"distanceCalculated"
-                                               object:nil];
-
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(receiveNotification:)
-                                                 name:@"peopleToContactDidChange"
-                                               object:nil];
 
 }
-
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    [self registerObservers];
-    
-    // Start asking for location.
-    [_locationTool start];
-
 }
 
 
@@ -96,6 +74,70 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Observers
+
+-(void)registerObservers
+{
+    // Add KVO Observers.
+    [self.ride addObserver:self forKeyPath:kFromLoc options:NSKeyValueObservingOptionOld context:nil];
+    [self.ride addObserver:self forKeyPath:kFromLocAddress options:NSKeyValueObservingOptionOld context:nil];
+    [self.ride addObserver:self forKeyPath:kToLoc options:NSKeyValueObservingOptionOld context:nil];
+    [self.ride addObserver:self forKeyPath:kToLocAddress options:NSKeyValueObservingOptionOld context:nil];
+    [self.ride addObserver:self forKeyPath:kTravelTimeValue options:NSKeyValueObservingOptionOld context:nil];
+
+    // Register for Notifications.
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didReceiveUpdatedLocationNotification:)
+                                                 name:kMRMLocationToolsDidUpdateLocation
+                                               object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveNotification:)
+                                                 name:@"peopleToContactDidChange"
+                                               object:nil];
+
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
+{
+
+    id oldValue = [change objectForKey:@"old"];
+
+    // Current location updated.
+    if ([keyPath isEqualToString:kFromLoc] &&
+        ![self.ride locationAtKeyPath:keyPath isEqualTo:(CLLocation *)oldValue])
+    {
+        // Update Map
+        [self updateMapAndMarkers];
+    }
+    // Current Location Address Updated
+    if ([keyPath isEqualToString:kFromLocAddress]) {
+        [self.fromVal setText:self.ride.fromLocAddress];
+    }
+    // To Loc Coordinates Received
+    if ([keyPath isEqualToString:kToLoc] &&
+        ![self.ride locationAtKeyPath:keyPath isEqualTo:(CLLocation *)oldValue]) {
+        [self updateMapAndMarkers];
+    }
+
+    if ([keyPath isEqualToString:kTravelTimeValue]) {
+        [self showTravelTime:self.ride.travelTimeString andDistance:self.ride.distanceString];
+    }
+
+
+
+    [self.ride refreshWithChangedKeyPath:keyPath andKnownOldValueOrNil:oldValue];
+}
+
+-(void)deRegisterObservers
+{
+    // Deregister for Notifications.
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - Visuals
@@ -127,6 +169,18 @@
     [self.travelTime setBackgroundColor:mapControlColor];
 }
 
+- (void)showTravelTime:(NSString *)travelTime andDistance:(NSString *)travelDistance
+{
+    [self.travelDistance setText:travelDistance];
+    [self.travelTime setText: travelTime];
+
+    [self.travelDistanceIcon setHidden:NO];
+    [self.travelDistance setHidden:NO];
+    [self.travelTimeIcon setHidden:NO];
+    [self.travelTime setHidden:NO];
+}
+
+
 - (void)addBounceAnimationForView:(UIView *)viewToAnimate
                       withKeyPath:(NSString *)keyPath
                  withInitialValue:(id)initialValue
@@ -148,37 +202,13 @@
 	[viewToAnimate.layer setValue:finalValue forKeyPath:keyPath];
 }
 
-#pragma mark - Actions
-
-- (IBAction)textFieldEditingDidEndOnExit:(id)sender {
-    UITextField *currentTextField = (UITextField *)sender;
-    if (currentTextField.tag == 0) {
-        self.toLocAddress = currentTextField.text;
-        [self locationInformationDidChangeProperty:kToLocAddress];
-    }
-    
-}
-
-- (IBAction)buttonTouchUpInside:(id)sender {
-    UIButton *buttonPressed = (UIButton*)sender;
-    
-    if (buttonPressed == self.nextButton) {
-        NSLog(@"First Step Center X %f", self.firstStepView.center.x);
-        NSLog(@"First Step Center Y %f", self.firstStepView.center.y);
-        NSLog(@"First Step Origin X %f", self.firstStepView.frame.origin.x);
-        NSLog(@"First Step Origin Y %f", self.firstStepView.frame.origin.y);
-        NSLog(@"First Step WIDTH %f", self.firstStepView.frame.size.width);
-        NSLog(@"First Step Height %f", self.firstStepView.frame.size.height);
-        NSLog(@"First Step Layer Position X %f", self.firstStepView.layer.position.x);
-        NSLog(@"First Step Layer Position Y %f", self.firstStepView.layer.position.y);
-        NSLog(@"Second Step Center X %f", self.secondStepView.center.x);
-        NSLog(@"Second Step Center Y %f", self.secondStepView.center.y);
-        NSLog(@"Second Step Origin X %f", self.secondStepView.frame.origin.x);
-        NSLog(@"Second Step Origin Y %f", self.secondStepView.frame.origin.y);
-        NSLog(@"Second Step WIDTH %f", self.secondStepView.frame.size.width);
-        NSLog(@"Second Step Height %f", self.secondStepView.frame.size.height);
-        NSLog(@"Second Step Layer Position X %f", self.secondStepView.layer.position.x);
-        NSLog(@"Second Step Layer Position Y %f", self.secondStepView.layer.position.y);
+- (void)transitionToViewNumber:(NSNumber *)viewNumber
+{
+    // @todo probably will need refactor.
+    // transition only to second view for now.
+    if (viewNumber == [NSNumber numberWithInt:1]) {
+        [self logDataForView:self.firstStepView andStatus:@"PRE ANIMATION" andViewName:@"FIRST STEP"];
+        [self logDataForView:self.secondStepView andStatus:@"PRE ANIMATION" andViewName:@"SECOND STEP"];
         [self addBounceAnimationForView:self.firstStepView
                             withKeyPath:@"position.x"
                        withInitialValue:[NSNumber numberWithFloat:self.firstStepView.center.x]
@@ -197,31 +227,93 @@
         
         
         
-        NSLog(@"POST ANIMATION");
-        NSLog(@"First Step Center X %f", self.firstStepView.center.x);
-        NSLog(@"First Step Center Y %f", self.firstStepView.center.y);
-        NSLog(@"First Step Origin X %f", self.firstStepView.frame.origin.x);
-        NSLog(@"First Step Origin Y %f", self.firstStepView.frame.origin.y);
-        NSLog(@"First Step WIDTH %f", self.firstStepView.frame.size.width);
-        NSLog(@"First Step Height %f", self.firstStepView.frame.size.height);
-        NSLog(@"First Step Layer Position X %f", self.firstStepView.layer.position.x);
-        NSLog(@"First Step Layer Position Y %f", self.firstStepView.layer.position.y);
-        NSLog(@"Second Step Center X %f", self.secondStepView.center.x);
-        NSLog(@"Second Step Center Y %f", self.secondStepView.center.y);
-        NSLog(@"Second Step Origin X %f", self.secondStepView.frame.origin.x);
-        NSLog(@"Second Step Origin Y %f", self.secondStepView.frame.origin.y);
-        NSLog(@"Second Step WIDTH %f", self.secondStepView.frame.size.width);
-        NSLog(@"Second Step Height %f", self.secondStepView.frame.size.height);
-        NSLog(@"Second Step Layer Position X %f", self.firstStepView.layer.position.x);
-        NSLog(@"Second Step Layer Position Y %f", self.firstStepView.layer.position.y);
-    }
-    if (buttonPressed == self.messageButton) {
-        [self setUpAndDisplayPeoplePopoverFromButton:buttonPressed];
+        [self logDataForView:self.firstStepView andStatus:@"POST ANIMATION" andViewName:@"FIRST STEP"];
+        [self logDataForView:self.secondStepView andStatus:@"POST ANIMATION" andViewName:@"SECOND STEP"];
     }
 }
 
+#pragma mark - Actions
+
+- (IBAction)textFieldEditingDidEndOnExit:(id)sender {
+    UITextField *currentTextField = (UITextField *)sender;
+    if (currentTextField == self.toVal) {
+        self.ride.toLocAddress = currentTextField.text;
+    }
+
+}
+
+- (IBAction)buttonTouchUpInside:(id)sender {
+    UIButton *buttonPressed = (UIButton*)sender;
+
+    if (buttonPressed == self.nextButton) {
+        [self transitionToViewNumber:[NSNumber numberWithInt:1]];
+    }
+    else if (buttonPressed == self.messageButton) {
+        [self setUpAndDisplayPeoplePicker];
+    }
+    else if (buttonPressed == self.startRideButton) {
+        // @todo - separate method.
+        NSLog(@"INITIATING RIDE");
+        self.rideInProgress = YES;
+    }
+}
+
+#pragma mark - Notification Receivers
+
+- (void)didReceiveUpdatedLocationNotification:(NSNotification *)note
+{
+    if ([note.name isEqual: kMRMLocationToolsDidUpdateLocation]) {
+        CLLocation *newLoc = [[note.userInfo objectForKey:kMRMLocationToolsUpdatedLocationKey] lastObject];
+        if (newLoc) {
+            self.ride.fromLoc = newLoc;
+        } else {
+            NSLog(@"EMPTY LOC");
+        }
+
+    }
+}
+
+
+
+- (void)receiveNotification:(NSNotification *)note {
+    if ([note.name isEqual: @"peopleToContactDidChange"]) {
+        // If the people to contact was blank before.
+        self.peopleToContact = note.userInfo;
+    }
+
+}
+
+
 #pragma mark - Map Ops
 
+-(void)updateMapAndMarkers
+{
+    // Current location, no to location.
+    if (self.ride.fromLoc && self.ride.toLoc == nil) {
+        [self updateMapViewWithLocationOrBounds:self.ride.fromLoc];
+        [self setMapMarkerWithLocation:self.ride.fromLoc andMarkerType:nil];
+    }
+
+    // No Current location, but a to location.
+    else if (self.ride.toLoc && self.ride.fromLoc == nil) {
+        [self updateMapViewWithLocationOrBounds:self.ride.toLoc];
+        [self setMapMarkerWithLocation:self.ride.toLoc andMarkerType:nil];
+    }
+
+    // Both
+    else {
+        GMSCoordinateBounds *bounds = [[GMSCoordinateBounds alloc]
+                                       initWithCoordinate:self.ride.fromLoc.coordinate
+                                       coordinate:self.ride.toLoc.coordinate];
+
+        [self updateMapViewWithLocationOrBounds:bounds];
+        [self setMapMarkerWithLocation:self.ride.toLoc andMarkerType:nil];
+        [self setMapMarkerWithLocation:self.ride.fromLoc andMarkerType:nil];
+
+
+    }
+
+}
 
 - (void)updateMapViewWithLocationOrBounds:(id)updatedLocation
 {
@@ -248,6 +340,7 @@
                       andMarkerType:(NSString *)markerType
 {
     if (markerLocation != nil) {
+        // @todo - make market into a property and only updated if the change is significant enough
         GMSMarker *locMarker = [GMSMarker markerWithPosition:markerLocation.coordinate];
         locMarker.animated = YES;
         locMarker.icon = nil; // @todo change icon;
@@ -255,161 +348,35 @@
     }
 }
 
-#pragma mark - Geocoding
 
-- (void)reverseGeoCodeLocation:(CLLocation *)locationToGeocode
+#pragma mark - PopUp
+- (void)setUpAndDisplayPeoplePicker
 {
-    NSLog(@"REVERSE GEOCODING");
-    GMSGeocoder *geocoder = [[GMSGeocoder alloc] init];
-    CLLocationCoordinate2D coordinatesToGeoCode = CLLocationCoordinate2DMake(locationToGeocode.coordinate.latitude, locationToGeocode.coordinate.longitude);
-    [geocoder reverseGeocodeCoordinate:coordinatesToGeoCode
-                     completionHandler:
-     ^(GMSReverseGeocodeResponse *reverseGeoResponse, NSError *reverseGeoError) {
-        if (reverseGeoResponse.firstResult == nil || reverseGeoError != nil) {
-             [self.fromVal setText:[NSString stringWithString:reverseGeoError.localizedFailureReason]];
-         }
-         else {
-             NSString *reverseGeocodedFromAddress = [NSString stringWithFormat:@"%@, %@", reverseGeoResponse.firstResult.addressLine1, reverseGeoResponse.firstResult.addressLine2];
-             
-             // Set the instance variable.
-             _fromLocAddress = reverseGeocodedFromAddress;
-             // Trigger change notifier.
-             [self locationInformationDidChangeProperty:kFromLocAddress];
-         }
-         
-    }];
-}
-
-#pragma mark - Popover
-- (void)setUpAndDisplayPeoplePopoverFromButton:(UIButton *)buttonPressed
-{
-    /*AYHTReceiverListTableViewController *receiverTableViewController = [[AYHTReceiverListTableViewController alloc] init];
-    UINavigationController *receiverTableViewNavigationController = [[UINavigationController alloc] initWithRootViewController:receiverTableViewController];
-    _peoplePopover = [[FPPopoverController alloc] initWithViewController:receiverTableViewNavigationController];
-    _peoplePopover.tint = FPPopoverLightGrayTint;
-    _peoplePopover.border = NO;
-    _peoplePopover.contentSize = CGSizeMake(300, 400);
-    [_peoplePopover setShadowsHidden:YES];
-    [_peoplePopover presentPopoverFromView:buttonPressed];
-    //[self.navigationController pushViewController:receiverTableViewController animated:YES];*/
-    
-    //AYHTReceiverListTableViewController *receiverTableViewController = [[AYHTReceiverListTableViewController alloc] init];
-    //[receiverTableViewController.view setFrame:CGRectMake(0, 0, 320, 200)];
-    //UINavigationController *receiverTableViewNavigationController = [[UINavigationController alloc]
-                                                                   //  initWithRootViewController:receiverTableViewController];
-    
-    // Resize so it fits well.
-    //[receiverTableViewNavigationController.view setFrame:CGRectMake(0, 0, 320, 200)];
-    
-    /*THContactPickerViewController *contactPicker = [[THContactPickerViewController alloc] init];
-    UINavigationController *contactPickerNavController = [[UINavigationController alloc]
-                                                          initWithRootViewController:contactPicker];*/
-    
-    //[contactPickerNavController.view setFrame:CGRectMake(0, 0, 320, 400)];
-    
     AYHTSemiModalViewController *controller = [[AYHTSemiModalViewController alloc] initWithContactList:_peopleToContact];
-    
-    //UINavigationController *contactPickerNavController = [[UINavigationController alloc] initWithRootViewController:[[AYHTSemiModalViewController alloc] init]];
     
     [self presentSemiViewController:controller withOptions:@{
      KNSemiModalOptionKeys.pushParentBack    : @(YES),
      KNSemiModalOptionKeys.animationDuration : @(0.5),
      KNSemiModalOptionKeys.shadowOpacity     : @(0.3),
      }];
-    }
-
-
-#pragma mark - Notification Receiver and Router
-
-- (void)didReceiveForwardGeocode:(NSDictionary *)geocode {
-    _toLoc = [[CLLocation alloc] initWithLatitude:[[geocode objectForKey:@"lat"] doubleValue]
-                                        longitude:[[geocode objectForKey:@"lng"] doubleValue]];
-    [self locationInformationDidChangeProperty:kToLoc];
 }
 
 
-- (void)receiveNotification:(NSNotification *)note {
-    if ([note.name isEqual: kMRMLocationToolsDidUpdateLocation]) {
-        CLLocation *newLoc = [[note.userInfo objectForKey:kMRMLocationToolsUpdatedLocationKey] lastObject];
-        if (newLoc) {
-            self.fromLoc = newLoc;
-            [self locationInformationDidChangeProperty:kFromLoc];
-        } else {
-            NSLog(@"EMPTY LOC");
-        }
-        
-    }
-    if ([note.name isEqual: @"distanceCalculated"]) {
-        [self.travelDistance setText:[[[note.userInfo objectForKey:@"elements"] objectForKey:@"distance"] objectForKey:@"text"]];
-        [self.travelTime setText: [[[note.userInfo objectForKey:@"elements"] objectForKey:@"duration"] objectForKey:@"text"]];
-        
-        [self showTravelTime:[[[note.userInfo objectForKey:@"elements"] objectForKey:@"distance"] objectForKey:@"text"]
-                 andDistance:[[[note.userInfo objectForKey:@"elements"] objectForKey:@"duration"] objectForKey:@"text"]];
-    }
-    if ([note.name isEqual: @"peopleToContactDidChange"]) {
-        self.peopleToContact = note.userInfo;
-    }
+#pragma mark - debugging
 
-}
-
-- (void)showTravelTime:(NSString *)travelTime andDistance:(NSString *)travelDistance
+- (void)logDataForView:(UIView *)view andStatus:(NSString *)status andViewName:(NSString *)viewName
 {
-    [self.travelDistance setText:travelDistance];
-    [self.travelTime setText: travelTime];
-    
-    [self.travelDistanceIcon setHidden:NO];
-    [self.travelDistance setHidden:NO];
-    [self.travelTimeIcon setHidden:NO];
-    [self.travelTime setHidden:NO];
+    NSLog(@"STATUS, %@", status);
+    NSLog(@"%@ Step Center X %f", viewName, view.center.x);
+    NSLog(@"%@ Step Center Y %f", viewName, view.center.y);
+    NSLog(@"%@ Step Origin X %f", viewName, view.frame.origin.x);
+    NSLog(@"%@ Step Origin Y %f", viewName, view.frame.origin.y);
+    NSLog(@"%@ Step WIDTH %f", viewName, view.frame.size.width);
+    NSLog(@"%@ Step Height %f", viewName, view.frame.size.height);
+    NSLog(@"%@ Step Layer Position X %f", viewName, view.layer.position.x);
+    NSLog(@"%@ Step Layer Position Y %f", viewName, view.layer.position.y);
 }
 
-
-- (void)locationInformationDidChangeProperty:(NSString *)property {
-    NSLog(@"TRIGGERED %@", property);
-    if ([property isEqualToString:kToLoc]) {
-        NSLog(@"%@ --- %f", property, self.toLoc.coordinate.latitude);
-        if (self.toLoc) {
-            GMSCoordinateBounds *bounds = [[GMSCoordinateBounds alloc] initWithCoordinate:_fromLoc.coordinate
-                                                                               coordinate:_toLoc.coordinate];
-            
-            [self updateMapViewWithLocationOrBounds:bounds];
-            [self setMapMarkerWithLocation:_toLoc andMarkerType:nil];
-
-            MRMGoogleDistanceMatrixService *matrixService = [[MRMGoogleDistanceMatrixService alloc]
-                                                             initWithNotificationName:@"distanceCalculated"];
-            [matrixService distanceFromOrigin:[NSString stringWithFormat:@"%f,%f", _fromLoc.coordinate.latitude, _fromLoc.coordinate.longitude]
-                                toDestination:[NSString stringWithFormat:@"%f,%f", _toLoc.coordinate.latitude, _toLoc.coordinate.longitude]];
-            
-        }
-    }
-    else if ([property isEqualToString:kToLocAddress]) {
-        NSLog(@"%@ --- %@", property, self.toLocAddress);
-        if (self.toLocAddress) {
-            GCGeocodingService *forwardGeocoder = [[GCGeocodingService alloc] init];
-            [forwardGeocoder geocodeAddress:self.toLocAddress
-                               withCallback:@selector(didReceiveForwardGeocode:)
-                               withDelegate:self];
-        }
-    }
-    else if ([property isEqualToString:kFromLoc]) {
-        NSLog(@"%@ --- %f", property, self.fromLoc.coordinate.latitude);
-        if (self.fromLoc) {
-            [self updateMapViewWithLocationOrBounds:self.fromLoc];
-            [self setMapMarkerWithLocation:self.fromLoc andMarkerType:nil];
-            [self reverseGeoCodeLocation:self.fromLoc];
-            [_locationTool stop];
-        }
-
-    }
-    else if ([property isEqualToString:kFromLocAddress]) {
-        NSLog(@"%@ --- %@", property, self.fromLocAddress);
-        if (self.fromLocAddress) {
-            // Set the label.
-            [self.fromVal setText:self.fromLocAddress];
-        }
-    }
-    
-}
 
 
 
