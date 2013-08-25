@@ -50,7 +50,10 @@
     [self registerObservers];
     
     // Start asking for location.
-    [_locationTool start];
+
+    // Todo use geofencing.
+    //[_locationTool start];
+    [_locationTool startWithTimeInterval:10];
 
     
 }
