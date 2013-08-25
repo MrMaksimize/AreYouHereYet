@@ -13,11 +13,7 @@
 @end
 
 @implementation AYHTConfRideViewController {
-    CLLocation *_fromLoc;
-    CLLocation *_toLoc;
-    NSString *_fromLocAddress;
-    NSString *_toLocAddress;
-    FPPopoverController *_peoplePopover;
+    NSArray *observedKeyPaths;
 }
 
 #pragma mark - View LifeCycle
@@ -28,11 +24,19 @@
 {
     if ((self = [super initWithCoder:aDecoder])) {
         _locationTool = [MRMLocationTools sharedLocationTool];
-        _fromLoc = _toLoc = nil;
-        _fromLocAddress = _toLocAddress = nil;
         // Clear out people to contact dictionary on launch.
         _peopleToContact = [[NSDictionary alloc] init];
         _rideInProgress = NO;
+        
+        
+        observedKeyPaths = [NSArray arrayWithObjects:
+                             kFromLoc,
+                             kToLoc,
+                             kFromLocAddress,
+                             kToLocAddress,
+                             kTravelTimeValue,
+                             nil];
+
     }
     return self;
 }
@@ -44,11 +48,11 @@
     
     _ride = [[AYHTRide alloc] init];
     [self registerObservers];
-
+    
     // Start asking for location.
     [_locationTool start];
 
-
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -81,12 +85,11 @@
 -(void)registerObservers
 {
     // Add KVO Observers.
-    [self.ride addObserver:self forKeyPath:kFromLoc options:NSKeyValueObservingOptionOld context:nil];
-    [self.ride addObserver:self forKeyPath:kFromLocAddress options:NSKeyValueObservingOptionOld context:nil];
-    [self.ride addObserver:self forKeyPath:kToLoc options:NSKeyValueObservingOptionOld context:nil];
-    [self.ride addObserver:self forKeyPath:kToLocAddress options:NSKeyValueObservingOptionOld context:nil];
-    [self.ride addObserver:self forKeyPath:kTravelTimeValue options:NSKeyValueObservingOptionOld context:nil];
-
+    
+    for (NSString *keyPath in observedKeyPaths) {
+        [self.ride addObserver:self forKeyPath:keyPath options:NSKeyValueObservingOptionOld context:nil];
+    }
+    
     // Register for Notifications.
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(didReceiveUpdatedLocationNotification:)
@@ -107,7 +110,7 @@
 {
 
     id oldValue = [change objectForKey:@"old"];
-
+    
     // Current location updated.
     if ([keyPath isEqualToString:kFromLoc] &&
         ![self.ride locationAtKeyPath:keyPath isEqualTo:(CLLocation *)oldValue])
@@ -124,13 +127,13 @@
         ![self.ride locationAtKeyPath:keyPath isEqualTo:(CLLocation *)oldValue]) {
         [self updateMapAndMarkers];
     }
-
+    
     if ([keyPath isEqualToString:kTravelTimeValue]) {
         [self showTravelTime:self.ride.travelTimeString andDistance:self.ride.distanceString];
     }
 
-
-
+    
+    
     [self.ride refreshWithChangedKeyPath:keyPath andKnownOldValueOrNil:oldValue];
 }
 
@@ -138,6 +141,12 @@
 {
     // Deregister for Notifications.
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    // Remove KVO Observers.
+    
+    for (NSString *keyPath in observedKeyPaths) {
+        [self.ride removeObserver:self forKeyPath:keyPath];
+    }
 }
 
 #pragma mark - Visuals
@@ -173,7 +182,7 @@
 {
     [self.travelDistance setText:travelDistance];
     [self.travelTime setText: travelTime];
-
+    
     [self.travelDistanceIcon setHidden:NO];
     [self.travelDistance setHidden:NO];
     [self.travelTimeIcon setHidden:NO];
@@ -239,12 +248,12 @@
     if (currentTextField == self.toVal) {
         self.ride.toLocAddress = currentTextField.text;
     }
-
+    
 }
 
 - (IBAction)buttonTouchUpInside:(id)sender {
     UIButton *buttonPressed = (UIButton*)sender;
-
+    
     if (buttonPressed == self.nextButton) {
         [self transitionToViewNumber:[NSNumber numberWithInt:1]];
     }
@@ -263,7 +272,7 @@
 - (void)didReceiveUpdatedLocationNotification:(NSNotification *)note
 {
     if ([note.name isEqual: kMRMLocationToolsDidUpdateLocation]) {
-        CLLocation *newLoc = [[note.userInfo objectForKey:kMRMLocationToolsUpdatedLocationKey] lastObject];
+        CLLocation *newLoc = [_locationTool getNewLocation];
         if (newLoc) {
             self.ride.fromLoc = newLoc;
         } else {
@@ -280,7 +289,7 @@
         // If the people to contact was blank before.
         self.peopleToContact = note.userInfo;
     }
-
+    
 }
 
 
@@ -293,26 +302,26 @@
         [self updateMapViewWithLocationOrBounds:self.ride.fromLoc];
         [self setMapMarkerWithLocation:self.ride.fromLoc andMarkerType:nil];
     }
-
+    
     // No Current location, but a to location.
     else if (self.ride.toLoc && self.ride.fromLoc == nil) {
         [self updateMapViewWithLocationOrBounds:self.ride.toLoc];
         [self setMapMarkerWithLocation:self.ride.toLoc andMarkerType:nil];
     }
-
+    
     // Both
     else {
         GMSCoordinateBounds *bounds = [[GMSCoordinateBounds alloc]
                                        initWithCoordinate:self.ride.fromLoc.coordinate
                                        coordinate:self.ride.toLoc.coordinate];
-
+        
         [self updateMapViewWithLocationOrBounds:bounds];
         [self setMapMarkerWithLocation:self.ride.toLoc andMarkerType:nil];
         [self setMapMarkerWithLocation:self.ride.fromLoc andMarkerType:nil];
-
-
+        
+        
     }
-
+    
 }
 
 - (void)updateMapViewWithLocationOrBounds:(id)updatedLocation
