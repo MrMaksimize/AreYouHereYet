@@ -17,7 +17,6 @@
 {
     self = [super init];
     
-    // Set up instance variables.
     _fromLoc = nil;
     _toLoc = nil;
     _fromLocAddress = nil;
@@ -27,6 +26,11 @@
     _distanceValue = nil;
     _travelTimeValue = nil;
     _travelTimeString = nil;
+    
+    // Clear out people to contact dictionary on launch.
+    _peopleToContact = [[NSDictionary alloc] init];
+    
+    _notificationTable = nil;
     
     [self registerObservers];
     
@@ -78,6 +82,19 @@
             [self registerObservers];
         }
     }
+}
+
+- (void)buildNotificationTable
+{
+    NSMutableArray *tempNotificationTable = [[NSMutableArray alloc] init];
+    int initialValue = [self.travelTimeValue intValue];
+    int currentValue = initialValue;
+    // @todo #define 180
+    while (currentValue > 180) {
+        currentValue = (int)currentValue / 2;
+        [tempNotificationTable addObject:[NSNumber numberWithInt:currentValue]];
+    }
+    self.notificationTable = [NSArray arrayWithArray:tempNotificationTable];
 }
 
 - (void)updateProperty:(NSString *)property

@@ -43,9 +43,6 @@
 
 @property (nonatomic, strong) AYHTRide *ride;
 
-// Main place of record for people to contact.
-@property (nonatomic, strong) NSDictionary *peopleToContact;
-
 // Location Tool.
 @property (nonatomic, strong) MRMLocationTools *locationTool;
 

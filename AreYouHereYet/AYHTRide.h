@@ -30,9 +30,16 @@
 @property (nonatomic, strong) NSNumber *travelTimeValue;
 @property (nonatomic, strong) NSString *travelTimeString;
 
-@property BOOL *inProgress;
+// Main place of record for people to contact.
+@property (nonatomic, strong) NSDictionary *peopleToContact;
+@property (nonatomic, strong) NSArray *notificationTable; 
+
+
+@property BOOL inProgress;
+@property int  lastNotification;
 
 - (void)refreshWithChangedKeyPath:(NSString *)keyPathOrNil andKnownOldValueOrNil:(id)oldValue;
+- (void)buildNotificationTable;
 - (BOOL)locationAtKeyPath:(NSString *)keyPath isEqualTo:(CLLocation *)location;
 
 @end

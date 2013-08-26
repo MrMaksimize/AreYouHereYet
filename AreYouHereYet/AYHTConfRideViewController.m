@@ -24,8 +24,6 @@
 {
     if ((self = [super initWithCoder:aDecoder])) {
         _locationTool = [MRMLocationTools sharedLocationTool];
-        // Clear out people to contact dictionary on launch.
-        _peopleToContact = [[NSDictionary alloc] init];
         _rideInProgress = NO;
         
         
@@ -50,7 +48,7 @@
     [self registerObservers];
     
     // Start asking for location.
-
+    
     // Todo use geofencing.
     //[_locationTool start];
     [_locationTool startWithTimeInterval:10];
@@ -133,11 +131,17 @@
     
     if ([keyPath isEqualToString:kTravelTimeValue]) {
         [self showTravelTime:self.ride.travelTimeString andDistance:self.ride.distanceString];
+        [self dispatchTextsAsNeeded];
     }
 
     
     
     [self.ride refreshWithChangedKeyPath:keyPath andKnownOldValueOrNil:oldValue];
+}
+
+-(void)dispatchTextsAsNeeded
+{
+    NSLog(@"dispatching texts");
 }
 
 -(void)deRegisterObservers
@@ -265,9 +269,18 @@
     }
     else if (buttonPressed == self.startRideButton) {
         // @todo - separate method.
-        NSLog(@"INITIATING RIDE");
-        self.rideInProgress = YES;
+       
+        [self initiateRide];
     }
+}
+
+- (void)initiateRide
+{
+    NSLog(@"INITIATING RIDE");
+    self.rideInProgress = YES;
+    self.ride.inProgress = YES;
+    [self.ride buildNotificationTable];
+    NSLog(@"notification Table %@", self.ride.notificationTable);
 }
 
 #pragma mark - Notification Receivers
@@ -290,7 +303,7 @@
 - (void)receiveNotification:(NSNotification *)note {
     if ([note.name isEqual: @"peopleToContactDidChange"]) {
         // If the people to contact was blank before.
-        self.peopleToContact = note.userInfo;
+        self.ride.peopleToContact = note.userInfo;
     }
     
 }
@@ -364,7 +377,7 @@
 #pragma mark - PopUp
 - (void)setUpAndDisplayPeoplePicker
 {
-    AYHTSemiModalViewController *controller = [[AYHTSemiModalViewController alloc] initWithContactList:_peopleToContact];
+    AYHTSemiModalViewController *controller = [[AYHTSemiModalViewController alloc] initWithContactList:self.ride.peopleToContact];
     
     [self presentSemiViewController:controller withOptions:@{
      KNSemiModalOptionKeys.pushParentBack    : @(YES),
