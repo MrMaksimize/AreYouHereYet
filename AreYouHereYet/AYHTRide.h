@@ -36,10 +36,11 @@
 
 
 @property BOOL inProgress;
-@property int  lastNotification;
+@property int  lastNotificationIndex;
 
 - (void)refreshWithChangedKeyPath:(NSString *)keyPathOrNil andKnownOldValueOrNil:(id)oldValue;
 - (void)buildNotificationTable;
 - (BOOL)locationAtKeyPath:(NSString *)keyPath isEqualTo:(CLLocation *)location;
+- (BOOL)shouldDispatchText;
 
 @end

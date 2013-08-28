@@ -31,6 +31,7 @@
     _peopleToContact = [[NSDictionary alloc] init];
     
     _notificationTable = nil;
+    _lastNotificationIndex = 0;
     
     [self registerObservers];
     
@@ -97,6 +98,18 @@
     self.notificationTable = [NSArray arrayWithArray:tempNotificationTable];
 }
 
+- (BOOL)shouldDispatchText
+{
+    if (self.inProgress && [self.notificationTable count] > _lastNotificationIndex) {
+        if (self.travelTimeValue <= [self.notificationTable objectAtIndex:_lastNotificationIndex]) {
+            _lastNotificationIndex = _lastNotificationIndex + 1;
+            return YES;
+        }
+    }
+
+    return NO;
+}
+
 - (void)updateProperty:(NSString *)property
 {
     NSLog(@"updating %@", property);
@@ -127,7 +140,6 @@
 
 - (void)reverseGeoCodeLocation:(CLLocation *)locationToGeocode
 {
-    NSLog(@"REVERSE GEOCODING");
     CLLocationCoordinate2D coordinatesToGeoCode =
         CLLocationCoordinate2DMake(locationToGeocode.coordinate.latitude, locationToGeocode.coordinate.longitude);
     

@@ -51,7 +51,7 @@
     
     // Todo use geofencing.
     //[_locationTool start];
-    [_locationTool startWithTimeInterval:10];
+    [_locationTool startWithTimeInterval:1];
 
     
 }
@@ -141,7 +141,10 @@
 
 -(void)dispatchTextsAsNeeded
 {
-    NSLog(@"dispatching texts");
+    if (self.ride.inProgress && [self.ride shouldDispatchText]) {
+        NSLog(@"IM TEXTING BITCH");
+    }
+
 }
 
 -(void)deRegisterObservers
@@ -342,7 +345,6 @@
 
 - (void)updateMapViewWithLocationOrBounds:(id)updatedLocation
 {
-    NSLog(@"LOC UPDATE");
     if (updatedLocation != nil) {
         if ([updatedLocation isKindOfClass:[CLLocation class]]) {
             CLLocation *targetLoc = (CLLocation *)updatedLocation;

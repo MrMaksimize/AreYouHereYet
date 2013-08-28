@@ -18,6 +18,7 @@
 		C34CB5BA17B6ABF8004D8F3C /* AYHTConfRideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C34CB5B917B6ABF8004D8F3C /* AYHTConfRideViewController.m */; };
 		C34CB5BD17B6B24E004D8F3C /* AYHTMapControl.m in Sources */ = {isa = PBXBuildFile; fileRef = C34CB5BC17B6B24E004D8F3C /* AYHTMapControl.m */; };
 		C37519E017C5AC3A000AA0EE /* AYHTRide.m in Sources */ = {isa = PBXBuildFile; fileRef = C37519DF17C5AC3A000AA0EE /* AYHTRide.m */; };
+		C380AB4717CD845700A68D54 /* New York City Marathon.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C380AB4617CD845700A68D54 /* New York City Marathon.gpx */; };
 		C3B451BC17C0708C00CAEBAD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B451BB17C0708C00CAEBAD /* QuartzCore.framework */; };
 		C3EACC8417C012BF00E58252 /* sms@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3EACC8317C012BE00E58252 /* sms@2x.png */; };
 		C3EACCA317C05D8C00E58252 /* FPPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EACC9D17C05D8C00E58252 /* FPPopoverController.m */; };
@@ -65,6 +66,7 @@
 		C34CB5BC17B6B24E004D8F3C /* AYHTMapControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYHTMapControl.m; sourceTree = "<group>"; };
 		C37519DB17C59AEE000AA0EE /* AYHTRide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYHTRide.h; sourceTree = "<group>"; };
 		C37519DF17C5AC3A000AA0EE /* AYHTRide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYHTRide.m; sourceTree = "<group>"; };
+		C380AB4617CD845700A68D54 /* New York City Marathon.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "New York City Marathon.gpx"; sourceTree = "<group>"; };
 		C3B451BB17C0708C00CAEBAD /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C3EACC8317C012BE00E58252 /* sms@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sms@2x.png"; sourceTree = "<group>"; };
 		C3EACC9B17C05D8B00E58252 /* ARCMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARCMacros.h; path = FPPopover/ARCMacros.h; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 		C3F92F1E17ADCFF60031A543 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C380AB4617CD845700A68D54 /* New York City Marathon.gpx */,
 				C3F92F1F17ADCFF60031A543 /* AreYouHereYet-Info.plist */,
 				C3F92F2017ADCFF60031A543 /* InfoPlist.strings */,
 				C3F92F2317ADCFF60031A543 /* main.m */,
@@ -318,6 +321,7 @@
 				C3F362AC17BF1EB50033798C /* Watches@2x.png in Resources */,
 				C3EACC8417C012BF00E58252 /* sms@2x.png in Resources */,
 				C31E0E8217C1115600D15971 /* AYHTSemiModalViewController.xib in Resources */,
+				C380AB4717CD845700A68D54 /* New York City Marathon.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
