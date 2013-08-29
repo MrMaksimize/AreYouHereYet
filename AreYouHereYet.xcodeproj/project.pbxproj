@@ -200,8 +200,6 @@
 		C3F92F0B17ADCFF60031A543 = {
 			isa = PBXGroup;
 			children = (
-				C3B451BB17C0708C00CAEBAD /* QuartzCore.framework */,
-				C3EACCAA17C06B4200E58252 /* AddressBookUI.framework */,
 				C3F92F1D17ADCFF60031A543 /* AreYouHereYet */,
 				C3F92F1617ADCFF60031A543 /* Frameworks */,
 				C3F92F1517ADCFF60031A543 /* Products */,
@@ -221,6 +219,8 @@
 		C3F92F1617ADCFF60031A543 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C3B451BB17C0708C00CAEBAD /* QuartzCore.framework */,
+				C3EACCAA17C06B4200E58252 /* AddressBookUI.framework */,
 				C34334C417B059C20047B330 /* MapKit.framework */,
 				C3F92F4517ADD84F0031A543 /* CoreLocation.framework */,
 				C3F92F1717ADCFF60031A543 /* UIKit.framework */,

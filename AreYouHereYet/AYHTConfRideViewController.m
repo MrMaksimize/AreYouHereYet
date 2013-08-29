@@ -8,6 +8,10 @@
 
 #import "AYHTConfRideViewController.h"
 
+#define kParseCloudFunctionURL @"https://api.parse.com/1/functions"
+#define kParseAppID @"0MOgbOrgznYvhvbHv6bN9Zce969wp1065dsH2ujf"
+#define kParseClientKey @"srDyBgrVSFieYhc2OPfymWwOYgDrFyCMyNCKwne7"
+
 @interface AYHTConfRideViewController ()
 
 @end
@@ -46,7 +50,6 @@
     
     _ride = [[AYHTRide alloc] init];
     [self registerObservers];
-    
     // Start asking for location.
     
     // Todo use geofencing.
@@ -142,7 +145,7 @@
 -(void)dispatchTextsAsNeeded
 {
     if (self.ride.inProgress && [self.ride shouldDispatchText]) {
-        NSLog(@"IM TEXTING BITCH");
+        [[MRMTwilioSMS sharedSMSOperator] sendMessageToNumber:@"+17736777755" withBody:@"hello"];
     }
 
 }

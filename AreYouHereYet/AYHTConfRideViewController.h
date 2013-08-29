@@ -19,6 +19,8 @@
 #import "UIViewController+KNSemiModal.h"
 #import "AYHTSemiModalViewController.h"
 #import "AYHTRide.h"
+#import <AFNetworking/AFJSONRequestOperation.h>
+#import "MRMTwilioSMS.h"
 
 
 @interface AYHTConfRideViewController : UIViewController
