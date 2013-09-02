@@ -6,17 +6,17 @@
 //  Copyright (c) 2013 Maksim Pecherskiy. All rights reserved.
 //
 
-#import "AYHTConfRideViewController.h"
+#import "AYHTRootViewController.h"
 
 #define kParseCloudFunctionURL @"https://api.parse.com/1/functions"
 #define kParseAppID @"0MOgbOrgznYvhvbHv6bN9Zce969wp1065dsH2ujf"
 #define kParseClientKey @"srDyBgrVSFieYhc2OPfymWwOYgDrFyCMyNCKwne7"
 
-@interface AYHTConfRideViewController ()
+@interface AYHTRootViewController ()
 
 @end
 
-@implementation AYHTConfRideViewController {
+@implementation AYHTRootViewController {
     NSArray *observedKeyPaths;
     GMSMarker *currentLocationMarker;
     GMSMarker *destinationLocationMarker;
@@ -24,41 +24,47 @@
 
 #pragma mark - View LifeCycle
 
-// @todo - find out why this gets called instead of init.
-
-- (id)initWithCoder:(NSCoder *)aDecoder
+- (id)init
 {
-    if ((self = [super initWithCoder:aDecoder])) {
+    if ((self = [super init])) {
         _locationTool = [MRMLocationTools sharedLocationTool];
         _rideInProgress = NO;
-        
-        
-        observedKeyPaths = [NSArray arrayWithObjects:
-                             kFromLoc,
-                             kToLoc,
-                             kFromLocAddress,
-                             kToLocAddress,
-                             kTravelTimeValue,
-                             nil];
 
+
+        observedKeyPaths = [NSArray arrayWithObjects:
+                            kFromLoc,
+                            kToLoc,
+                            kFromLocAddress,
+                            kToLocAddress,
+                            kTravelTimeValue,
+                            nil];
+        return self;
     }
-    return self;
+    return nil;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self setUpVisuals];
-    
+    // Set Title.
+    self.title = NSLocalizedString(@"Are You Here Yet?!?!", nil);
+    //Set Bar Items.
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
+                                              initWithImage:[UIImage imageNamed:@"glyphiconsCogWheel.png"]
+                                              style:UIBarButtonItemStylePlain
+                                              target:self
+                                              action:@selector(setUpAndDisplayPeoplePicker)];
+
+
+
     _ride = [[AYHTRide alloc] init];
     [self registerObservers];
     // Start asking for location.
-    
+
     // Todo use geofencing.
     //[_locationTool start];
     [_locationTool startWithTimeInterval:1];
-
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -70,12 +76,12 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    
+
     // De Register for Notifications.
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:kMRMLocationToolsDidUpdateLocation
                                                   object:nil];
-    
+
     // Stop Location tool.
     [_locationTool stop];
 }
@@ -91,11 +97,11 @@
 -(void)registerObservers
 {
     // Add KVO Observers.
-    
+
     for (NSString *keyPath in observedKeyPaths) {
         [self.ride addObserver:self forKeyPath:keyPath options:NSKeyValueObservingOptionOld context:nil];
     }
-    
+
     // Register for Notifications.
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(didReceiveUpdatedLocationNotification:)
@@ -116,7 +122,7 @@
 {
 
     id oldValue = [change objectForKey:@"old"];
-    
+
     // Current location updated.
     if ([keyPath isEqualToString:kFromLoc] &&
         ![self.ride locationAtKeyPath:keyPath isEqualTo:(CLLocation *)oldValue])
@@ -133,21 +139,21 @@
         ![self.ride locationAtKeyPath:keyPath isEqualTo:(CLLocation *)oldValue]) {
         [self updateMapAndMarkers];
     }
-    
+
     if ([keyPath isEqualToString:kTravelTimeValue]) {
         [self showTravelTime:self.ride.travelTimeString andDistance:self.ride.distanceString];
         [self dispatchTextsAsNeeded];
     }
 
-    
-    
+
+
     [self.ride refreshWithChangedKeyPath:keyPath andKnownOldValueOrNil:oldValue];
 }
 
 -(void)dispatchTextsAsNeeded
 {
     //if (self.ride.inProgress && [self.ride shouldDispatchText]) {
-        NSLog(@"%@", self.ride.peopleToContact);
+    NSLog(@"%@", self.ride.peopleToContact);
     for (NSDictionary *personDictionary in [self.ride.peopleToContact allValues]) {
         NSLog(@"%@", personDictionary);
         // FAKE VARIABLES: big TODO
@@ -155,7 +161,7 @@
         NSString *senderGender = @"M";
 
         NSString *pronoun = [senderGender isEqualToString:@"F"] ? @"she" : @"he";
-        
+
         NSString *messageToSend = [NSString stringWithFormat:
                                    @"Hey %@! This is an automated message from %@'s AreYouHereYet App.  Just wanted to let you know %@ will be there in about %@",
                                    [personDictionary objectForKey:@"name"],
@@ -172,10 +178,10 @@
                                  withTemplate:@""];
 
         NSLog(@"NUMBER: %@; MESSAGE: %@", phoneNumber, messageToSend);
-        
+
         //[[MRMTwilioSMS sharedSMSOperator] sendMessageToNumber:@"" withBody:messageToSend];
     }
-        //[[MRMTwilioSMS sharedSMSOperator] sendMessageToNumber:@"+17736777755" withBody:@"hello"];
+    //[[MRMTwilioSMS sharedSMSOperator] sendMessageToNumber:@"+17736777755" withBody:@"hello"];
     //}
 
 }
@@ -184,9 +190,9 @@
 {
     // Deregister for Notifications.
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    
+
     // Remove KVO Observers.
-    
+
     for (NSString *keyPath in observedKeyPaths) {
         [self.ride removeObserver:self forKeyPath:keyPath];
     }
@@ -201,21 +207,22 @@
     self.navigationController.navigationBar.titleTextAttributes = @{UITextAttributeFont: [UIFont boldFlatFontOfSize:18],
                                                                     UITextAttributeTextColor: [UIColor whiteColor]};
     [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor amethystColor]];
-    
-    // Overall Views.
-    [self.completionProgressView configureFlatProgressViewWithTrackColor:[UIColor amethystColor] progressColor:[UIColor peterRiverColor]];
-    
+
+    [UIBarButtonItem configureFlatButtonsWithColor:[UIColor wisteriaColor]
+                                  highlightedColor:[UIColor amethystColor]
+                                      cornerRadius:3];
+
     // Second Step View.
     [self.secondStepView setHidden:YES];
     [self.secondStepView setFrame:(CGRectMake(self.view.frame.size.width, 0, self.view.frame.size.width, self.view.frame.size.height))];
-    
+
     // Controls on top of map.
     UIColor *mapControlColor = [UIColor cloudsColor];
     [self.travelFromLabel setBackgroundColor:mapControlColor];
     [self.travelToLabel setBackgroundColor:mapControlColor];
     [self.fromVal setBackgroundColor:mapControlColor];
     [self.toVal setBackgroundColor:mapControlColor];
-    
+
     // Labels on top of map.
     [self.travelDistance setBackgroundColor:mapControlColor];
     [self.travelTime setBackgroundColor:mapControlColor];
@@ -225,7 +232,7 @@
 {
     [self.travelDistance setText:travelDistance];
     [self.travelTime setText: travelTime];
-    
+
     [self.travelDistanceIcon setHidden:NO];
     [self.travelDistance setHidden:NO];
     [self.travelTimeIcon setHidden:NO];
@@ -240,7 +247,7 @@
                      withDuration:(float)animationDuration
                  withAnimationKey:(NSString *)animationKey
 {
-	
+
 	SKBounceAnimation *bounceAnimation = [SKBounceAnimation animationWithKeyPath:keyPath];
 	bounceAnimation.fromValue = initialValue;
 	bounceAnimation.toValue = finalValue;
@@ -248,9 +255,9 @@
 	bounceAnimation.numberOfBounces = 0;
 	//bounceAnimation.stiffness = SKBounceAnimationStiffnessLight;
 	bounceAnimation.shouldOvershoot = YES;
-    
+
 	[viewToAnimate.layer addAnimation:bounceAnimation forKey:animationKey];
-    
+
 	[viewToAnimate.layer setValue:finalValue forKeyPath:keyPath];
 }
 
@@ -267,36 +274,67 @@
                          withFinalValue:[NSNumber numberWithFloat:self.firstStepView.center.x - 320] // @todo - think how this will affect flipped screen
                            withDuration:1.5f
                        withAnimationKey:@"firstStepRemoveAnimation"];
-        
+
         [self.secondStepView setHidden:NO];
-        
+
         [self addBounceAnimationForView:self.secondStepView
                             withKeyPath:@"position.x"
                        withInitialValue:[NSNumber numberWithFloat:self.secondStepView.center.x]
                          withFinalValue:[NSNumber numberWithFloat:self.secondStepView.center.x - 320]
                            withDuration:1.5f
                        withAnimationKey:@"secondStepAddAnimation"];
-        
-        
-        
+
+
+
         [self logDataForView:self.firstStepView andStatus:@"POST ANIMATION" andViewName:@"FIRST STEP"];
         [self logDataForView:self.secondStepView andStatus:@"POST ANIMATION" andViewName:@"SECOND STEP"];
     }
 }
 
-#pragma mark - Actions
+#pragma mark - UITextFieldDelegate
 
-- (IBAction)textFieldEditingDidEndOnExit:(id)sender {
-    UITextField *currentTextField = (UITextField *)sender;
-    if (currentTextField == self.toVal) {
-        self.ride.toLocAddress = currentTextField.text;
-    }
-    
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
+{
+    return [self textFieldPassesValidation:textField];
 }
+
+- (BOOL)textFieldShouldReturn:(UITextField *) textField
+{
+    return [self textFieldPassesValidation:textField];
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if (textField == self.toVal) {
+        self.ride.toLocAddress = textField.text;
+    }
+}
+
+
+
+- (BOOL)textFieldPassesValidation:(UITextField*)textField
+{
+    // Prevent blank entries on ToVal textfield.
+    if (textField == self.toVal) {
+         if (textField.text == nil || [textField.text isEqualToString:@""]) {
+             return NO;
+         }
+    }
+    return YES;
+}
+
+
+
+// Resign first responder when user touches somewhere else.
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [self.toVal resignFirstResponder];
+}
+
+#pragma mark - Actions
 
 - (IBAction)buttonTouchUpInside:(id)sender {
     UIButton *buttonPressed = (UIButton*)sender;
-    
+
     if (buttonPressed == self.nextButton) {
         [self transitionToViewNumber:[NSNumber numberWithInt:1]];
     }
@@ -305,7 +343,7 @@
     }
     else if (buttonPressed == self.startRideButton) {
         // @todo - separate method.
-       
+
         [self initiateRide];
     }
 }
@@ -343,7 +381,7 @@
         // Temp
         [self dispatchTextsAsNeeded];
     }
-    
+
 }
 
 
@@ -356,10 +394,10 @@
         [self updateMapViewWithLocationOrBounds:self.ride.fromLoc];
         //[self setMapMarkerWithLocation:self.ride.fromLoc andMarkerType:nil];
         currentLocationMarker = [self updatedMarkerWithOriginalMarker:currentLocationMarker
-                                                          withLocation:self.ride.fromLoc
-                                                           withUseCase:@"currentLocation"];
+                                                         withLocation:self.ride.fromLoc
+                                                          withUseCase:@"currentLocation"];
     }
-    
+
     // No Current location, but a to location.
     else if (self.ride.toLoc && self.ride.fromLoc == nil) {
         [self updateMapViewWithLocationOrBounds:self.ride.toLoc];
@@ -368,13 +406,13 @@
                                                              withLocation:self.ride.toLoc
                                                               withUseCase:@"destinationLocation"];
     }
-    
+
     // Both
     else {
         GMSCoordinateBounds *bounds = [[GMSCoordinateBounds alloc]
                                        initWithCoordinate:self.ride.fromLoc.coordinate
                                        coordinate:self.ride.toLoc.coordinate];
-        
+
         [self updateMapViewWithLocationOrBounds:bounds];
         currentLocationMarker = [self updatedMarkerWithOriginalMarker:currentLocationMarker
                                                          withLocation:self.ride.fromLoc
@@ -382,9 +420,9 @@
         destinationLocationMarker = [self updatedMarkerWithOriginalMarker:destinationLocationMarker
                                                              withLocation:self.ride.toLoc
                                                               withUseCase:@"destinationLocation"];
-        
+
     }
-    
+
 }
 
 - (void)updateMapViewWithLocationOrBounds:(id)updatedLocation
@@ -401,14 +439,14 @@
             [self.mapView animateWithCameraUpdate:updated];
 
         }
-        
+
     }
     // @todo else
 }
 
 
 - (GMSMarker *)updatedMarkerWithOriginalMarker:(GMSMarker *)marker
-                                   withLocation:(CLLocation *)markerLocation
+                                  withLocation:(CLLocation *)markerLocation
                                    withUseCase:(NSString *)useCase
 
 {
@@ -432,12 +470,17 @@
 - (void)setUpAndDisplayPeoplePicker
 {
     AYHTSemiModalViewController *controller = [[AYHTSemiModalViewController alloc] initWithContactList:self.ride.peopleToContact];
-    
+
     [self presentSemiViewController:controller withOptions:@{
      KNSemiModalOptionKeys.pushParentBack    : @(YES),
      KNSemiModalOptionKeys.animationDuration : @(0.5),
      KNSemiModalOptionKeys.shadowOpacity     : @(0.3),
      }];
+}
+
+- (void)setUpAndDisplaySettings
+{
+    
 }
 
 

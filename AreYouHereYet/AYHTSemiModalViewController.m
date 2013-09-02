@@ -179,7 +179,7 @@
 }
 
 
-#pragma mark -- ABPeopleNavigationController Delegate
+#pragma mark - ABPeopleNavigationController Delegate
 
 - (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker shouldContinueAfterSelectingPerson:(ABRecordRef)person
 {

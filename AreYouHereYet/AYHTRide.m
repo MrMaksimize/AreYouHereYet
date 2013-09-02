@@ -103,7 +103,9 @@
     if (self.inProgress && [self.notificationTable count] > _lastNotificationIndex) {
         if (self.travelTimeValue <= [self.notificationTable objectAtIndex:_lastNotificationIndex]) {
             _lastNotificationIndex = _lastNotificationIndex + 1;
-            return YES;
+            if ([self.peopleToContact count] > 0) {
+                return YES;
+            }
         }
     }
 

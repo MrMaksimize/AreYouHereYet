@@ -15,12 +15,15 @@
 		C31E0E8117C1115600D15971 /* AYHTSemiModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C31E0E7F17C1115600D15971 /* AYHTSemiModalViewController.m */; };
 		C31E0E8217C1115600D15971 /* AYHTSemiModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C31E0E8017C1115600D15971 /* AYHTSemiModalViewController.xib */; };
 		C34334C517B059C20047B330 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C34334C417B059C20047B330 /* MapKit.framework */; };
-		C34CB5BA17B6ABF8004D8F3C /* AYHTConfRideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C34CB5B917B6ABF8004D8F3C /* AYHTConfRideViewController.m */; };
 		C34CB5BD17B6B24E004D8F3C /* AYHTMapControl.m in Sources */ = {isa = PBXBuildFile; fileRef = C34CB5BC17B6B24E004D8F3C /* AYHTMapControl.m */; };
 		C37519E017C5AC3A000AA0EE /* AYHTRide.m in Sources */ = {isa = PBXBuildFile; fileRef = C37519DF17C5AC3A000AA0EE /* AYHTRide.m */; };
 		C380AB4717CD845700A68D54 /* New York City Marathon.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C380AB4617CD845700A68D54 /* New York City Marathon.gpx */; };
 		C380AB4E17CD8F9F00A68D54 /* MRMTwilioSMS.m in Sources */ = {isa = PBXBuildFile; fileRef = C380AB4D17CD8F9F00A68D54 /* MRMTwilioSMS.m */; };
 		C3B451BC17C0708C00CAEBAD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B451BB17C0708C00CAEBAD /* QuartzCore.framework */; };
+		C3CAA90517D506C1000C1165 /* currentLocation@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3CAA90417D506C1000C1165 /* currentLocation@2x.png */; };
+		C3CAA90B17D53D16000C1165 /* AYHTRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3CAA90917D53D16000C1165 /* AYHTRootViewController.m */; };
+		C3CAA90C17D53D16000C1165 /* AYHTRootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3CAA90A17D53D16000C1165 /* AYHTRootViewController.xib */; };
+		C3D17C7817D54CEC00B64C05 /* glyphiconsCogWheel.png in Resources */ = {isa = PBXBuildFile; fileRef = C3D17C7717D54CEC00B64C05 /* glyphiconsCogWheel.png */; };
 		C3EACC8417C012BF00E58252 /* sms@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3EACC8317C012BE00E58252 /* sms@2x.png */; };
 		C3EACCA317C05D8C00E58252 /* FPPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EACC9D17C05D8C00E58252 /* FPPopoverController.m */; };
 		C3EACCA417C05D8C00E58252 /* FPPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EACC9F17C05D8C00E58252 /* FPPopoverView.m */; };
@@ -41,7 +44,6 @@
 		C3F92F2A17ADCFF60031A543 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C3F92F2917ADCFF60031A543 /* Default.png */; };
 		C3F92F2C17ADCFF60031A543 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3F92F2B17ADCFF60031A543 /* Default@2x.png */; };
 		C3F92F2E17ADCFF60031A543 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3F92F2D17ADCFF60031A543 /* Default-568h@2x.png */; };
-		C3F92F3117ADCFF60031A543 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3F92F2F17ADCFF60031A543 /* MainStoryboard.storyboard */; };
 		C3F92F3417ADCFF60031A543 /* AYHTFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F92F3317ADCFF60031A543 /* AYHTFirstViewController.m */; };
 		C3F92F4617ADD84F0031A543 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3F92F4517ADD84F0031A543 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
@@ -61,8 +63,6 @@
 		C31E0E7F17C1115600D15971 /* AYHTSemiModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYHTSemiModalViewController.m; sourceTree = "<group>"; };
 		C31E0E8017C1115600D15971 /* AYHTSemiModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AYHTSemiModalViewController.xib; sourceTree = "<group>"; };
 		C34334C417B059C20047B330 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		C34CB5B817B6ABF8004D8F3C /* AYHTConfRideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYHTConfRideViewController.h; sourceTree = "<group>"; };
-		C34CB5B917B6ABF8004D8F3C /* AYHTConfRideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYHTConfRideViewController.m; sourceTree = "<group>"; };
 		C34CB5BB17B6B24E004D8F3C /* AYHTMapControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYHTMapControl.h; sourceTree = "<group>"; };
 		C34CB5BC17B6B24E004D8F3C /* AYHTMapControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYHTMapControl.m; sourceTree = "<group>"; };
 		C37519DB17C59AEE000AA0EE /* AYHTRide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYHTRide.h; sourceTree = "<group>"; };
@@ -71,6 +71,11 @@
 		C380AB4C17CD8F9F00A68D54 /* MRMTwilioSMS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MRMTwilioSMS.h; path = MRMTwilioSMS/MRMTwilioSMS.h; sourceTree = "<group>"; };
 		C380AB4D17CD8F9F00A68D54 /* MRMTwilioSMS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MRMTwilioSMS.m; path = MRMTwilioSMS/MRMTwilioSMS.m; sourceTree = "<group>"; };
 		C3B451BB17C0708C00CAEBAD /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		C3CAA90417D506C1000C1165 /* currentLocation@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "currentLocation@2x.png"; sourceTree = "<group>"; };
+		C3CAA90817D53D16000C1165 /* AYHTRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYHTRootViewController.h; sourceTree = "<group>"; };
+		C3CAA90917D53D16000C1165 /* AYHTRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYHTRootViewController.m; sourceTree = "<group>"; };
+		C3CAA90A17D53D16000C1165 /* AYHTRootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AYHTRootViewController.xib; sourceTree = "<group>"; };
+		C3D17C7717D54CEC00B64C05 /* glyphiconsCogWheel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glyphiconsCogWheel.png; sourceTree = "<group>"; };
 		C3EACC8317C012BE00E58252 /* sms@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sms@2x.png"; sourceTree = "<group>"; };
 		C3EACC9B17C05D8B00E58252 /* ARCMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARCMacros.h; path = FPPopover/ARCMacros.h; sourceTree = "<group>"; };
 		C3EACC9C17C05D8C00E58252 /* FPPopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FPPopoverController.h; path = FPPopover/FPPopoverController.h; sourceTree = "<group>"; };
@@ -99,7 +104,6 @@
 		C3F92F2917ADCFF60031A543 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		C3F92F2B17ADCFF60031A543 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		C3F92F2D17ADCFF60031A543 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		C3F92F3017ADCFF60031A543 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		C3F92F3217ADCFF60031A543 /* AYHTFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AYHTFirstViewController.h; sourceTree = "<group>"; };
 		C3F92F3317ADCFF60031A543 /* AYHTFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AYHTFirstViewController.m; sourceTree = "<group>"; };
 		C3F92F4517ADD84F0031A543 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -157,6 +161,26 @@
 			name = MRMTwilioSMS;
 			sourceTree = "<group>";
 		};
+		C3CAA90617D52C80000C1165 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C3CAA90A17D53D16000C1165 /* AYHTRootViewController.xib */,
+				C31E0E8017C1115600D15971 /* AYHTSemiModalViewController.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		C3CAA90717D52CBA000C1165 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C3CAA90817D53D16000C1165 /* AYHTRootViewController.h */,
+				C3CAA90917D53D16000C1165 /* AYHTRootViewController.m */,
+				C31E0E7E17C1115600D15971 /* AYHTSemiModalViewController.h */,
+				C31E0E7F17C1115600D15971 /* AYHTSemiModalViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		C3EACCA617C05D9500E58252 /* FPPopover */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +210,8 @@
 		C3F362A017BF1EB50033798C /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				C3D17C7717D54CEC00B64C05 /* glyphiconsCogWheel.png */,
+				C3CAA90417D506C1000C1165 /* currentLocation@2x.png */,
 				C3EACC8317C012BE00E58252 /* sms@2x.png */,
 				C3F362A117BF1EB50033798C /* Compas@2x.png */,
 				C3F362A217BF1EB50033798C /* Infinity-Loop@2x.png */,
@@ -234,20 +260,15 @@
 		C3F92F1D17ADCFF60031A543 /* AreYouHereYet */ = {
 			isa = PBXGroup;
 			children = (
-				C3EACCA617C05D9500E58252 /* FPPopover */,
-				C311E76A17BAF1D3009FAABE /* MRMLocationTools */,
 				C3F92F2617ADCFF60031A543 /* AYHTAppDelegate.h */,
 				C3F92F2717ADCFF60031A543 /* AYHTAppDelegate.m */,
-				C3F92F2F17ADCFF60031A543 /* MainStoryboard.storyboard */,
 				C37519DE17C59AF2000AA0EE /* Models */,
-				C34CB5B817B6ABF8004D8F3C /* AYHTConfRideViewController.h */,
-				C34CB5B917B6ABF8004D8F3C /* AYHTConfRideViewController.m */,
+				C3CAA90617D52C80000C1165 /* Views */,
+				C3CAA90717D52CBA000C1165 /* Controllers */,
 				C380AB4B17CD8F7200A68D54 /* MRMTwilioSMS */,
-				C31E0E7E17C1115600D15971 /* AYHTSemiModalViewController.h */,
-				C31E0E7F17C1115600D15971 /* AYHTSemiModalViewController.m */,
-				C31E0E8017C1115600D15971 /* AYHTSemiModalViewController.xib */,
-				C3F362A017BF1EB50033798C /* Graphics */,
 				C3F92F1E17ADCFF60031A543 /* Supporting Files */,
+				C311E76A17BAF1D3009FAABE /* MRMLocationTools */,
+				C3EACCA617C05D9500E58252 /* FPPopover */,
 			);
 			path = AreYouHereYet;
 			sourceTree = "<group>";
@@ -255,6 +276,7 @@
 		C3F92F1E17ADCFF60031A543 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C3F362A017BF1EB50033798C /* Graphics */,
 				C380AB4617CD845700A68D54 /* New York City Marathon.gpx */,
 				C3F92F1F17ADCFF60031A543 /* AreYouHereYet-Info.plist */,
 				C3F92F2017ADCFF60031A543 /* InfoPlist.strings */,
@@ -325,7 +347,6 @@
 				C3F92F2A17ADCFF60031A543 /* Default.png in Resources */,
 				C3F92F2C17ADCFF60031A543 /* Default@2x.png in Resources */,
 				C3F92F2E17ADCFF60031A543 /* Default-568h@2x.png in Resources */,
-				C3F92F3117ADCFF60031A543 /* MainStoryboard.storyboard in Resources */,
 				C3F362A717BF1EB50033798C /* Compas@2x.png in Resources */,
 				C3F362A817BF1EB50033798C /* Infinity-Loop@2x.png in Resources */,
 				C3F362A917BF1EB50033798C /* Map@2x.png in Resources */,
@@ -335,6 +356,9 @@
 				C3EACC8417C012BF00E58252 /* sms@2x.png in Resources */,
 				C31E0E8217C1115600D15971 /* AYHTSemiModalViewController.xib in Resources */,
 				C380AB4717CD845700A68D54 /* New York City Marathon.gpx in Resources */,
+				C3CAA90517D506C1000C1165 /* currentLocation@2x.png in Resources */,
+				C3CAA90C17D53D16000C1165 /* AYHTRootViewController.xib in Resources */,
+				C3D17C7817D54CEC00B64C05 /* glyphiconsCogWheel.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,7 +403,6 @@
 				C3F92F2417ADCFF60031A543 /* main.m in Sources */,
 				C3F92F2817ADCFF60031A543 /* AYHTAppDelegate.m in Sources */,
 				C3F92F3417ADCFF60031A543 /* AYHTFirstViewController.m in Sources */,
-				C34CB5BA17B6ABF8004D8F3C /* AYHTConfRideViewController.m in Sources */,
 				C34CB5BD17B6B24E004D8F3C /* AYHTMapControl.m in Sources */,
 				C311E77317BAF1D3009FAABE /* GCGeocodingService.m in Sources */,
 				C311E77417BAF1D3009FAABE /* MDDirectionService.m in Sources */,
@@ -391,6 +414,7 @@
 				C31E0E8117C1115600D15971 /* AYHTSemiModalViewController.m in Sources */,
 				C37519E017C5AC3A000AA0EE /* AYHTRide.m in Sources */,
 				C380AB4E17CD8F9F00A68D54 /* MRMTwilioSMS.m in Sources */,
+				C3CAA90B17D53D16000C1165 /* AYHTRootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,14 +427,6 @@
 				C3F92F2117ADCFF60031A543 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		C3F92F2F17ADCFF60031A543 /* MainStoryboard.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C3F92F3017ADCFF60031A543 /* en */,
-			);
-			name = MainStoryboard.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

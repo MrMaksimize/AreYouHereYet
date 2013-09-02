@@ -177,33 +177,6 @@
         <image name="Watches@2x.png" width="207" height="207"/>
         <image name="sms@2x.png" width="128" height="104"/>
     </resources>
-    <classes>
-        <class className="AYHTConfRideViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AYHTConfRideViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="buttonTouchUpInside:"/>
-                <relationship kind="action" name="textFieldEditingDidEndOnExit:"/>
-                <relationship kind="outlet" name="completionProgressView" candidateClass="UIProgressView"/>
-                <relationship kind="outlet" name="firstStepView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="fromVal" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="mapView" candidateClass="GMSMapView"/>
-                <relationship kind="outlet" name="messageButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="nextButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="secondStepView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="startRideButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="toVal" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="travelDistance" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="travelDistanceIcon" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="travelFromLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="travelTime" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="travelTimeIcon" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="travelToLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="GMSMapView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GMSMapView.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -8,6 +8,7 @@
 
 #import "AYHTAppDelegate.h"
 #import <GoogleMaps/GoogleMaps.h>
+#import "AYHTRootViewController.h"
 
 @implementation AYHTAppDelegate 
 
@@ -15,7 +16,17 @@
 {
     // Override point for customization after application launch.
     [GMSServices provideAPIKey:@"AIzaSyBcDzSyxSmRVsF8cZ3vGptkkr_AaIVc3JA"];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    UIViewController *initialViewController = [[AYHTRootViewController alloc] init];
+
+    self.navigationController = [[UINavigationController alloc]
+                                 initWithRootViewController:initialViewController];
+    self.window.rootViewController = self.navigationController;
+    [self.window makeKeyAndVisible];
+    
     return YES;
+
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
