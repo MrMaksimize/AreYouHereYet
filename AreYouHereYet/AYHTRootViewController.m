@@ -46,7 +46,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setUpVisuals];
     // Set Title.
     self.title = NSLocalizedString(@"Are You Here Yet?!?!", nil);
     //Set Bar Items.
@@ -54,9 +53,10 @@
                                               initWithImage:[UIImage imageNamed:@"glyphiconsCogWheel.png"]
                                               style:UIBarButtonItemStylePlain
                                               target:self
-                                              action:@selector(setUpAndDisplayPeoplePicker)];
+                                              action:@selector(setUpAndDisplaySettings)];
 
 
+    [self setUpVisuals];
 
     _ride = [[AYHTRide alloc] init];
     [self registerObservers];
@@ -481,7 +481,13 @@
 
 - (void)setUpAndDisplaySettings
 {
-    
+    AYHTSettingsViewController *controller = [[AYHTSettingsViewController alloc] init];
+    [self presentSemiViewController:controller
+                        withOptions:@{
+     KNSemiModalOptionKeys.pushParentBack    : @(YES),
+     KNSemiModalOptionKeys.animationDuration : @(0.5),
+     KNSemiModalOptionKeys.shadowOpacity     : @(0.3),
+     }];
 }
 
 

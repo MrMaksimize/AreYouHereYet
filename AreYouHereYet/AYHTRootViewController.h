@@ -21,6 +21,7 @@
 #import "AYHTRide.h"
 #import <AFNetworking/AFJSONRequestOperation.h>
 #import "MRMTwilioSMS.h"
+#import "AYHTSettingsViewController.h"
 
 
 @interface AYHTRootViewController : UIViewController

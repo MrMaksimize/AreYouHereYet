@@ -16,6 +16,8 @@
 		C31E0E8217C1115600D15971 /* AYHTContactPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C31E0E8017C1115600D15971 /* AYHTContactPickerViewController.xib */; };
 		C34334C517B059C20047B330 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C34334C417B059C20047B330 /* MapKit.framework */; };
 		C34CB5BD17B6B24E004D8F3C /* AYHTMapControl.m in Sources */ = {isa = PBXBuildFile; fileRef = C34CB5BC17B6B24E004D8F3C /* AYHTMapControl.m */; };
+		C362E4B717D551A000614476 /* AYHTSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C362E4B517D551A000614476 /* AYHTSettingsViewController.m */; };
+		C362E4B817D551A000614476 /* AYHTSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C362E4B617D551A000614476 /* AYHTSettingsViewController.xib */; };
 		C37519E017C5AC3A000AA0EE /* AYHTRide.m in Sources */ = {isa = PBXBuildFile; fileRef = C37519DF17C5AC3A000AA0EE /* AYHTRide.m */; };
 		C380AB4717CD845700A68D54 /* New York City Marathon.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C380AB4617CD845700A68D54 /* New York City Marathon.gpx */; };
 		C380AB4E17CD8F9F00A68D54 /* MRMTwilioSMS.m in Sources */ = {isa = PBXBuildFile; fileRef = C380AB4D17CD8F9F00A68D54 /* MRMTwilioSMS.m */; };
@@ -65,6 +67,9 @@
 		C34334C417B059C20047B330 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		C34CB5BB17B6B24E004D8F3C /* AYHTMapControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYHTMapControl.h; sourceTree = "<group>"; };
 		C34CB5BC17B6B24E004D8F3C /* AYHTMapControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYHTMapControl.m; sourceTree = "<group>"; };
+		C362E4B417D551A000614476 /* AYHTSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYHTSettingsViewController.h; sourceTree = "<group>"; };
+		C362E4B517D551A000614476 /* AYHTSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYHTSettingsViewController.m; sourceTree = "<group>"; };
+		C362E4B617D551A000614476 /* AYHTSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AYHTSettingsViewController.xib; sourceTree = "<group>"; };
 		C37519DB17C59AEE000AA0EE /* AYHTRide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYHTRide.h; sourceTree = "<group>"; };
 		C37519DF17C5AC3A000AA0EE /* AYHTRide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYHTRide.m; sourceTree = "<group>"; };
 		C380AB4617CD845700A68D54 /* New York City Marathon.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "New York City Marathon.gpx"; sourceTree = "<group>"; };
@@ -164,6 +169,7 @@
 		C3CAA90617D52C80000C1165 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C362E4B617D551A000614476 /* AYHTSettingsViewController.xib */,
 				C3CAA90A17D53D16000C1165 /* AYHTRootViewController.xib */,
 				C31E0E8017C1115600D15971 /* AYHTContactPickerViewController.xib */,
 			);
@@ -173,6 +179,8 @@
 		C3CAA90717D52CBA000C1165 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C362E4B417D551A000614476 /* AYHTSettingsViewController.h */,
+				C362E4B517D551A000614476 /* AYHTSettingsViewController.m */,
 				C3CAA90817D53D16000C1165 /* AYHTRootViewController.h */,
 				C3CAA90917D53D16000C1165 /* AYHTRootViewController.m */,
 				C31E0E7E17C1115600D15971 /* AYHTContactPickerViewController.h */,
@@ -359,6 +367,7 @@
 				C3CAA90517D506C1000C1165 /* currentLocation@2x.png in Resources */,
 				C3CAA90C17D53D16000C1165 /* AYHTRootViewController.xib in Resources */,
 				C3D17C7817D54CEC00B64C05 /* glyphiconsCogWheel.png in Resources */,
+				C362E4B817D551A000614476 /* AYHTSettingsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +424,7 @@
 				C37519E017C5AC3A000AA0EE /* AYHTRide.m in Sources */,
 				C380AB4E17CD8F9F00A68D54 /* MRMTwilioSMS.m in Sources */,
 				C3CAA90B17D53D16000C1165 /* AYHTRootViewController.m in Sources */,
+				C362E4B717D551A000614476 /* AYHTSettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
