@@ -47,32 +47,36 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 10;
+    return 2;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        return @"Personal Information";
+    }
+    return nil;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    cell = [UITableViewCell configureFlatCellWithColor:[UIColor cloudsColor]
+                                         selectedColor:[UIColor amethystColor]
+                                                 style:UITableViewCellStyleDefault
+                                       reuseIdentifier:nil];
 
-    static NSString *CellIdentifier = @"settingCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        //cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        cell = [UITableViewCell configureFlatCellWithColor:[UIColor cloudsColor]
-                                             selectedColor:[UIColor amethystColor]
-                                                     style:UITableViewCellStyleDefault
-                                           reuseIdentifier:CellIdentifier];
-        cell.cornerRadius = 5.0f;
-        cell.separatorHeight = 2.0f;
-    }
+    cell.cornerRadius = 5.0f;
+    cell.separatorHeight = 2.0f;
+
     cell.textLabel.text = @"Test";
     cell.detailTextLabel.text = @"Test Detail";
-    //cell.textLabel.text = @"Test";
+    //cell.textLabel.text = @"Test";[self setUpVisuals];
 
 
     //cell.textLabel.te
