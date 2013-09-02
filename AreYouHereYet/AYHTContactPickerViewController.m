@@ -6,16 +6,16 @@
 //  Copyright (c) 2013 Maksim Pecherskiy. All rights reserved.
 //
 
-#import "AYHTSemiModalViewController.h"
+#import "AYHTContactPickerViewController.h"
 
-@interface AYHTSemiModalViewController ()
+@interface AYHTContactPickerViewController ()
 {
     ABPeoplePickerNavigationController *picker;
 }
 
 @end
 
-@implementation AYHTSemiModalViewController
+@implementation AYHTContactPickerViewController
 
 #pragma mark - Designated Initializer
 

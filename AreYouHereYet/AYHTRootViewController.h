@@ -17,7 +17,7 @@
 #import "GCGeocodingService.h"
 #import "MRMGoogleDistanceMatrixService.h"
 #import "UIViewController+KNSemiModal.h"
-#import "AYHTSemiModalViewController.h"
+#import "AYHTContactPickerViewController.h"
 #import "AYHTRide.h"
 #import <AFNetworking/AFJSONRequestOperation.h>
 #import "MRMTwilioSMS.h"

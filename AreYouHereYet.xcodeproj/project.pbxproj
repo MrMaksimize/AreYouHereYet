@@ -12,8 +12,8 @@
 		C311E77417BAF1D3009FAABE /* MDDirectionService.m in Sources */ = {isa = PBXBuildFile; fileRef = C311E76E17BAF1D3009FAABE /* MDDirectionService.m */; };
 		C311E77517BAF1D3009FAABE /* MRMGoogleDistanceMatrixService.m in Sources */ = {isa = PBXBuildFile; fileRef = C311E77017BAF1D3009FAABE /* MRMGoogleDistanceMatrixService.m */; };
 		C311E77617BAF1D3009FAABE /* MRMLocationTools.m in Sources */ = {isa = PBXBuildFile; fileRef = C311E77217BAF1D3009FAABE /* MRMLocationTools.m */; };
-		C31E0E8117C1115600D15971 /* AYHTSemiModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C31E0E7F17C1115600D15971 /* AYHTSemiModalViewController.m */; };
-		C31E0E8217C1115600D15971 /* AYHTSemiModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C31E0E8017C1115600D15971 /* AYHTSemiModalViewController.xib */; };
+		C31E0E8117C1115600D15971 /* AYHTContactPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C31E0E7F17C1115600D15971 /* AYHTContactPickerViewController.m */; };
+		C31E0E8217C1115600D15971 /* AYHTContactPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C31E0E8017C1115600D15971 /* AYHTContactPickerViewController.xib */; };
 		C34334C517B059C20047B330 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C34334C417B059C20047B330 /* MapKit.framework */; };
 		C34CB5BD17B6B24E004D8F3C /* AYHTMapControl.m in Sources */ = {isa = PBXBuildFile; fileRef = C34CB5BC17B6B24E004D8F3C /* AYHTMapControl.m */; };
 		C37519E017C5AC3A000AA0EE /* AYHTRide.m in Sources */ = {isa = PBXBuildFile; fileRef = C37519DF17C5AC3A000AA0EE /* AYHTRide.m */; };
@@ -59,9 +59,9 @@
 		C311E77017BAF1D3009FAABE /* MRMGoogleDistanceMatrixService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRMGoogleDistanceMatrixService.m; sourceTree = "<group>"; };
 		C311E77117BAF1D3009FAABE /* MRMLocationTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRMLocationTools.h; sourceTree = "<group>"; };
 		C311E77217BAF1D3009FAABE /* MRMLocationTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRMLocationTools.m; sourceTree = "<group>"; };
-		C31E0E7E17C1115600D15971 /* AYHTSemiModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYHTSemiModalViewController.h; sourceTree = "<group>"; };
-		C31E0E7F17C1115600D15971 /* AYHTSemiModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYHTSemiModalViewController.m; sourceTree = "<group>"; };
-		C31E0E8017C1115600D15971 /* AYHTSemiModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AYHTSemiModalViewController.xib; sourceTree = "<group>"; };
+		C31E0E7E17C1115600D15971 /* AYHTContactPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYHTContactPickerViewController.h; sourceTree = "<group>"; };
+		C31E0E7F17C1115600D15971 /* AYHTContactPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYHTContactPickerViewController.m; sourceTree = "<group>"; };
+		C31E0E8017C1115600D15971 /* AYHTContactPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AYHTContactPickerViewController.xib; sourceTree = "<group>"; };
 		C34334C417B059C20047B330 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		C34CB5BB17B6B24E004D8F3C /* AYHTMapControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYHTMapControl.h; sourceTree = "<group>"; };
 		C34CB5BC17B6B24E004D8F3C /* AYHTMapControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYHTMapControl.m; sourceTree = "<group>"; };
@@ -165,7 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				C3CAA90A17D53D16000C1165 /* AYHTRootViewController.xib */,
-				C31E0E8017C1115600D15971 /* AYHTSemiModalViewController.xib */,
+				C31E0E8017C1115600D15971 /* AYHTContactPickerViewController.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -175,8 +175,8 @@
 			children = (
 				C3CAA90817D53D16000C1165 /* AYHTRootViewController.h */,
 				C3CAA90917D53D16000C1165 /* AYHTRootViewController.m */,
-				C31E0E7E17C1115600D15971 /* AYHTSemiModalViewController.h */,
-				C31E0E7F17C1115600D15971 /* AYHTSemiModalViewController.m */,
+				C31E0E7E17C1115600D15971 /* AYHTContactPickerViewController.h */,
+				C31E0E7F17C1115600D15971 /* AYHTContactPickerViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -354,7 +354,7 @@
 				C3F362AB17BF1EB50033798C /* Retina-Ready@2x.png in Resources */,
 				C3F362AC17BF1EB50033798C /* Watches@2x.png in Resources */,
 				C3EACC8417C012BF00E58252 /* sms@2x.png in Resources */,
-				C31E0E8217C1115600D15971 /* AYHTSemiModalViewController.xib in Resources */,
+				C31E0E8217C1115600D15971 /* AYHTContactPickerViewController.xib in Resources */,
 				C380AB4717CD845700A68D54 /* New York City Marathon.gpx in Resources */,
 				C3CAA90517D506C1000C1165 /* currentLocation@2x.png in Resources */,
 				C3CAA90C17D53D16000C1165 /* AYHTRootViewController.xib in Resources */,
@@ -411,7 +411,7 @@
 				C3EACCA317C05D8C00E58252 /* FPPopoverController.m in Sources */,
 				C3EACCA417C05D8C00E58252 /* FPPopoverView.m in Sources */,
 				C3EACCA517C05D8C00E58252 /* FPTouchView.m in Sources */,
-				C31E0E8117C1115600D15971 /* AYHTSemiModalViewController.m in Sources */,
+				C31E0E8117C1115600D15971 /* AYHTContactPickerViewController.m in Sources */,
 				C37519E017C5AC3A000AA0EE /* AYHTRide.m in Sources */,
 				C380AB4E17CD8F9F00A68D54 /* MRMTwilioSMS.m in Sources */,
 				C3CAA90B17D53D16000C1165 /* AYHTRootViewController.m in Sources */,

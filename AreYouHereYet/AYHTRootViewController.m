@@ -469,9 +469,10 @@
 #pragma mark - PopUp
 - (void)setUpAndDisplayPeoplePicker
 {
-    AYHTSemiModalViewController *controller = [[AYHTSemiModalViewController alloc] initWithContactList:self.ride.peopleToContact];
+    AYHTContactPickerViewController *controller = [[AYHTContactPickerViewController alloc] initWithContactList:self.ride.peopleToContact];
 
-    [self presentSemiViewController:controller withOptions:@{
+    [self presentSemiViewController:controller
+                        withOptions:@{
      KNSemiModalOptionKeys.pushParentBack    : @(YES),
      KNSemiModalOptionKeys.animationDuration : @(0.5),
      KNSemiModalOptionKeys.shadowOpacity     : @(0.3),

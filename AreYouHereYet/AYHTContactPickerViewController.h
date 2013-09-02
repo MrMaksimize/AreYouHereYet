@@ -13,7 +13,7 @@
 #import "UIViewController+KNSemiModal.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface AYHTSemiModalViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, ABPeoplePickerNavigationControllerDelegate>
+@interface AYHTContactPickerViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, ABPeoplePickerNavigationControllerDelegate>
 
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) IBOutlet UINavigationBar *navBar;
