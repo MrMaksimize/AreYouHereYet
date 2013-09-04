@@ -9,14 +9,21 @@
 #import <UIKit/UIKit.h>
 #import <FlatUIKit/FlatUIKit.h>
 #import "UIViewController+KNSemiModal.h"
+#import "AYHTBaseFUICell.h"
+#import "FPPopoverController.h"
 
-@interface AYHTSettingsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface AYHTSettingsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, FPPopoverControllerDelegate>
 
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) IBOutlet UINavigationBar *navBar;
 @property (nonatomic, strong) IBOutlet UINavigationItem *navItem;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem *doneButton;
 
-- (IBAction)barButtonItemPressed:(id)sender;
+@property (nonatomic, strong) IBOutlet AYHTBaseFUICell *nameCell;
+@property (nonatomic, strong) IBOutlet UITextField *nameTextField;
+@property (nonatomic, strong) IBOutlet AYHTBaseFUICell *genderCell;
+@property (nonatomic, strong) IBOutlet UISegmentedControl *genderSegmentedControl;
+
+- (IBAction)segmentedControlDidSwitch:(id)sender;
 
 @end

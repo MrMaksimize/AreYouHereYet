@@ -481,13 +481,24 @@
 
 - (void)setUpAndDisplaySettings
 {
-    AYHTSettingsViewController *controller = [[AYHTSettingsViewController alloc] init];
+    /*AYHTSettingsViewController *controller = [[AYHTSettingsViewController alloc] init];
     [self presentSemiViewController:controller
                         withOptions:@{
      KNSemiModalOptionKeys.pushParentBack    : @(YES),
      KNSemiModalOptionKeys.animationDuration : @(0.5),
      KNSemiModalOptionKeys.shadowOpacity     : @(0.3),
-     }];
+     }];*/
+
+    AYHTSettingsViewController *controller = [[AYHTSettingsViewController alloc] init];
+    FPPopoverController *popover = [[FPPopoverController alloc] initWithViewController:controller];
+    popover.contentSize = CGSizeMake(320, 200);
+    popover.delegate = controller;
+
+    [popover presentPopoverFromPoint:
+     CGPointMake (
+                 (self.navigationController.navigationBar.viewForBaselineLayout.frame.size.width - 27),
+                 self.navigationController.navigationBar.viewForBaselineLayout.frame.size.height
+                 )];
 }
 
 

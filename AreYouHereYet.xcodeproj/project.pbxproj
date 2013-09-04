@@ -14,6 +14,7 @@
 		C311E77617BAF1D3009FAABE /* MRMLocationTools.m in Sources */ = {isa = PBXBuildFile; fileRef = C311E77217BAF1D3009FAABE /* MRMLocationTools.m */; };
 		C31E0E8117C1115600D15971 /* AYHTContactPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C31E0E7F17C1115600D15971 /* AYHTContactPickerViewController.m */; };
 		C31E0E8217C1115600D15971 /* AYHTContactPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C31E0E8017C1115600D15971 /* AYHTContactPickerViewController.xib */; };
+		C31F8F3617D6AE3B00A9E1A5 /* AYHTBaseFUICell.m in Sources */ = {isa = PBXBuildFile; fileRef = C31F8F3517D6AE3B00A9E1A5 /* AYHTBaseFUICell.m */; };
 		C34334C517B059C20047B330 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C34334C417B059C20047B330 /* MapKit.framework */; };
 		C34CB5BD17B6B24E004D8F3C /* AYHTMapControl.m in Sources */ = {isa = PBXBuildFile; fileRef = C34CB5BC17B6B24E004D8F3C /* AYHTMapControl.m */; };
 		C362E4B717D551A000614476 /* AYHTSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C362E4B517D551A000614476 /* AYHTSettingsViewController.m */; };
@@ -64,6 +65,8 @@
 		C31E0E7E17C1115600D15971 /* AYHTContactPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYHTContactPickerViewController.h; sourceTree = "<group>"; };
 		C31E0E7F17C1115600D15971 /* AYHTContactPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYHTContactPickerViewController.m; sourceTree = "<group>"; };
 		C31E0E8017C1115600D15971 /* AYHTContactPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AYHTContactPickerViewController.xib; sourceTree = "<group>"; };
+		C31F8F3417D6AE3B00A9E1A5 /* AYHTBaseFUICell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYHTBaseFUICell.h; sourceTree = "<group>"; };
+		C31F8F3517D6AE3B00A9E1A5 /* AYHTBaseFUICell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYHTBaseFUICell.m; sourceTree = "<group>"; };
 		C34334C417B059C20047B330 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		C34CB5BB17B6B24E004D8F3C /* AYHTMapControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYHTMapControl.h; sourceTree = "<group>"; };
 		C34CB5BC17B6B24E004D8F3C /* AYHTMapControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYHTMapControl.m; sourceTree = "<group>"; };
@@ -169,6 +172,8 @@
 		C3CAA90617D52C80000C1165 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C31F8F3417D6AE3B00A9E1A5 /* AYHTBaseFUICell.h */,
+				C31F8F3517D6AE3B00A9E1A5 /* AYHTBaseFUICell.m */,
 				C362E4B617D551A000614476 /* AYHTSettingsViewController.xib */,
 				C3CAA90A17D53D16000C1165 /* AYHTRootViewController.xib */,
 				C31E0E8017C1115600D15971 /* AYHTContactPickerViewController.xib */,
@@ -425,6 +430,7 @@
 				C380AB4E17CD8F9F00A68D54 /* MRMTwilioSMS.m in Sources */,
 				C3CAA90B17D53D16000C1165 /* AYHTRootViewController.m in Sources */,
 				C362E4B717D551A000614476 /* AYHTSettingsViewController.m in Sources */,
+				C31F8F3617D6AE3B00A9E1A5 /* AYHTBaseFUICell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,8 @@
 //
 
 #import "AYHTSettingsViewController.h"
+#import "FUICellBackgroundView.h"
+#import "FPPopoverController.h"
 
 @interface AYHTSettingsViewController ()
 
@@ -18,7 +20,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // TODO - put NSUserDefaults stuff here.
+        
     }
     return self;
 }
@@ -27,6 +29,12 @@
 {
     [super viewDidLoad];
     [self setUpVisuals];
+
+    // Set NSUserDefaults Values
+    //[[NSUserDefaults standardUserDefaults] setValue:self.nameTextField.text forKey:@"AYHTUserName"];
+    self.nameTextField.text = [[NSUserDefaults standardUserDefaults] valueForKey:@"AYHTUserName"];
+    self.genderSegmentedControl.selectedSegmentIndex = 1;/*(NSInteger*)[[NSUserDefaults standardUserDefaults] valueForKey:@"AYHTUserGender"];*/
+
 }
 
 - (void)setUpVisuals
@@ -63,27 +71,81 @@
     return nil;
 }
 
+// TODO FIX THIS GROSS ASS SHIT
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-    cell = [UITableViewCell configureFlatCellWithColor:[UIColor cloudsColor]
+    UITableViewCell *cell = nil;
+
+    if (indexPath.row == 0) {
+        cell = self.nameCell;
+    }
+    else if (indexPath.row == 1) {
+        cell = self.genderCell;
+    }
+
+    if (cell == nil || !cell) {
+        cell = [[UITableViewCell alloc] init];
+    }
+    
+    /*cell = [UITableViewCell configureFlatCellWithColor:[UIColor amethystColor]
                                          selectedColor:[UIColor amethystColor]
                                                  style:UITableViewCellStyleDefault
-                                       reuseIdentifier:nil];
+                                       reuseIdentifier:nil];*/
 
-    cell.cornerRadius = 5.0f;
-    cell.separatorHeight = 2.0f;
+    //cell.cornerRadius = 5.0f;
+    //cell.separatorHeight = 2.0f;
 
-    cell.textLabel.text = @"Test";
-    cell.detailTextLabel.text = @"Test Detail";
-    //cell.textLabel.text = @"Test";[self setUpVisuals];
+    /*if (indexPath.row == 0 && self.nameCell == nil) {
+        self.nameCell = cell;
+    }
+    else if (indexPath.row == 1 && self.genderCell == nil) {
+        self.genderCell = cell;
+    }*/
 
-
-    //cell.textLabel.te
-
-    // Configure the cell...
 
     return cell;
 }
+
+- (IBAction)segmentedControlDidSwitch:(id)sender
+{
+    NSLog(@"SELECTED SEGMENT INDEX F IS 1 %d", self.genderSegmentedControl.selectedSegmentIndex);
+    
+}
+
+#pragma mark - UITextField Delegate
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if (textField == self.nameTextField) {
+        NSLog(@"%@", self.nameTextField.text);
+    }
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    return YES;
+}
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
+{
+    return YES;
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self.nameTextField resignFirstResponder];
+    [self.genderSegmentedControl resignFirstResponder];
+}
+
+#pragma mark - FPPopoverController Delegate
+- (void)popoverControllerDidDismissPopover:(FPPopoverController *)popoverController {
+    NSLog(@"final name %@", self.nameTextField.text);
+    NSLog(@"final gender %d", self.genderSegmentedControl.selectedSegmentIndex);
+
+    [[NSUserDefaults standardUserDefaults] setValue:self.nameTextField.text forKey:@"AYHTUserName"];
+    [[NSUserDefaults standardUserDefaults] setValue:self.genderSegmentedControl forKey:@"AYHTUserGender"];
+    
+    
+}
+
 
 @end
