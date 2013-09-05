@@ -7,8 +7,10 @@
 //
 
 #import "AYHTSettingsViewController.h"
-#import "FUICellBackgroundView.h"
 #import "FPPopoverController.h"
+
+#define kSettingsUserNameKey @"AYHTUserName"
+#define kSettingsUserGenderKey @"AYHTUserGender"
 
 @interface AYHTSettingsViewController ()
 
@@ -30,10 +32,8 @@
     [super viewDidLoad];
     [self setUpVisuals];
 
-    // Set NSUserDefaults Values
-    //[[NSUserDefaults standardUserDefaults] setValue:self.nameTextField.text forKey:@"AYHTUserName"];
-    self.nameTextField.text = [[NSUserDefaults standardUserDefaults] valueForKey:@"AYHTUserName"];
-    self.genderSegmentedControl.selectedSegmentIndex = 1;/*(NSInteger*)[[NSUserDefaults standardUserDefaults] valueForKey:@"AYHTUserGender"];*/
+    self.nameTextField.text = [[NSUserDefaults standardUserDefaults] valueForKey:kSettingsUserNameKey];
+    self.genderSegmentedControl.selectedSegmentIndex = (NSInteger)[[NSUserDefaults standardUserDefaults] valueForKey:kSettingsUserGenderKey];
 
 }
 
@@ -43,6 +43,8 @@
     [UIBarButtonItem configureFlatButtonsWithColor:[UIColor peterRiverColor]
                                   highlightedColor:[UIColor belizeHoleColor]
                                       cornerRadius:3];
+    [self.tableView setBackgroundColor:[UIColor clearColor]];
+    [self.view setBackgroundColor:[UIColor silverColor]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -74,34 +76,24 @@
 // TODO FIX THIS GROSS ASS SHIT
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = nil;
+    UITableViewCell *cell = [UITableViewCell configureFlatCellWithColor:[UIColor amethystColor]
+                                                           selectedColor:[UIColor amethystColor]
+                                                                   style:UITableViewCellStyleDefault
+                                                         reuseIdentifier:nil];;
 
     if (indexPath.row == 0) {
-        cell = self.nameCell;
+        [cell addSubview:self.nameCellLabel];
+        [cell addSubview:self.nameTextField];
+        
     }
     else if (indexPath.row == 1) {
-        cell = self.genderCell;
+        [cell addSubview:self.genderCellLabel];
+        [cell addSubview:self.genderSegmentedControl];
     }
 
     if (cell == nil || !cell) {
         cell = [[UITableViewCell alloc] init];
     }
-    
-    /*cell = [UITableViewCell configureFlatCellWithColor:[UIColor amethystColor]
-                                         selectedColor:[UIColor amethystColor]
-                                                 style:UITableViewCellStyleDefault
-                                       reuseIdentifier:nil];*/
-
-    //cell.cornerRadius = 5.0f;
-    //cell.separatorHeight = 2.0f;
-
-    /*if (indexPath.row == 0 && self.nameCell == nil) {
-        self.nameCell = cell;
-    }
-    else if (indexPath.row == 1 && self.genderCell == nil) {
-        self.genderCell = cell;
-    }*/
-
 
     return cell;
 }
@@ -141,8 +133,11 @@
     NSLog(@"final name %@", self.nameTextField.text);
     NSLog(@"final gender %d", self.genderSegmentedControl.selectedSegmentIndex);
 
-    [[NSUserDefaults standardUserDefaults] setValue:self.nameTextField.text forKey:@"AYHTUserName"];
-    [[NSUserDefaults standardUserDefaults] setValue:self.genderSegmentedControl forKey:@"AYHTUserGender"];
+    [[NSUserDefaults standardUserDefaults] setValue:self.nameTextField.text
+                                             forKey:kSettingsUserNameKey];
+    
+    [[NSUserDefaults standardUserDefaults] setValue:self.genderSegmentedControl
+                                             forKey:kSettingsUserGenderKey];
     
     
 }

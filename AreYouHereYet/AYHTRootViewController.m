@@ -481,18 +481,17 @@
 
 - (void)setUpAndDisplaySettings
 {
-    /*AYHTSettingsViewController *controller = [[AYHTSettingsViewController alloc] init];
-    [self presentSemiViewController:controller
-                        withOptions:@{
-     KNSemiModalOptionKeys.pushParentBack    : @(YES),
-     KNSemiModalOptionKeys.animationDuration : @(0.5),
-     KNSemiModalOptionKeys.shadowOpacity     : @(0.3),
-     }];*/
-
     AYHTSettingsViewController *controller = [[AYHTSettingsViewController alloc] init];
+    controller.title = nil;
     FPPopoverController *popover = [[FPPopoverController alloc] initWithViewController:controller];
+    // Popover properties.
     popover.contentSize = CGSizeMake(320, 200);
     popover.delegate = controller;
+    popover.border = NO;
+    popover.tint = FPPopoverLightGrayTint;
+    popover.arrowDirection = FPPopoverNoArrow;
+    popover.title = nil;
+    popover.alpha = 0.8;
 
     [popover presentPopoverFromPoint:
      CGPointMake (
