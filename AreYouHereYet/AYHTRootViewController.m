@@ -11,6 +11,9 @@
 #define kParseCloudFunctionURL @"https://api.parse.com/1/functions"
 #define kParseAppID @"0MOgbOrgznYvhvbHv6bN9Zce969wp1065dsH2ujf"
 #define kParseClientKey @"srDyBgrVSFieYhc2OPfymWwOYgDrFyCMyNCKwne7"
+//TODO redefinition:
+#define kSettingsUserNameKey @"AYHTUserName"
+#define kSettingsUserGenderKey @"AYHTUserGender"
 
 @interface AYHTRootViewController ()
 
@@ -157,10 +160,10 @@
     for (NSDictionary *personDictionary in [self.ride.peopleToContact allValues]) {
         NSLog(@"%@", personDictionary);
         // FAKE VARIABLES: big TODO
-        NSString *senderName = @"Maksim Pecherskiy";
-        NSString *senderGender = @"M";
+        NSString *senderName = [[NSUserDefaults standardUserDefaults] objectForKey:kSettingsUserNameKey];
+        NSString *senderGender = [[NSUserDefaults standardUserDefaults] objectForKey:kSettingsUserGenderKey];
 
-        NSString *pronoun = [senderGender isEqualToString:@"F"] ? @"she" : @"he";
+        NSString *pronoun = ((NSInteger)senderGender == 1) ? @"she" : @"he";
 
         NSString *messageToSend = [NSString stringWithFormat:
                                    @"Hey %@! This is an automated message from %@'s AreYouHereYet App.  Just wanted to let you know %@ will be there in about %@",
@@ -482,21 +485,21 @@
 - (void)setUpAndDisplaySettings
 {
     AYHTSettingsViewController *controller = [[AYHTSettingsViewController alloc] init];
-    controller.title = nil;
+    controller.title = @"Settings";
     FPPopoverController *popover = [[FPPopoverController alloc] initWithViewController:controller];
     // Popover properties.
     popover.contentSize = CGSizeMake(320, 200);
     popover.delegate = controller;
     popover.border = NO;
-    popover.tint = FPPopoverLightGrayTint;
+    popover.tint = FPPopoverWhiteTint;
     popover.arrowDirection = FPPopoverNoArrow;
     popover.title = nil;
-    popover.alpha = 0.8;
+    popover.alpha = 0.85;
 
     [popover presentPopoverFromPoint:
      CGPointMake (
                  (self.navigationController.navigationBar.viewForBaselineLayout.frame.size.width - 27),
-                 self.navigationController.navigationBar.viewForBaselineLayout.frame.size.height
+                 self.navigationController.navigationBar.viewForBaselineLayout.frame.size.height + 25
                  )];
 }
 

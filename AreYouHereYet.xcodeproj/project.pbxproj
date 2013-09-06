@@ -26,6 +26,9 @@
 		C3CAA90B17D53D16000C1165 /* AYHTRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3CAA90917D53D16000C1165 /* AYHTRootViewController.m */; };
 		C3CAA90C17D53D16000C1165 /* AYHTRootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3CAA90A17D53D16000C1165 /* AYHTRootViewController.xib */; };
 		C3D17C7817D54CEC00B64C05 /* glyphiconsCogWheel.png in Resources */ = {isa = PBXBuildFile; fileRef = C3D17C7717D54CEC00B64C05 /* glyphiconsCogWheel.png */; };
+		C3E25FA617D8284800B1ED0A /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3E25FA517D8284800B1ED0A /* AddressBook.framework */; };
+		C3E25FA917D8291000B1ED0A /* female.png in Resources */ = {isa = PBXBuildFile; fileRef = C3E25FA717D8291000B1ED0A /* female.png */; };
+		C3E25FAA17D8291000B1ED0A /* male.png in Resources */ = {isa = PBXBuildFile; fileRef = C3E25FA817D8291000B1ED0A /* male.png */; };
 		C3EACC8417C012BF00E58252 /* sms@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3EACC8317C012BE00E58252 /* sms@2x.png */; };
 		C3EACCA317C05D8C00E58252 /* FPPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EACC9D17C05D8C00E58252 /* FPPopoverController.m */; };
 		C3EACCA417C05D8C00E58252 /* FPPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EACC9F17C05D8C00E58252 /* FPPopoverView.m */; };
@@ -81,6 +84,9 @@
 		C3CAA90917D53D16000C1165 /* AYHTRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYHTRootViewController.m; sourceTree = "<group>"; };
 		C3CAA90A17D53D16000C1165 /* AYHTRootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AYHTRootViewController.xib; sourceTree = "<group>"; };
 		C3D17C7717D54CEC00B64C05 /* glyphiconsCogWheel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glyphiconsCogWheel.png; sourceTree = "<group>"; };
+		C3E25FA517D8284800B1ED0A /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		C3E25FA717D8291000B1ED0A /* female.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = female.png; sourceTree = "<group>"; };
+		C3E25FA817D8291000B1ED0A /* male.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = male.png; sourceTree = "<group>"; };
 		C3EACC8317C012BE00E58252 /* sms@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sms@2x.png"; sourceTree = "<group>"; };
 		C3EACC9B17C05D8B00E58252 /* ARCMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARCMacros.h; path = FPPopover/ARCMacros.h; sourceTree = "<group>"; };
 		C3EACC9C17C05D8C00E58252 /* FPPopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FPPopoverController.h; path = FPPopover/FPPopoverController.h; sourceTree = "<group>"; };
@@ -119,6 +125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3E25FA617D8284800B1ED0A /* AddressBook.framework in Frameworks */,
 				C3B451BC17C0708C00CAEBAD /* QuartzCore.framework in Frameworks */,
 				C3EACCAB17C06B4200E58252 /* AddressBookUI.framework in Frameworks */,
 				C34334C517B059C20047B330 /* MapKit.framework in Frameworks */,
@@ -218,6 +225,8 @@
 		C3F362A017BF1EB50033798C /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				C3E25FA717D8291000B1ED0A /* female.png */,
+				C3E25FA817D8291000B1ED0A /* male.png */,
 				C3D17C7717D54CEC00B64C05 /* glyphiconsCogWheel.png */,
 				C3CAA90417D506C1000C1165 /* currentLocation@2x.png */,
 				C3EACC8317C012BE00E58252 /* sms@2x.png */,
@@ -234,6 +243,7 @@
 		C3F92F0B17ADCFF60031A543 = {
 			isa = PBXGroup;
 			children = (
+				C3E25FA517D8284800B1ED0A /* AddressBook.framework */,
 				C3F92F1D17ADCFF60031A543 /* AreYouHereYet */,
 				C3F92F1617ADCFF60031A543 /* Frameworks */,
 				C3F92F1517ADCFF60031A543 /* Products */,
@@ -368,6 +378,8 @@
 				C3CAA90C17D53D16000C1165 /* AYHTRootViewController.xib in Resources */,
 				C3D17C7817D54CEC00B64C05 /* glyphiconsCogWheel.png in Resources */,
 				C362E4B817D551A000614476 /* AYHTSettingsViewController.xib in Resources */,
+				C3E25FA917D8291000B1ED0A /* female.png in Resources */,
+				C3E25FAA17D8291000B1ED0A /* male.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

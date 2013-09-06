@@ -20,7 +20,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *nameCellLabel;
 @property (nonatomic, strong) IBOutlet UITextField *nameTextField;
 @property (nonatomic, strong) IBOutlet UILabel *genderCellLabel;
-@property (nonatomic, strong) IBOutlet UISegmentedControl *genderSegmentedControl;
+@property (nonatomic, strong) IBOutlet FUISegmentedControl *genderSegmentedControl;
 
 - (IBAction)segmentedControlDidSwitch:(id)sender;
 

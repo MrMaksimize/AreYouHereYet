@@ -39,12 +39,69 @@
 
 - (void)setUpVisuals
 {
-    [self.navBar configureFlatNavigationBarWithColor:[UIColor midnightBlueColor]];
+    /*[self.navBar configureFlatNavigationBarWithColor:[UIColor midnightBlueColor]];
     [UIBarButtonItem configureFlatButtonsWithColor:[UIColor peterRiverColor]
                                   highlightedColor:[UIColor belizeHoleColor]
                                       cornerRadius:3];
+    */
+
+    
     [self.tableView setBackgroundColor:[UIColor clearColor]];
-    [self.view setBackgroundColor:[UIColor silverColor]];
+    [self.view setBackgroundColor:[UIColor clearColor]];
+
+    // Gender Segmented Control:
+    [self.genderSegmentedControl setImage:[UIImage imageNamed:@"male.png"] forSegmentAtIndex:0];
+    [self.genderSegmentedControl setImage:[UIImage imageNamed:@"female.png"] forSegmentAtIndex:1];
+    [self.genderSegmentedControl setTintColor:[UIColor peterRiverColor]];
+    [self.genderSegmentedControl setBackgroundColor:[UIColor clearColor]];
+
+    self.genderSegmentedControl.selectedColor = [UIColor peterRiverColor];
+    self.genderSegmentedControl.deselectedColor = [UIColor asbestosColor];
+    self.genderSegmentedControl.dividerColor = [UIColor midnightBlueColor];
+    self.genderSegmentedControl.cornerRadius = 3.0;
+
+
+    // Positions get figured on cell creation.
+
+}
+
+- (void)setUpCellElementPositionsForCell:(UITableViewCell *)cell withIndexPath:(NSIndexPath *)indexPath
+{
+
+    CGFloat cellX = cell.frame.origin.x;
+    CGFloat cellY = cell.frame.origin.y;
+    CGFloat cellWidth = cell.frame.size.width;
+    CGFloat cellHeight = cell.frame.size.height;
+    CGFloat cellOneTenth = cell.frame.size.width * 0.1;
+
+    
+    if (indexPath.row == 0) {
+
+        self.nameCellLabel.frame = CGRectMake(cellX + cellOneTenth / 2,
+                                              cellY,
+                                              cellOneTenth * 2,
+                                              cellHeight);
+
+        
+        
+        self.nameTextField.frame = CGRectMake(cellX + cellOneTenth + self.nameCellLabel.frame.size.width + 10,
+                                              cellY,
+                                              cellOneTenth * 5,
+                                              cellHeight);
+
+    }
+    else if (indexPath.row == 1) {
+        self.genderCellLabel.frame = CGRectMake(cellX + cellOneTenth / 2,
+                                              cellY,
+                                              cellOneTenth * 2,
+                                              cellHeight);
+
+        self.genderSegmentedControl.frame = CGRectMake(cellX + cellOneTenth + self.nameCellLabel.frame.size.width + 10,
+                                                       cell.center.y - (self.genderSegmentedControl.frame.size.height * 0.5),
+                                                       self.genderSegmentedControl.frame.size.width,
+                                                       self.genderSegmentedControl.frame.size.height);
+    }
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -79,7 +136,7 @@
     UITableViewCell *cell = [UITableViewCell configureFlatCellWithColor:[UIColor amethystColor]
                                                            selectedColor:[UIColor amethystColor]
                                                                    style:UITableViewCellStyleDefault
-                                                         reuseIdentifier:nil];;
+                                                         reuseIdentifier:nil];
 
     if (indexPath.row == 0) {
         [cell addSubview:self.nameCellLabel];
@@ -94,6 +151,8 @@
     if (cell == nil || !cell) {
         cell = [[UITableViewCell alloc] init];
     }
+
+    [self setUpCellElementPositionsForCell:cell withIndexPath:indexPath];
 
     return cell;
 }
@@ -133,10 +192,12 @@
     NSLog(@"final name %@", self.nameTextField.text);
     NSLog(@"final gender %d", self.genderSegmentedControl.selectedSegmentIndex);
 
+    NSNumber *selectedIndex = [NSNumber numberWithInt:self.genderSegmentedControl.selectedSegmentIndex];
+
     [[NSUserDefaults standardUserDefaults] setValue:self.nameTextField.text
                                              forKey:kSettingsUserNameKey];
     
-    [[NSUserDefaults standardUserDefaults] setValue:self.genderSegmentedControl
+    [[NSUserDefaults standardUserDefaults] setValue:(id)selectedIndex
                                              forKey:kSettingsUserGenderKey];
     
     
