@@ -159,11 +159,11 @@
     NSLog(@"%@", self.ride.peopleToContact);
     for (NSDictionary *personDictionary in [self.ride.peopleToContact allValues]) {
         NSLog(@"%@", personDictionary);
-        // FAKE VARIABLES: big TODO
-        NSString *senderName = [[NSUserDefaults standardUserDefaults] objectForKey:kSettingsUserNameKey];
-        NSString *senderGender = [[NSUserDefaults standardUserDefaults] objectForKey:kSettingsUserGenderKey];
 
-        NSString *pronoun = ((NSInteger)senderGender == 1) ? @"she" : @"he";
+        NSString *senderName = [[NSUserDefaults standardUserDefaults] objectForKey:kSettingsUserNameKey];
+
+        NSString *pronoun = ((NSInteger)[[NSUserDefaults standardUserDefaults]
+                                         objectForKey:kSettingsUserGenderKey] == 1) ? @"she" : @"he";
 
         NSString *messageToSend = [NSString stringWithFormat:
                                    @"Hey %@! This is an automated message from %@'s AreYouHereYet App.  Just wanted to let you know %@ will be there in about %@",
@@ -492,7 +492,7 @@
     popover.delegate = controller;
     popover.border = NO;
     popover.tint = FPPopoverWhiteTint;
-    popover.arrowDirection = FPPopoverNoArrow;
+    popover.arrowDirection = FPPopoverArrowDirectionUp;
     popover.title = nil;
     popover.alpha = 0.85;
 

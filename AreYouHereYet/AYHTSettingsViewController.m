@@ -47,6 +47,7 @@
 
     
     [self.tableView setBackgroundColor:[UIColor clearColor]];
+    [self.tableView setAlpha:1];
     [self.view setBackgroundColor:[UIColor clearColor]];
 
     // Gender Segmented Control:
