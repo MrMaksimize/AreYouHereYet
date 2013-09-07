@@ -15,7 +15,6 @@
 		C31E0E8117C1115600D15971 /* AYHTContactPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C31E0E7F17C1115600D15971 /* AYHTContactPickerViewController.m */; };
 		C31E0E8217C1115600D15971 /* AYHTContactPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C31E0E8017C1115600D15971 /* AYHTContactPickerViewController.xib */; };
 		C34334C517B059C20047B330 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C34334C417B059C20047B330 /* MapKit.framework */; };
-		C34CB5BD17B6B24E004D8F3C /* AYHTMapControl.m in Sources */ = {isa = PBXBuildFile; fileRef = C34CB5BC17B6B24E004D8F3C /* AYHTMapControl.m */; };
 		C362E4B717D551A000614476 /* AYHTSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C362E4B517D551A000614476 /* AYHTSettingsViewController.m */; };
 		C362E4B817D551A000614476 /* AYHTSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C362E4B617D551A000614476 /* AYHTSettingsViewController.xib */; };
 		C37519E017C5AC3A000AA0EE /* AYHTRide.m in Sources */ = {isa = PBXBuildFile; fileRef = C37519DF17C5AC3A000AA0EE /* AYHTRide.m */; };
@@ -49,7 +48,6 @@
 		C3F92F2A17ADCFF60031A543 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C3F92F2917ADCFF60031A543 /* Default.png */; };
 		C3F92F2C17ADCFF60031A543 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3F92F2B17ADCFF60031A543 /* Default@2x.png */; };
 		C3F92F2E17ADCFF60031A543 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3F92F2D17ADCFF60031A543 /* Default-568h@2x.png */; };
-		C3F92F3417ADCFF60031A543 /* AYHTFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F92F3317ADCFF60031A543 /* AYHTFirstViewController.m */; };
 		C3F92F4617ADD84F0031A543 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3F92F4517ADD84F0031A543 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,8 +66,6 @@
 		C31E0E7F17C1115600D15971 /* AYHTContactPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYHTContactPickerViewController.m; sourceTree = "<group>"; };
 		C31E0E8017C1115600D15971 /* AYHTContactPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AYHTContactPickerViewController.xib; sourceTree = "<group>"; };
 		C34334C417B059C20047B330 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		C34CB5BB17B6B24E004D8F3C /* AYHTMapControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYHTMapControl.h; sourceTree = "<group>"; };
-		C34CB5BC17B6B24E004D8F3C /* AYHTMapControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYHTMapControl.m; sourceTree = "<group>"; };
 		C362E4B417D551A000614476 /* AYHTSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYHTSettingsViewController.h; sourceTree = "<group>"; };
 		C362E4B517D551A000614476 /* AYHTSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYHTSettingsViewController.m; sourceTree = "<group>"; };
 		C362E4B617D551A000614476 /* AYHTSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AYHTSettingsViewController.xib; sourceTree = "<group>"; };
@@ -115,8 +111,6 @@
 		C3F92F2917ADCFF60031A543 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		C3F92F2B17ADCFF60031A543 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		C3F92F2D17ADCFF60031A543 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		C3F92F3217ADCFF60031A543 /* AYHTFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AYHTFirstViewController.h; sourceTree = "<group>"; };
-		C3F92F3317ADCFF60031A543 /* AYHTFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AYHTFirstViewController.m; sourceTree = "<group>"; };
 		C3F92F4517ADD84F0031A543 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -213,10 +207,6 @@
 		C3EACCA717C05FA900E58252 /* Deprecated */ = {
 			isa = PBXGroup;
 			children = (
-				C34CB5BB17B6B24E004D8F3C /* AYHTMapControl.h */,
-				C34CB5BC17B6B24E004D8F3C /* AYHTMapControl.m */,
-				C3F92F3217ADCFF60031A543 /* AYHTFirstViewController.h */,
-				C3F92F3317ADCFF60031A543 /* AYHTFirstViewController.m */,
 			);
 			name = Deprecated;
 			path = AreYouHereYet;
@@ -243,7 +233,6 @@
 		C3F92F0B17ADCFF60031A543 = {
 			isa = PBXGroup;
 			children = (
-				C3E25FA517D8284800B1ED0A /* AddressBook.framework */,
 				C3F92F1D17ADCFF60031A543 /* AreYouHereYet */,
 				C3F92F1617ADCFF60031A543 /* Frameworks */,
 				C3F92F1517ADCFF60031A543 /* Products */,
@@ -263,6 +252,7 @@
 		C3F92F1617ADCFF60031A543 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C3E25FA517D8284800B1ED0A /* AddressBook.framework */,
 				C3B451BB17C0708C00CAEBAD /* QuartzCore.framework */,
 				C3EACCAA17C06B4200E58252 /* AddressBookUI.framework */,
 				C34334C417B059C20047B330 /* MapKit.framework */,
@@ -423,8 +413,6 @@
 			files = (
 				C3F92F2417ADCFF60031A543 /* main.m in Sources */,
 				C3F92F2817ADCFF60031A543 /* AYHTAppDelegate.m in Sources */,
-				C3F92F3417ADCFF60031A543 /* AYHTFirstViewController.m in Sources */,
-				C34CB5BD17B6B24E004D8F3C /* AYHTMapControl.m in Sources */,
 				C311E77317BAF1D3009FAABE /* GCGeocodingService.m in Sources */,
 				C311E77417BAF1D3009FAABE /* MDDirectionService.m in Sources */,
 				C311E77517BAF1D3009FAABE /* MRMGoogleDistanceMatrixService.m in Sources */,
