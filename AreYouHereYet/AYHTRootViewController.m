@@ -23,6 +23,10 @@
     NSArray *observedKeyPaths;
     GMSMarker *currentLocationMarker;
     GMSMarker *destinationLocationMarker;
+
+    // TODO maybe use these as properties ?
+    MRMPullOutView *distancePullOutView;
+    MRMPullOutView *timePullOutView;
 }
 
 #pragma mark - View LifeCycle
@@ -58,6 +62,11 @@
                                               target:self
                                               action:@selector(setUpAndDisplaySettings)];
 
+    /*self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
+                                              initWithImage:[UIImage imageNamed:@"glyphiconsCogWheel.png"]
+                                              style:UIBarButtonItemStylePlain
+                                              target:self
+                                              action:@selector(setUpAndDisplayMenu)];*/
 
     [self setUpVisuals];
 
@@ -227,19 +236,66 @@
     [self.toVal setBackgroundColor:mapControlColor];
 
     // Labels on top of map.
-    [self.travelDistance setBackgroundColor:mapControlColor];
-    [self.travelTime setBackgroundColor:mapControlColor];
+    //[self.travelDistance setBackgroundColor:mapControlColor];
+    //[self.travelTime setBackgroundColor:mapControlColor];
+
+    [self.messageButton setFrame:CGRectMake(self.view.frame.size.width - self.messageButton.frame.size.width,
+                                           self.view.center.y,
+                                           50,
+                                           50)];
+
+    [self.messageButton setBackgroundColor:[UIColor peterRiverColor]];
+    // Menu
+    //[self setUpMenu];
+    [self setupPullOutViews];
+
+}
+
+- (void)setupPullOutViews
+{
+
+    UIImage *travelTimeImage = [UIImage imageNamed:@"Watches@2x.png"];
+    UIImage *travelDistanceImage = [UIImage imageNamed:@"Map@2x.png"];
+
+    CGRect timePulloutFrame = CGRectMake(0,
+                                       self.view.center.y,
+                                       self.view.frame.size.width / 2.3,
+                                       travelTimeImage.size.height);
+
+    CGRect distancePullOutFrame = CGRectMake(0,
+                                             self.view.center.y + timePulloutFrame.size.height,
+                                             self.view.frame.size.width / 2.3,
+                                             travelDistanceImage.size.height);
+    
+    timePullOutView = [[MRMPullOutView alloc] initWithFullFrame:timePulloutFrame
+                                                                                image:travelTimeImage
+                                                                         labelText:@""
+                                                                  andOpenDirection:@"right"];
+
+    distancePullOutView = [[MRMPullOutView alloc] initWithFullFrame:distancePullOutFrame
+                                                                                    image:travelDistanceImage
+                                                                             labelText:@""
+                                                                             andOpenDirection:@"right"];
+
+    // Ugh. for now. TODO
+    [timePullOutView setBackgroundColor:[UIColor peterRiverColor]];
+    [distancePullOutView setBackgroundColor:[UIColor peterRiverColor]];
+    [timePullOutView setLabelTextColor:[UIColor cloudsColor]];
+    [distancePullOutView setLabelTextColor:[UIColor cloudsColor]];
+
+    
+    [self.view addSubview:timePullOutView];
+    [self.view addSubview:distancePullOutView];
 }
 
 - (void)showTravelTime:(NSString *)travelTime andDistance:(NSString *)travelDistance
 {
-    [self.travelDistance setText:travelDistance];
-    [self.travelTime setText: travelTime];
-
-    [self.travelDistanceIcon setHidden:NO];
-    [self.travelDistance setHidden:NO];
-    [self.travelTimeIcon setHidden:NO];
-    [self.travelTime setHidden:NO];
+    [timePullOutView updateLabelText:travelTime];
+    [distancePullOutView updateLabelText:travelDistance];
+    if (!self.ride.inProgress) {
+        [timePullOutView expandAnimated:YES];
+        [distancePullOutView expandAnimated:YES];
+    }
 }
 
 
@@ -311,6 +367,7 @@
     if (textField == self.toVal) {
         self.ride.toLocAddress = textField.text;
     }
+    [textField resignFirstResponder];
 }
 
 
@@ -480,6 +537,18 @@
      KNSemiModalOptionKeys.animationDuration : @(0.5),
      KNSemiModalOptionKeys.shadowOpacity     : @(0.3),
      }];
+}
+
+- (void)setUpAndDisplayMenu
+{
+    /*NSArray *images = @[
+                        [UIImage imageNamed:@"Compas@2x.png"],
+                        [UIImage imageNamed:@"Pensils@2x.png"],
+                        ];
+
+    RNFrostedSidebar *callout = [[RNFrostedSidebar alloc] initWithImages:images];
+    callout.delegate = self;
+    [callout show];*/
 }
 
 - (void)setUpAndDisplaySettings

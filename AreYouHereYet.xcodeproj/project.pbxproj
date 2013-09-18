@@ -20,7 +20,10 @@
 		C37519E017C5AC3A000AA0EE /* AYHTRide.m in Sources */ = {isa = PBXBuildFile; fileRef = C37519DF17C5AC3A000AA0EE /* AYHTRide.m */; };
 		C380AB4717CD845700A68D54 /* New York City Marathon.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C380AB4617CD845700A68D54 /* New York City Marathon.gpx */; };
 		C380AB4E17CD8F9F00A68D54 /* MRMTwilioSMS.m in Sources */ = {isa = PBXBuildFile; fileRef = C380AB4D17CD8F9F00A68D54 /* MRMTwilioSMS.m */; };
+		C3B3CFD617DAC3F4005B39D2 /* compass_menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B3CFD517DAC3F4005B39D2 /* compass_menu@2x.png */; };
+		C3B3CFD917DB5CCF005B39D2 /* MRMPullOutView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B3CFD817DB5CCF005B39D2 /* MRMPullOutView.m */; };
 		C3B451BC17C0708C00CAEBAD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B451BB17C0708C00CAEBAD /* QuartzCore.framework */; };
+		C3BBB12917DD5F7600959AE9 /* Chat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3BBB12817DD5F7600959AE9 /* Chat@2x.png */; };
 		C3CAA90517D506C1000C1165 /* currentLocation@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3CAA90417D506C1000C1165 /* currentLocation@2x.png */; };
 		C3CAA90B17D53D16000C1165 /* AYHTRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3CAA90917D53D16000C1165 /* AYHTRootViewController.m */; };
 		C3CAA90C17D53D16000C1165 /* AYHTRootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3CAA90A17D53D16000C1165 /* AYHTRootViewController.xib */; };
@@ -74,7 +77,11 @@
 		C380AB4617CD845700A68D54 /* New York City Marathon.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "New York City Marathon.gpx"; sourceTree = "<group>"; };
 		C380AB4C17CD8F9F00A68D54 /* MRMTwilioSMS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MRMTwilioSMS.h; path = MRMTwilioSMS/MRMTwilioSMS.h; sourceTree = "<group>"; };
 		C380AB4D17CD8F9F00A68D54 /* MRMTwilioSMS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MRMTwilioSMS.m; path = MRMTwilioSMS/MRMTwilioSMS.m; sourceTree = "<group>"; };
+		C3B3CFD517DAC3F4005B39D2 /* compass_menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "compass_menu@2x.png"; sourceTree = "<group>"; };
+		C3B3CFD717DB5CCF005B39D2 /* MRMPullOutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRMPullOutView.h; sourceTree = "<group>"; };
+		C3B3CFD817DB5CCF005B39D2 /* MRMPullOutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRMPullOutView.m; sourceTree = "<group>"; };
 		C3B451BB17C0708C00CAEBAD /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		C3BBB12817DD5F7600959AE9 /* Chat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Chat@2x.png"; sourceTree = "<group>"; };
 		C3CAA90417D506C1000C1165 /* currentLocation@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "currentLocation@2x.png"; sourceTree = "<group>"; };
 		C3CAA90817D53D16000C1165 /* AYHTRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYHTRootViewController.h; sourceTree = "<group>"; };
 		C3CAA90917D53D16000C1165 /* AYHTRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYHTRootViewController.m; sourceTree = "<group>"; };
@@ -145,6 +152,8 @@
 				C311E77017BAF1D3009FAABE /* MRMGoogleDistanceMatrixService.m */,
 				C311E77117BAF1D3009FAABE /* MRMLocationTools.h */,
 				C311E77217BAF1D3009FAABE /* MRMLocationTools.m */,
+				C3B3CFD717DB5CCF005B39D2 /* MRMPullOutView.h */,
+				C3B3CFD817DB5CCF005B39D2 /* MRMPullOutView.m */,
 			);
 			path = MRMLocationTools;
 			sourceTree = "<group>";
@@ -215,6 +224,8 @@
 		C3F362A017BF1EB50033798C /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				C3BBB12817DD5F7600959AE9 /* Chat@2x.png */,
+				C3B3CFD517DAC3F4005B39D2 /* compass_menu@2x.png */,
 				C3E25FA717D8291000B1ED0A /* female.png */,
 				C3E25FA817D8291000B1ED0A /* male.png */,
 				C3D17C7717D54CEC00B64C05 /* glyphiconsCogWheel.png */,
@@ -370,6 +381,8 @@
 				C362E4B817D551A000614476 /* AYHTSettingsViewController.xib in Resources */,
 				C3E25FA917D8291000B1ED0A /* female.png in Resources */,
 				C3E25FAA17D8291000B1ED0A /* male.png in Resources */,
+				C3B3CFD617DAC3F4005B39D2 /* compass_menu@2x.png in Resources */,
+				C3BBB12917DD5F7600959AE9 /* Chat@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,6 +438,7 @@
 				C380AB4E17CD8F9F00A68D54 /* MRMTwilioSMS.m in Sources */,
 				C3CAA90B17D53D16000C1165 /* AYHTRootViewController.m in Sources */,
 				C362E4B717D551A000614476 /* AYHTSettingsViewController.m in Sources */,
+				C3B3CFD917DB5CCF005B39D2 /* MRMPullOutView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -22,17 +22,15 @@
 #import <AFNetworking/AFJSONRequestOperation.h>
 #import "MRMTwilioSMS.h"
 #import "AYHTSettingsViewController.h"
+#import "AwesomeMenu.h"
+#import "MRMPullOutView.h"
 
 
-@interface AYHTRootViewController : UIViewController
+@interface AYHTRootViewController : UIViewController 
 
 @property (nonatomic, strong) IBOutlet UILabel *fromVal;
 @property (nonatomic, strong) IBOutlet UITextField *toVal;
 @property (nonatomic, strong) IBOutlet GMSMapView *mapView;
-@property (nonatomic, strong) IBOutlet UIImageView *travelTimeIcon;
-@property (nonatomic, strong) IBOutlet UIImageView *travelDistanceIcon;
-@property (nonatomic, strong) IBOutlet UILabel *travelTime;
-@property (nonatomic, strong) IBOutlet UILabel *travelDistance;
 @property (nonatomic, strong) IBOutlet UILabel *travelFromLabel;
 @property (nonatomic, strong) IBOutlet UILabel *travelToLabel;
 @property (nonatomic, strong) IBOutlet UIButton *nextButton;
